@@ -31,6 +31,25 @@ Each tile is read as grayscale brightness, 0 to 1.
 ## Reading it with INVERSION-1
 This agrees with `INVERSION-1.md`, which found that melody lives on the pitch axis and rhythm on the time axis. Repeated generations attack the pitch axis first: Griffin-Lim's phase guess smears energy across neighbouring rows, and quiet high rows sink into the noise floor. The time axis and the loud low energy hold. If you only kept the bottom third of gen 14, you'd still mostly have the groove.
 
+## Kham's ears (the real test)
+Kham listened to every generation. In his words: up to about generation 7 *"it just kept getting more muffled and noisy but still recognizable if you squinted with your ears"*. At **generation 8–9** (the two tiles he pointed to are exactly `gen08` and `gen09`) it became *"entirely unrecognizable… still sort of recognizable as music, but nothing resembling the original."*
+
+Here's how that lines up with the middle third of the tile, where most of this song's melody sits:
+
+| gen | middle third | top third | whole |
+|---|---|---|---|
+| 5 | 0.58 | 0.34 | 0.68 |
+| 6 | 0.65 | 0.38 | 0.73 |
+| 7 | 0.53 | 0.31 | 0.66 |
+| **8** | **0.49** | **0.29** | **0.64** |
+| **9** | **0.48** | **0.28** | **0.63** |
+| 10 | 0.47 | 0.27 | 0.62 |
+| 14 | 0.44 | 0.26 | 0.59 |
+
+- **The song was lost where the middle band fell below half.** Gen 8 is the first generation where the middle third matches the original at less than 0.5. That's one listener and one song, so treat it as a hunch, not a law.
+- **It's also where the curve flattens.** Before gen 8 each generation takes a big bite out of the original. After it, the tiles mostly drift around what the pipeline itself produces. Kham's "still music, but not *that* music" is a good description of that state: what's left is mostly the playback process's own texture, plus the loud low hits.
+- **To test the hunch:** run the same loop on two or three very different songs, have Kham mark the generation where each one goes, and see whether the middle-band number lands near 0.5 every time.
+
 ## Open questions
 - Is it the **tile step** (8-bit brightness, 160 bands) or the **Griffin-Lim step** (phase guess) that does most of the damage? Test it: run tile → tile with no audio in between, and separately WAV → WAV through Ghost mode.
 - Would more Griffin-Lim iterations, or a saved phase, slow the drift?
