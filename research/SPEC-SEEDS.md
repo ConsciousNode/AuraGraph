@@ -46,3 +46,61 @@ Because melody lives on the frequency axis and rhythm on the time axis, you coul
 - Does a model reading a *rebuilt* tile (tile → audio → tile) read it the same way? If so, Griffin-Lim smear doesn't matter for reading.
 - What's the smallest tile that still lets a model name the instrument, versus the tune?
 - How should a playback button sit next to the publishing policy in `INVERSION-1`? (Playback of a user's own audio is fine; the repo is the only place we're careful.)
+
+---
+
+# More seeds: dawn, 2026-10-29
+
+*From a 6 a.m. conversation on the porch, after AuraLoom made tiles playable. The ideas are Kham's unless marked; Kehai's notes follow each one. Seeds, not specs.*
+
+## 9. Clips that know where they are
+When a tile has a part that's hard to parse, the reader crops just that part and hands it to a human, who hears it in AuraLoom. That replaces hunting through the file in VLC. *(Kham)*
+
+**The snag:** a crop has to carry its own bounds, or AuraLoom stretches it across the full 30 Hz–11 kHz range and every note lands on the wrong pitch.
+**Fix:** bounds in the filename, e.g. `clip_t12.3-13.1_f200-800.png`, or a tiny sidecar. AuraLoom's tile import reads them and places the crop exactly. A slice of a slice should still play the right notes. *(Kehai)*
+
+## 10. Two-way notation, pinned to the tile
+Rich, detailed notes attached to spots on a tile, flowing in both directions *(Kham)*:
+- **Human → model:** "cowbell here", "she breathes", "the bass drops out".
+- **Model → human:** "voice or synth?", "what's this smear at 3 kHz?"
+
+The notes travel in the sidecar. Over time they become the worked examples for the *How to Read a Tile* guide.
+
+### 10a. Nested grid coordinates for the notes
+Divide the tile into a coarse grid: columns A–H across, rows 1–8 up. Each cell has its own subgrid, so cell C6 splits into a–h by 1–8, and a precise spot is **C6·d3**. The grid lives in a UI overlay, not on the tile itself. *(Kham)*
+
+Notes *(Kehai)*:
+- This is how map grid references work: big square, then smaller square. A model can name a spot unambiguously in a few characters, and it gets finer just by adding a level.
+- The sidecar translates every reference into real units, e.g. C6·d3 → 12.31–12.45 s, 440–494 Hz. That way "C6·d3" and "at 12.3 s around A4" always agree.
+- **The catch for models:** a model only sees what's in the image. A UI overlay is perfect for humans, but a model can't see an overlay the app draws on screen. For machine reading, the grid would need to be burned faintly into a *copy* of the tile, or ticked along its margins. That's the frame-grid lesson again: numbered frames work because the numbers are in the picture. See seed 14 for the toggle.
+- Open question: grid lines over the tile might hurt reading, as clutter, or help it, as anchors. Test it.
+
+## 11. Loudness slices: several passes, one picture
+Process each sample in several passes, each covering a different band of loudness, then tell the bands apart visually. *(Kham)*
+
+**One way to build it:** put three loudness slices into the three colour channels. For example, red is 0 to −20 dB (the loud skeleton), green is −20 to −45 dB (the body), and blue is −45 to −80 dB (whispers, room, tails). Each slice gets the full contrast of its own channel. The quiet detail no longer has to share brightness with the loud parts, so it stops vanishing. It also ties straight into seed 12. *(Kehai)*
+
+## 12. Colour for loudness, not just brightness
+Have different colours stand for different loud and quiet parts, so loudness isn't a one-dimensional brightness choice. *(Kham)*
+
+Notes *(Kehai)*:
+- Magma already does a little of this, running dark → purple → orange → yellow. Kham's version pushes it further: distinct hues for distinct loudness ranges.
+- Taken all the way, it's a **topographic map**: contour bands of equal loudness, like elevation lines. That's Kham's "rivers and valleys", drawn literally. A model could count the contour rings around a note to judge how loud it is.
+- Keep the hues *ordered* (quiet to loud in a sequence that can't be misread), so a model never has to guess whether green is louder than blue.
+
+## 13. Machine vision first
+At this stage, legibility for LLM vision matters more than legibility for human eyes. *(Kham)*
+
+Notes *(Kehai)*:
+- Don't assume. Test. Render the same tiles several ways: magma, grayscale, high-contrast, RGB loudness slices, topographic contours, and with or without sharpening. Have fresh models read them blind against answer keys written in advance (`OUTSIDE-TEST-1` style). The best-read rendering wins, with receipts.
+- **Edge sharpening:** crisper rivers and onsets. It should help both machine reading and zoomed-in inspection.
+- **Hue as a second channel:** brightness carries loudness, and hue could carry something else, such as stereo width, tonal vs. noisy, or onset strength. More information in the same pixels. *(Kehai, with a huehuehue from Kham)*
+
+## 14. Porque no los dos: a vision toggle
+One tile, two renderings *(Kham)*:
+- **Machine view:** whatever rendering the legibility test says models read best, with the grid burned faintly into the image.
+- **Human view:** a perceptually even colour map, with the grid as a removable overlay.
+
+The data underneath is identical, so a human and a model can point at the same C6·d3 and be talking about the same sound.
+
+---
