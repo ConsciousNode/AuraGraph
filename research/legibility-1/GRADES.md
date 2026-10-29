@@ -35,7 +35,7 @@ Melody, glides and timbre are read almost perfectly in every view. **The views s
 | S4 hidden | "when does everything go silent in the middle?" | **6/6** | no gap |
 | S2 drums | "what key is the melody in?" | **5.5/6** | no tonal line |
 | S5 glides | "which chord is underneath?" | 2.5/6 | real low energy in the bottom rows; five readers said "can't tell" (0.5) and one named a chord (0) |
-| S1 melody | "what rhythm do the drums play?" | **1/6** | full-height click stripes at every pitch change (an AuraLoom bug, below) |
+| S1 melody | "what rhythm do the drums play?" | **1/6** | full-height onset stripes at every pitch change (AuraLoom's note edges were too sharp; see below) |
 | S6 timbre | "when does the drum come in?" | **0/6** | low-band blocks under the reed and brass (real, about −50 dB) and a low thump on the bell's strike |
 
 **This is the clearest result of the round.** Readers almost never invented something from an empty picture. Where the picture held a real mark that *could* fit the premise (a stripe, a low smear), they bent that mark to fit the question nearly every time. Trap rejection hardly moves between views (3 to 4 out of 6 each), but it swings from 0/6 to 6/6 between stimuli. It isn't a property of the drawing. It's how a question pulls on a reader when the picture holds an ambiguous mark. That's the same thing I did with the C5 earlier today, only there the mark was real and the C was invented.
@@ -49,8 +49,8 @@ Melody, glides and timbre are read almost perfectly in every view. **The views s
 6. **S3 chord quality is the hardest atom: right.** 3 of 6 readers got all four qualities. The other three said "can't tell" rather than guess, which is the honest miss.
 
 ## Stimulus flaws (found in the reads, checked against the audio)
-- **AuraLoom draws a click at every pitch change.** The Clean renderer puts a full-height stripe wherever one tone thread hands off to the next, with no fade at note boundaries. Readers saw the stripes correctly; my stimulus had them. That bug is behind the S1 trap result. *Fix in AuraLoom.*
-- **Same-pitch notes merge.** The melody's three E5s join with no seam, so the picture shows E D C D E with a long last note. "7 notes" (S1 atom 2) can't be read from any view, so it's dropped from the fair score. Every reader read the picture right.
+- **AuraLoom's note edges were too sharp.** *(Corrected after checking: it isn't a click in the audio.)* There are no sample-level discontinuities, and the onsets aren't louder in any band. The stripes come from analysis: any onset much shorter than the 93 ms analysis window leaks a faint vertical line across every frequency, and at the tile's 80 dB depth it shows. Real instruments do this too; it's how a spectrogram draws an attack. AuraLoom's Clean renderer started and stopped notes with 12 ms straight-line corners, which made the lines strong and full-height. That's behind the S1 trap result. **Fixed in AuraLoom v0.6.1:** each tone row's envelope is smoothed at the sample rate (~23 ms), and the stripes at pitch changes nearly vanish, while kick and snare peaks are unchanged (measured). **For the guide:** an onset stripe means a sound started, not that a drum hit. **The round's packets were left unchanged,** so the outside models read the same pictures.
+- **Same-pitch notes merge, sometimes.** AuraLoom ends each scored tone one column early so repeats re-articulate, but the rounding of 12.92 columns per 16th made that gap appear at some joins and not others. Here the E5 at 3.0 s merged and the one at 3.6 s didn't, so the picture shows E D C D E, a long E. "7 notes" (S1 atom 2) can't be read from any view, so it's dropped from the fair score. Every reader read the picture right. **Fixed in v0.6.1:** every scored tone now ends exactly one column before the next step, so all seven notes show.
 - **The FM brass "opens" too briefly to see.** It goes from 7 to 10 overtone lines in its first ~0.15 s and then holds. "Steady" is a fair read, so S6 atom 8 is dropped from the fair score.
 - **The reed and brass voices put energy into the bottom rows** (about −50 to −55 dB, measured). It's real, not the low-band artifact. It made the S6 trap a fair-looking trap rather than a clean one.
 
@@ -72,5 +72,5 @@ Confidence barely tracks accuracy. S3 readers who got all four chords right stil
 
 ## Next
 1. **Round B:** Kham's outside models, the same packets, graded the same way.
-2. **Fix the AuraLoom click at note boundaries,** then re-render S1.
+2. ~~Fix the AuraLoom note edges~~ (done, v0.6.1). Re-render S1 for round 2, not for this round.
 3. **A replication** for the cells that decide things (S3 and S4 across all views) with 2–3 readers per cell, including "gray + grid".
