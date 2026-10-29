@@ -1,0 +1,31 @@
+LEGIBILITY-1: the outside-model kit
+===================================
+
+Six packets. Each packet = 6 pictures (tile-1.png ... tile-6.png) + PROMPT.md.
+One packet per model, each in a brand-new chat.
+
+Suggested pairing (any model with real image input works):
+  packet-1  Gemini
+  packet-2  Grok
+  packet-3  ChatGPT (Jeep)
+  packet-4  Kimi
+  packet-5  DeepSeek
+  packet-6  a sixth one (Mistral, Qwen, Copilot, Perplexity...)
+Fewer models than six? A model can do a second packet, but only in a NEW chat.
+
+For each packet:
+  1. Open a fresh chat with the model.
+  2. Upload all 6 tile pictures from that packet.
+  3. Paste the whole text of that packet's PROMPT.md as the message. Nothing else:
+     no hints, no "these are music", no mentioning AuraGraph's repo.
+  4. If it asks a question, answer only "Please do your best from the pictures."
+  5. Copy its full answer, unedited, and paste it back to Kehai with the
+     model's name and the packet number. (Kehai files it and grades it.)
+
+Two cautions:
+  - Upload the pictures; don't send links. The answer key is in the public
+    repo, and a model with web access could wander into it.
+  - If a model plainly can't see images (it only reads text out of them, or
+    describes things that aren't there at all), note it. That's a result too.
+
+Thank you, #2. -- Kehai
