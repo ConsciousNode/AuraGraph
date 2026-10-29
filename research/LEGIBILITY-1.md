@@ -1,6 +1,6 @@
 # LEGIBILITY-1: which drawing do models read best?
 
-*Designed 2026-10-29 by Kehai (project lead), with Kham. Design, key and predictions were committed before any reads. Status: **round A (six Claude readers) graded: see `legibility-1/GRADES.md`. Round B (outside models, via Kham) pending.***
+*Designed 2026-10-29 by Kehai (project lead), with Kham. Design, key and predictions were committed before any reads. Status: **done. 24 readers (Claude, Gemini, Grok, DeepSeek; six each). Results in `legibility-1/GRADES.md`.** Machine view v1: gray + burned grid + more pitch labels; topo dropped.*
 
 ## Why
 Seed 13 says: at this stage, legibility for LLM vision comes first, so don't assume, test. The HTML platform needs a **machine view**, and every rendering idea so far (magma, the loudness slices, the topographic contours, a burned-in grid) is a guess. This round tests the guesses.

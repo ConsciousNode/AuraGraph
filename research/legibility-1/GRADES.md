@@ -1,7 +1,119 @@
-# LEGIBILITY-1: grades, round A (Claude readers)
+# LEGIBILITY-1: grades
 
-*Graded 2026-10-29 by Kehai against `KEY.md` (committed before the reads). The reads are in `reads/`, saved unedited. Six fresh Claude (Opus 5.5) readers, one packet each, who saw nothing but their packet. Atom-by-atom scores are in `grades.py`; run it to rebuild these tables. Round B, the outside models run by Kham, is still to come.*
+*Graded 2026-10-29 by Kehai against `KEY.md`, which was committed before any reads. 24 readers in all: four model families, each a complete 6 × 6 Latin square (one packet per fresh chat).*
+- **Round A:** six fresh Claude (Opus 5.5) readers.
+- **Round B:** Grok, Gemini and DeepSeek, six fresh chats each, run by Kham.
 
+The reads are in `reads/`, saved unedited. Atom-by-atom scores are in `grades.py`; run it to rebuild every table here. The same rules apply to every family, including the judgment calls listed under round A.
+
+# Round B: all four families
+
+### Fair score by view and family
+
+| view | claude | gemini | grok | deepseek | all 24 readers |
+|---|---|---|---|---|---|
+| grid | 98% | 85% | 35% | 25% | **61%** |
+| gray | 98% | 93% | 27% | 20% | **60%** |
+| slices | 91% | 78% | 30% | 20% | **55%** |
+| sharp | 89% | 83% | 20% | 18% | **53%** |
+| magma | 81% | 85% | 25% | 14% | **51%** |
+| topo | 73% | 75% | 39% | 16% | **51%** |
+| *family overall* | 88% | 83% | 29% | 19% | |
+
+### Fair score by stimulus and family
+
+| stimulus | claude | gemini | grok | deepseek |
+|---|---|---|---|---|
+| s1-melody | 100% | 90% | 52% | 29% |
+| s2-drums | 74% | 86% | 3% | 0% |
+| s3-chords | 75% | 54% | 35% | 17% |
+| s4-hidden | 83% | 89% | 33% | 25% |
+| s5-glides | 100% | 89% | 29% | 21% |
+| s6-timbre | 98% | 95% | 26% | 26% |
+
+### Traps rejected, by stimulus and family (of 6)
+
+| stimulus | claude | gemini | grok | deepseek |
+|---|---|---|---|---|
+| s1-melody | 1 | 6 | 0 | 0 |
+| s2-drums | 5.5 | 6 | 5 | 0 |
+| s3-chords | 6 | 6 | 5 | 1.5 |
+| s4-hidden | 6 | 6 | 4.5 | 4.5 |
+| s5-glides | 2.5 | 6 | 1 | 0.5 |
+| s6-timbre | 0 | 6 | 0.5 | 0 |
+| *total of 36* | 21 | 36 | 16 | 6.5 |
+
+### Traps rejected by view (all families, of 24)
+
+| magma | gray | sharp | slices | topo | grid |
+|---|---|---|---|---|---|
+| 13.5 | 13 | 12 | 14 | 13.5 | 13.5 |
+
+### Confidence vs accuracy, by family
+
+| family | mean confidence | fair % | confidence when the tile scored under 50% |
+|---|---|---|---|
+| claude | 2.9 | 88% | 2.0 (n=2) |
+| gemini | 4.9 | 83% | 5.0 (n=2) |
+| grok | 3.8 | 29% | 3.9 (n=30) |
+| deepseek | 2.8 | 19% | 2.8 (n=34) |
+
+## What round B says
+
+**1. The reader matters far more than the drawing.**
+- **Claude and Gemini read tiles.** They score 88% and 83%.
+- **Grok and DeepSeek mostly don't.** They score 29% and 19%. They see coarse shapes: how many events, where a gap falls, a pure tone against a rich ladder. But they don't get usable pitch, and they can't tell the drums apart. DeepSeek scored 0% on drums and Grok 3%.
+- The spread between views within a family is 15–25 points. The spread between families is about 70.
+
+**2. Among the readers who can read, gray wins.** Here are the 12 Claude and Gemini readers by view:
+
+| view | score | S3 chords | S4 hidden |
+|---|---|---|---|
+| **gray** | **95%** | **100%** | **100%** |
+| grid (magma + lines) | 91% | 75% | 100% |
+| sharp | 86% | 56% | 100% |
+| slices | 85% | 62% | 92% |
+| magma (current default) | 83% | 44% | 92% |
+| topo | 74% | 50% | 33% |
+
+- **Gray is first in both families,** so this isn't one reader's good minute.
+- **Chords** are where the colour map hurts most. In gray, all four readers read all four chords right. Under magma, grid, sharp and topo, Gemini mostly went for the textbook I–V–vi–IV progression instead (see 5).
+- **Magma's ordered hues** probably make similar loudness levels harder to compare than plain brightness does. That's a hypothesis, not a finding yet.
+
+**3. Traps depend on the family and the stimulus, never the view.**
+- Every view rejected 12–14 of its 24 traps. The view makes no difference.
+- **Gemini rejected all 36.** It even named the onset stripes as transients, not drums, unprompted, every time.
+- **Claude rejected 21,** bending the two traps where a real mark could fit (S1, S6).
+- **Grok rejected 16, DeepSeek 6.5.** DeepSeek invented a singer, a C-major arpeggio, a silent gap and a drum groove.
+- **An honest note about my own family:** it was Claude, not Gemini, that let real marks get bent into the question's premise.
+
+**4. Readers anchor on the labels.** The pitch axis labels only the Cs. Grok and DeepSeek reported "C5", "C3" and "C major" over and over, in tiles with no C in them. They read pitch off the nearest label rather than the line. The strong readers didn't do this, but a machine view shouldn't make it easy. Next round: more pitch labels (an A4 = 440 Hz reference line, or ticks at every semitone in the margin).
+
+**5. Strong readers have priors too.**
+- **The pop progression.** In four of six packets, Gemini reported S3 (C–Am–F–G) as C–G–Am–F, the I–V–vi–IV progression, always with confidence 5. It's a reading shaped by what chords usually are, not by the picture.
+- **A flat bias.** Gemini also read the S5 slide's top note as D5 in five of six packets, two semitones flat, while placing the stepped E5 correctly.
+
+**6. Confidence tells you nothing across families.** Gemini says 5 almost every time, right or wrong. Grok averages 3.9 even on tiles it scored under 50%. Claude is the only family whose confidence drops where it does worse. That isn't enough to make confidence useful.
+
+## Predictions, re-scored with all 24 readers
+1. **The grid helps and doesn't hurt: supported.** Among the capable readers, grid scored 91% against magma's 83%. Grid lines are anchors, not clutter.
+2. **Slices and topo win S4: wrong.** Topo is the worst view on S4 (33% among the capable readers).
+3. **Topo is the worst at fine pitch: right overall** (last among the capable readers), though melody and glides survive it.
+4. **Gray vs magma, no difference: wrong.** Gray beats magma in both capable families (95% vs 83%), and by 56 points on chords.
+5. **Trap acceptance depends on the reader, not the view: right.** Twelve to fourteen of 24 traps were rejected in every view. It depends on the reader's family, and on whether the picture holds a mark the question can bend.
+6. **Chord quality is the hardest atom: right.** Even gray got there only once the readers stopped guessing the progression.
+
+## The machine view, decided (v1)
+- **Gray brightness, not magma,** for the machine view. Magma stays as the human view (seed 14's toggle).
+- **The burned-in grid stays.** It costs nothing, and pinned notes point at it.
+- **More pitch labels** than just the Cs (an A4 reference, plus semitone ticks in the margin), to make label-anchoring harder.
+- **Drop topo.** Shelve slices as a main view; it may return as a second channel.
+- **Round 2 tests:** gray + grid against gray alone; label density; real recordings (the CC references); and the S1 stimuli re-rendered with AuraLoom v0.6.1's smooth note edges.
+- **For the How-to-Read guide:** a mark that could fit the question isn't evidence for the question; an onset stripe means a note started; don't name a pitch from the nearest label; don't name a progression from what's typical.
+
+---
+
+# Round A: Claude readers (written before round B)
 **Read this first: n = 1 per cell.** Each (stimulus, view) pair was read by one reader. The Latin square spreads reader differences evenly across views, but any single cell can still be one reader's good or bad minute. Treat view differences of a few points as suggestive, not settled.
 
 ## By view
