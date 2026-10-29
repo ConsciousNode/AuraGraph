@@ -1,0 +1,68 @@
+X11: Here is an analysis of each image based on the visual cues provided in your guide.
+
+---
+
+Image 1 (Tile 04/8 | 0:48–1:04)
+
+· Sources:
+  · Pitched instruments/synths: There is a very dense, continuous wall of sustained sound. The second panel shows stacked "ladders" (horizontal lines), indicating harmonic-rich instruments (like distorted guitars or layered synths) playing full chords. (High confidence; based on Panels 1 & 2).
+  · Drums/Percussion: There is a steady, driving beat. The third panel is filled with regular vertical stripes, indicating percussion hits (hi-hats, snare, kick). (High confidence; based on Panel 3).
+  · Vocals: It's difficult to isolate a vocal line in this dense mix. There might be vocals, but they are buried in the sustained layer. (Low confidence; based on Panel 1 & 2).
+· Rhythm/Tempo: A steady, driving, mid-to-fast tempo. The onsets (orange spikes in Panel 6) are regular. (High confidence; based on Panel 6).
+· Harmony/Key: The chroma (Panel 5) is very busy, showing many pitch classes active at once. It looks like a dense chord progression rather than a simple melody. I can't confidently name a key. (Low confidence; based on Panel 5).
+· Structure: The 16-second clip is very static; there are no sudden drops or changes in texture. It feels like a consistent "groove" section. (High confidence; based on all panels).
+· Space: The stereo field (Panel 4) is moderately wide, mostly green/yellow, meaning it's not completely mono but not excessively spread out either. (Medium confidence; based on Panel 4).
+
+Image 2 (Tile 02/13 | 0:16–0:32)
+
+· Sources:
+  · Keys/Synth/Plucked Strings: This clip features very distinct, blocky chords. Panel 2 shows clear horizontal "ladders" that start and stop abruptly, suggesting a piano, plucked string, or synth. (High confidence; based on Panel 2).
+  · Drums: Rhythmic vertical stripes in Panel 3 indicate a drum beat. (High confidence).
+  · Lead Instrument/Vocal: Around the 23-second mark, a curving, gliding line appears in the upper-mid frequencies (Panel 1). It wobbles, suggesting a voice, a synth lead, or a heavily bent string. (Medium confidence; based on Panel 1).
+· Rhythm/Tempo: A clear, moderate tempo with a rhythmic, blocky feel. The chords change in sync with the percussion. (High confidence; based on Panels 3 & 6).
+· Harmony/Key: The chroma (Panel 5) shows clear, changing blocks of notes. It looks like a standard chord progression, possibly centered around C minor or F major, but I can't be certain. (Low confidence; based on Panel 5).
+· Structure: The structure is defined by chord changes. Around 23 seconds, the texture becomes denser and a new lead sound enters, suggesting a move into a new section (like a chorus or bridge). (High confidence; based on Panels 1, 2, and 5).
+· Space: Moderately wide (Panel 4). The lead sound at 23s seems to sit quite wide in the mix. (Medium confidence; based on Panel 4).
+
+Image 3 (Tile 14/15 | 3:15–3:30)
+
+· Sources:
+  · Distorted/Dense Instruments (0–201s): The left side of the image shows thick, smeared horizontal lines. This indicates a very loud, harmonically rich, sustained sound, likely distorted guitars or heavy synths. (High confidence; based on Panels 1 & 2).
+  · Rhythmic Synth/Gated Instrument (201s–210s): At exactly 201 seconds, the sound completely changes. Panel 2 and 3 show sharp, vertical attacks. Panel 1 shows wobbly, gliding lines. This suggests a sequenced synth, a heavily processed guitar, or a rhythmic stutter effect. (High confidence; based on the sharp transition in Panels 1, 2, 3).
+· Rhythm/Tempo: The first half is sustained/wall-of-sound. The second half (post-201s) is highly rhythmic, with fast, repetitive, staccato attacks. (High confidence; based on Panel 6).
+· Harmony/Key: Due to the distortion and density, the chroma (Panel 5) is a blur. I can't tell the key. (Can't tell).
+· Structure: A major, jarring structural shift occurs exactly at the 201-second mark. It goes from a chaotic, sustained wash to a rigid, rhythmic staccato. (High confidence; based on all panels).
+· Space: The left side is very wide (yellow/green in Panel 4). The right side becomes narrower and more focused. (Medium confidence; based on Panel 4).
+
+Image 4 (Unlabeled / 0:00–10.5s)
+
+· Sources:
+  · Plucked/Struck Strings (Piano/Guitar/Synth): This image shows textbook "ladders" (fundamental plus overtones) that decay in brightness after a sharp attack. This is characteristic of a piano, a harp, or a plucked synth. (High confidence; based on Panels 1 & 2).
+  · Pitch Bending: Notice the wobbly, curved lines (e.g., around 1.5s, 4.5s). Standard pianos don't do this. This suggests a string instrument with a whammy bar, a synth with pitch bend, or a specific vocal-like playing style. (Medium confidence; based on Panel 1).
+  · No Drums: There are no isolated percussion tracks; the vertical lines in Panel 3 align exactly with the struck notes in Panel 2. (High confidence).
+· Rhythm/Tempo: Slow, deliberate, and possibly rubato (free-flowing) tempo. It features arpeggios and block chords with noticeable rests (e.g., at 1.25s and 6.5s). (High confidence; based on the irregular onset spikes at the bottom).
+· Harmony/Key: The harmony is very clear and tonal, with distinct notes playing together. It looks like a standard diatonic progression. (Medium confidence, based on the clean ladder spacing in Panel 1).
+· Structure: A solo performance consisting of distinct musical phrases separated by silence. (High confidence; based on the blank spaces in Panels 1-3).
+· Space: Can't tell, as the stereo panel is missing.
+
+Image 5 (Tile 01/15 | 0:00–0:15)
+
+· Sources:
+  · Intro (0–2.5s): A quiet, low-frequency rumble/ambient noise. (High confidence; based on Panels 1 & 2).
+  · Heavy Rhythmic Element (2.5s–end): A massive wall of sound enters. Panel 3 is full of thick vertical stripes, and Panel 2 shows dense blocks of harmonics. This sounds like a heavily distorted, palm-muted guitar, a gated synth, or a very aggressive drum machine pattern. (High confidence; based on Panels 1, 2, 3).
+  · Percussion: Sharp vertical lines (kick/snare) are visible, driving the rhythm. (High confidence; based on Panel 3).
+· Rhythm/Tempo: The intro is free-time, but at 2.5s, a very rigid, fast, driving beat (likely 8th or 16th notes) kicks in. (High confidence; based on Panel 6 onsets).
+· Harmony/Key: The chroma (Panel 5) is highly active and shifts constantly, suggesting a moving bassline or a complex chord progression, but the density makes it hard to name the key. (Low confidence).
+· Structure: A classic "drop" or "build." Intro (quiet) -> Main body (loud, rhythmic). The change happens at exactly 2.5 seconds. (High confidence; based on all panels).
+· Space: The stereo field gets significantly wider and brighter when the heavy part enters at 2.5s. (High confidence; based on Panel 4).
+
+Image 6 (Tile 01/8 | 0:00–0:16)
+
+· Sources:
+  · Voice or Lead Synth: The dominant feature is the heavily wavy, gliding, and smeared lines in Panel 1 and 2. This indicates a pitch that is constantly bending and moving, heavily suggesting a human voice (perhaps singing runs or with heavy vibrato) or a synthesized lead. (High confidence; based on the "curved/wobbly" cues in Panel 1).
+  · Drums: There is a steady beat with visible low-end thumps and high-end hats in Panel 3. (High confidence).
+  · Backing Instruments: Underneath the wavy lead, there are sustained, horizontal chords. (Medium confidence; based on Panel 2).
+· Rhythm/Tempo: A steady, mid-tempo groove. The lead vocal/synth is improvising over the top, creating irregular spikes in the onset track. (High confidence; based on Panel 6).
+· Harmony/Key: The chroma (Panel 5) is somewhat blurred by the gliding pitches of the lead instrument, making it difficult to pinpoint a specific key. (Can't tell).
+· Structure: This feels like a continuous melodic section (like a verse or a jam) with no major structural changes in this 16-second window. (Medium confidence; based on the consistency of the panels).
+· Space: The stereo width (Panel 4) is very bright (yellow/green), indicating a wide mix. There is likely significant reverb or delay on the wavy lead sound, giving it a roomy feel. (Medium confidence; based on Panel 4). 

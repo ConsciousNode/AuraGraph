@@ -1,0 +1,936 @@
+X1: Image 1 (tile 04/8 | 0:48–1:04)
+ * Sources Present
+   * Drums and full-range percussion (High confidence): Panel 3 (transient layer) and Panel 1 show dense, regular vertical stripes spanning from the sub-bass below A1 (55 Hz, kick drum) all the way to the top edge above A6 (1770 Hz, hi-hats/cymbals).
+   * Heavy, rhythmic bass instrument (High confidence): Panels 1 and 2 (sustained layer) display very bright, blocky horizontal segments between A1 (55 Hz) and A2 (111 Hz) that step cleanly between pitches on the beat.
+   * Human voices (High confidence): Panels 1 and 2 show curved, wobbly, gliding horizontal traces and arches between A4 (436 Hz) and A6 (1770 Hz), characteristic of sung or chanted vocal lines rather than fixed-pitch instruments.
+   * Steady mid-range harmonic instrument (Medium confidence): Panel 2 shows straight, flat horizontal ladder segments between A2 (111 Hz) and A4 (436 Hz) underneath the vocals, suggesting keys, synth, or guitar/bass harmonics, though heavy layering makes it hard to isolate a single instrument type.
+ * Rhythm and Tempo Feel
+   * Fast, driving, highly consistent groove (High confidence): Panel 6 shows a persistently high loudness line (blue) and rapid, evenly spaced onset spikes (orange) occurring roughly 3 to 4 times per second throughout the entire 16-second window.
+   * Repeating ~2.75–2.8 second cycle (~86–88 BPM half-time or ~172–175 BPM double-time) (High confidence): Panels 1, 2, and 5 (Chroma) show a phrase that repeats every ~2.75 to 2.8 seconds (visible five full times between 48s and 64s), subdivided into 8 distinct low-end bass/kick pulses spaced ~0.35 seconds apart.
+ * Harmony or Key
+   * Cyclical diatonic progression centered on C/D, G, and A—likely D minor, A minor, or C major (High confidence): Panel 5 (Chroma) shows a clear, repeating three-part loop every ~2.8 seconds: dark bars on C and D for roughly 1.4 seconds (e.g., 50.0–51.4s, 52.8–54.2s, 55.6–57.0s), stepping to a solid dark bar on G for ~0.6 seconds (e.g., 48.7–49.3s, 51.5–52.0s, 54.2–54.8s, 57.0–57.6s, 59.7–60.4s, 62.5–63.1s), and then A for ~0.6 seconds (e.g., 49.4–50.0s, 52.1–52.7s, 54.9–55.5s, 57.7–58.3s, 60.4–61.0s, 63.2–63.8s) before returning to C/D.
+ * Structure (What Changes, and When)
+   * Continuous groove with brief mid/high-frequency dropouts (High confidence): There are no major macro-structural changes across the 48–64s window; the same ~2.8s loop runs continuously. However, Panels 1 and 3 show brief, sharp vertical dark gaps where mid and high frequencies (above A4) drop out momentarily around 52.2s, 53.6s, 56.5s, 58.5s, and 60.6s, with 56.5s producing the sharpest orange onset spike in Panel 6 right as the sound slams back in.
+ * Sense of Space
+   * Very wide stereo image with a mono-anchored low end (High confidence): Panel 4 (stereo width) glows bright yellow-green across the middle and top ("high" width) continuously, while a dark blue band sits along the very bottom edge ("low"/mono).
+   * Dense, full mix with little dry silence (High confidence): Panels 1 and 2 remain brightly filled between transients with almost no black background space, indicating either heavy arrangement layering or roomy ambience/reverb.
+Image 2 (tile 02/13 | 0:16–0:32)
+ * Sources Present
+   * Solo struck or plucked steady-pitch instrument, such as a piano, harp, or clean guitar (High confidence on struck/plucked steady instrument; Medium confidence on piano specifically): Panel 2 (sustained layer) consists entirely of needle-thin, dead-straight horizontal overtone ladders with zero pitch wobble. Panel 6 shows sharp loudness jumps (blue line) that immediately decay in smooth, downward ramps after each onset spike (orange), matching struck or plucked strings/keys that ring out and decay naturally.
+   * No drums, cymbals, or vocals (High confidence): Panels 1, 2, and 3 are almost completely black above A6 (1770 Hz), ruling out cymbals or hi-hats, and Panel 2 contains no curved or wobbly lines, ruling out voices. The vertical lines in Panel 3 align strictly with the note/chord attacks.
+ * Rhythm and Tempo Feel
+   * Slow, steady, unhurried pulse around ~75 BPM (High confidence): Panel 6 shows distinct, separated orange onset peaks and blue loudness sawtooth ramps spaced roughly 0.8 seconds apart (e.g., at 16.3s, 17.1s, 17.8s, 18.6s, 19.4s, 20.2s, 21.0s, 21.8s, 22.7s, 23.6s, and 25.2s, 26.0s, 26.8s, 27.6s, 28.4s), with occasional held notes lasting two beats (~1.6s, as from 23.6s to 25.2s).
+ * Harmony or Key
+   * B minor or D major (High confidence): Panel 5 (Chroma) is remarkably clean and restricted to the diatonic pitch classes B, C#, D, F#, G, and A. Clear harmonic blocks alternate between B + F# + D + C# (B minor 7 / B minor 9 at 17.8–19.4s and 27.6–30.4s) and A + F# + D + C# (D major 7 / F# minor / A at 19.4–22.6s, 25.2–27.6s, and 30.5–32.0s), with a brief G + F# + D movement at 16.3–17.0s.
+ * Structure (What Changes, and When)
+   * Repeating chordal phrases with a prominent dynamic peak at 23.6s (High confidence):
+     * 16.0s–22.7s: Steady ~0.8s chord/note attacks that step downward in register from 19.4s to 22.6s while overall loudness (Panel 6 blue line) gently tapers.
+     * 22.7s–25.2s: A low bass attack at 22.7s sets up the loudest, brightest chord of the clip at 23.6s, where overtones in Panels 1 and 2 reach above A6 and the blue loudness curve in Panel 6 hits its highest peak, ringing out for ~1.6 seconds until 25.2s.
+     * 25.2s–32.0s: Resumes the ~0.8s pulse, with another long sustain/decay from 28.4s to 30.5s before two soft closing attacks at 30.5s and 31.3s.
+ * Sense of Space
+   * Medium stereo width that blooms on louder attacks (High confidence): Panel 4 is dark at the top and bottom edges and concentrated in the middle band, flaring bright yellow-green right after the prominent chords at 23.6s and 28.4s.
+   * Long, resonant sustain / roomy or pedaled decay (High confidence): Panels 1, 2, and 6 show each chord ringing smoothly for 0.8 to 2.0 seconds without abrupt cutoffs.
+Image 3 (tile 14/15 | 3:15–3:30)
+ * Sources Present
+   * 195.0s–199.3s — Sustained ensemble or instrument holding a steady chord/drone (High confidence): Panels 1 and 2 show bright, dead-straight horizontal lines stacked in an octave/overtone ladder from below A1 (55 Hz) up past A5 (878 Hz) with no pitch wobble, typical of held organ, synth, bowed strings, or sustained electric instruments.
+   * 199.3s–210.0s — Expressive human voice(s) and a cheering/applauding crowd (High confidence):
+     * Between 201.0s and 205.4s, Panels 1, 2, and 3 show wide, steep, undulating arches between ~200 Hz and A4 (436 Hz) with harmonic copies above, ending in a steep downward pitch slide at 205.3s—characteristic of someone shouting, speaking emphatically, or singing a dramatic vocal run.
+     * Across 199.5s–210.0s, Panels 1–3 fill with a broad high-frequency smudge (A4 to top), fine wavy horizontal whistle-like lines around A5–A6, and dense, irregular vertical transient crackles (Panel 3), indicating crowd roar, whistles, and applause.
+ * Rhythm and Tempo Feel
+   * Unmetered / free-time (High confidence): Neither section has a periodic beat. From 195.0s to 199.3s, Panel 6 shows a flat loudness line with minimal onset ripples; from 199.3s to 210.0s, Panel 6 shows a single huge orange onset spike at 201.0s followed by rapid, irregular spikes that do not follow a steady tempo grid.
+ * Harmony or Key
+   * 195.0s–199.3s — Anchored strongly on pitch class A (High confidence): Panel 5 (Chroma) displays a thick, solid black bar on A (with lighter shading on D, C#, and E), matching the bright horizontal fundamentals aligned directly on the A1 (55 Hz), A2 (111 Hz), and A4 (436 Hz) markers in Panels 1 and 2.
+   * 199.3s–210.0s — Atonal / noisy and gliding (High confidence): Panel 5 breaks into chaotic vertical smears across all 12 pitch classes once the sustained A chord releases and the gliding vocal/crowd noise takes over.
+ * Structure (What Changes, and When)
+   * Major transition from a final held musical chord into vocal/crowd outro (High confidence):
+     * 195.0s–199.3s: Loud, rock-steady A chord/drone holds and then cuts off around 199.3s.
+     * 199.3s–201.0s: Brief low-frequency drop (bottom of Panel 1 turns dark black) while high-frequency ambient/crowd noise rises.
+     * 201.0s–205.4s: Triggered by a sharp onset spike at 201.0s (Panel 6), loud gliding vocal arches dominate the mid-range before sliding down and stopping at 205.4s.
+     * 205.4s–210.0s: High-frequency crowd noise, whistles (A5–A6), and applause continue alone, gradually dipping slightly in loudness toward 210s.
+ * Sense of Space
+   * Narrow/mono-focused stereo image (High confidence): Panel 4 remains dark blue in the upper half ("high" width) and concentrates its green and bright yellow patches along the bottom edge ("low"/narrow width, especially at 199.5–201.0s and 205.5–209.5s).
+   * Large, roomy/live acoustic space (High confidence): The continuous diffuse wash in Panels 1–3 and lack of dry silences point to a resonant live venue or hall.
+Image 4 (0.00–10.50s, 3-Panel View)
+(Note: Visual comparison confirms that Image 4 is a 3-panel rendering of the exact same audio clip shown in the first 10.5 seconds of Image 6. Below, claims are evaluated strictly on what is visible in Image 4, with "can't tell" noted where Image 4 omits panels.)
+ * Sources Present
+   * Human voices singing melodic phrases (High confidence): From 0.00s–1.50s and 8.30s–9.95s, the full and sustained panels show stacked, curved, wobbly horizontal arches across bins 35–130, characteristic of expressive solo or layered vocals.
+   * A replayed recording / audio sample combining a voice and a percussive hit/breath (High confidence): Between 2.80s and 8.30s, the exact same visual pattern repeats identically: four rhythmic pitched/vocal stabs centered around bin 70 (at 2.85s, 3.15s, 3.55s, 3.85s, and identically at 4.95s, 5.25s, 5.65s, 5.95s, and again at 7.05s, 7.35s, 7.75s, 8.05s), where the first two cycles end in an identical full-spectrum vertical transient strike and noisy whoosh/decay at 4.15s and 6.25s. Because the shapes in all three panels at 2.80–4.90s and 4.90–7.00s are pixel-for-pixel matches, this is a retriggered sample rather than a live re-performance.
+   * Heavy bass and full-spectrum drums entering at 9.95s (High confidence): At 9.95s–10.50s, bright yellow-white horizontal blocks appear in the lowest bins (bins 10–50) alongside vertical broadband transients.
+ * Rhythm and Tempo Feel
+   * Stuttering, chopped rhythmic loop (~2.1s cycle) with dramatic silent gaps, leading into a steady beat at 9.95s (High confidence): In the sampled section (2.80s–8.30s), the four internal pulses are spaced ~0.3 to 0.35 seconds apart inside a 2.10-second repeating loop (2.80–4.90s and 4.90–7.00s), interrupted by near-silent black vertical gaps at 4.30–4.90s and 6.40–7.00s.
+ * Harmony or Key
+   * Can't tell exact key/pitch classes from Image 4 alone (High confidence): Image 4 lacks the Chroma panel and uses frequency bin numbers (0–160) rather than Hz/note labels on the y-axis. We can only see relative pitch behavior: gliding vocal melodies at 0.00–1.50s and 8.30–9.95s, and a constant held pitch around bin 70 during the repeated sample (2.80–8.30s).
+ * Structure (What Changes, and When)
+   * Four distinct sections across 10.5 seconds (High confidence):
+     * 0.00s–2.80s: Sung vocal phrase (0.00–1.50s) hit by a bright full-spectrum transient at 1.50s with a downward pitch glide (1.50–2.20s) and noisy tail decaying to 2.80s.
+     * 2.80s–8.30s: Sampled loop section: two full 2.1s repetitions (2.80–4.90s and 4.90–7.00s) each ending with a transient hit and silent dropout, plus a third repetition (7.00–8.30s) that cuts straight into the next vocal section without the dropout.
+     * 8.30s–9.95s: Expressive wobbly vocal arches return.
+     * 9.95s–10.50s: Full arrangement and heavy low bass drop in.
+ * Sense of Space
+   * Stereo width — Can't tell from Image 4 alone: Image 4 does not include the stereo width panel.
+   * Contrast between roomy/washed tails and bone-dry sample cuts (High confidence): The transient hits at 1.50s, 4.15s, and 6.25s have diffuse high-frequency decay tails (bins 80–160), which are abruptly gated/cut to near-total black silence around 4.50–4.90s and 6.60–7.00s before the sample retriggers.
+Image 5 (tile 01/15 | 0:00–0:15)
+ * Sources Present
+   * Heavy bass instrument and kick drum (2.4s–12.3s and 14.7s–15.0s) (High confidence): Panels 1 and 2 show massive, bright yellow-white sustained blocks between A1 (55 Hz) and A2 (111 Hz) paired with sharp vertical transient lines at the bottom of Panel 3.
+   * Drums / backbeat percussion (High confidence): Panel 3 shows regular full-height vertical stripes, and Panel 6 shows sharp, periodic orange onset spikes throughout the main groove.
+   * Human voices (High confidence): Panels 1 and 2 show curved, gliding arches in the A4 (436 Hz) to A6 (1770 Hz) range during the intro (0.0–2.4s), layered over the main groove (2.4–12.3s), and exposed during the breakdown (13.3–14.7s).
+   * High-pitched metallic/plucked rhythmic instrument in the breakdown (12.3s–14.7s) (High confidence): In the top right of Panels 1, 2, and 3 (above A4 up to the top edge), a grid of fast, regular vertical transient lines (~6–7 per second) intersects dead-straight, needle-thin horizontal lines—characteristic of rapid strumming, synth/clavinet arpeggios, or high metallic percussion.
+ * Rhythm and Tempo Feel
+   * Strong, mid-tempo driving beat at ~98 BPM (High confidence): Between 2.4s and 12.3s, Panel 6 shows prominent orange onset spikes spaced almost evenly every ~0.61 seconds (at 2.5s, 3.1s, 3.7s, 4.3s, 4.9s, 5.5s, 6.1s, 6.7s, 7.4s, 8.0s, 8.6s, 9.2s, 9.8s, 10.4s, 11.0s, 11.6s, 12.2s), while the low bass blocks in Panel 1 repeat every ~1.22 seconds (two beats per bass block, ~98 BPM).
+ * Harmony or Key
+   * Centered on F# minor (with C#, A, E, and D/B) (High confidence): During the main groove (2.4s–12.3s), Panel 5 (Chroma) shows continuous dark horizontal bands on F# and C# (with A completing an F# minor triad at 2.4–3.6s), stepping briefly down through E and D around 8.6–9.6s before returning strongly to F# and C# at 9.8–12.2s. During the breakdown (12.3s–14.7s), Chroma traces a fast, rising-and-falling melodic run across D to A following the vocal arches.
+ * Structure (What Changes, and When)
+   * Four clear structural sections across 15 seconds (High confidence):
+     * 0.0s–2.4s (Intro): Mid/high vocal arches and rhythmic transients with no deep bass (A1–A2 is dark) and slightly lower loudness (Panel 6 blue line).
+     * 2.4s–12.3s (Main Groove): Heavy bass blocks, steady ~98 BPM drum transients, and high loudness enter at 2.4s and repeat for eight ~1.22s bass cycles.
+     * 12.3s–14.7s (Breakdown): The heavy low bass (A1–A2) drops out abruptly at 12.3s, leaving fast high-frequency rhythmic grids (12.3–14.7s) and an exposed gliding vocal pickup phrase (13.3–14.7s).
+     * 14.7s–15.0s (Re-entry): The heavy low bass and full band slam back in right at the end of the clip.
+ * Sense of Space
+   * Narrow to moderate stereo width (High confidence): Panel 4 is dark blue across the upper half ("high" width) throughout the clip, with width concentrated in the lower/narrow bands (especially bright yellow along the mono bottom edge at 0.0–2.2s and 12.2–13.5s, and periodic dark mono blocks at the bottom during the 2.4–12.3s bass hits).
+   * Dense, punchy mix (High confidence): Panels 1 and 6 show sustained high loudness during 2.4–12.3s, contrasting with the sparser, drier low-end cutout at 12.3–14.7s.
+Image 6 (tile 01/8 | 0:00–0:16)
+(Note: This is the opening 16 seconds of the same track shown in Image 1 [tile 04/8], and its first 10.5 seconds are the source for Image 4.)
+ * Sources Present
+   * Expressive human voices (High confidence): From 0.0s–2.2s, 8.3s–10.0s, and layered over 10.0s–16.0s, Panels 1 and 2 show curved, wobbly, gliding harmonic stacks between A3 and A6.
+   * Repeated vocal + percussive audio sample (2.8s–8.3s) (High confidence): The 2.1-second block from 2.8s–4.9s and 4.9s–7.0s is visually identical across all six panels: four short pitched/vocal stabs just below A4 (436 Hz) followed by a sharp broadband transient strike (orange spikes at 4.15s and 6.25s in Panel 6) and a decaying noise tail, with a third partial repetition from 7.0s–8.3s.
+   * Heavy bass and full drum kit entering at 10.0s (High confidence): At 10.0s, bright low-frequency blocks (A1 55 Hz to A2 111 Hz in Panels 1 and 2) and continuous full-spectrum vertical drum stripes (Panel 3) kick in.
+ * Rhythm and Tempo Feel
+   * Stuttering 6-pulse sample loop (2.8s–8.3s) dropping into a fast, driving 8-pulse groove (10.0s–16.0s) sharing the same ~0.35s underlying pulse (~86–88 BPM or ~172 BPM double-time) (High confidence):
+     * In the sample section (2.8s–8.3s), each repeating loop lasts 2.10 seconds (6 pulses of ~0.35s: four vocal stabs plus a 2-pulse crash/silent gap shown by the deep blue loudness dips in Panel 6 at 4.2–4.9s and 6.3–7.0s).
+     * At 10.0s, the beat locks into the continuous ~2.75–2.80s (8-pulse) cycle seen in Image 1, with a steady high blue loudness line and regular orange onset peaks in Panel 6.
+ * Harmony or Key
+   * Intro sample on G/F# dropping into a C/D – G – A loop (D minor / A minor / C major) at 10.0s (High confidence):
+     * From 2.8s–8.3s, Panel 5 (Chroma) shows the four repeated stabs holding a dark bar on G (straddling F#/G), while the noisy crash tails at 4.15s and 6.25s flare on A/A#.
+     * From 10.0s–16.0s, Panel 5 locks into the exact repeating harmonic loop from Image 1: C and D (10.0–11.4s and 12.8–14.2s) moving to G (11.5–12.0s and 14.2–14.8s) and A (12.1–12.7s and 14.9–15.5s).
+ * Structure (What Changes, and When)
+   * Intro-to-drop arrangement across four phases (High confidence):
+     * 0.0s–2.8s: Sung vocal intro (0.0–1.5s) hit by a big transient strike and downward vocal slide at 1.5s that decays to 2.8s.
+     * 2.8s–8.3s: Chopped sample loop repeated twice in full (2.8–4.9s and 4.9–7.0s) with deep loudness dropouts before each retrigger, plus a third partial cycle (7.0–8.3s).
+     * 8.3s–10.0s: Multi-layered wobbly vocal arches build into the transition.
+     * 10.0s–16.0s: Full rhythm section (heavy bass, drums, vocals) drops in continuously at 10.0s.
+ * Sense of Space
+   * Extremely wide stereo field, contrasting mono low-end bass with wide atmospheric tails (High confidence): Panel 4 shows intense bright yellow in the upper ("high" width) and middle zones—especially wide during the decaying crash tails (1.5–2.8s, 4.1–4.9s, 6.2–7.0s) and along the top edge during the main groove (10.0–16.0s), while the bottom edge turns dark blue (mono/narrow) when the heavy bass enters at 10.0s.
+
+---
+
+X2: Nice set of visualizations. Before going through them, one observation that shapes my reading: **image_6 and image_1 are tiles from the same track** (both "tile xx/8" — 01 and 04), and **image_5 and image_3 are tiles from another track** (both "tile xx/15" — 01 and 14). image_4 is a third piece (zoom of 0–10.5 s) and image_2 a fourth (tile 02/13). I'll analyze each tile on its own terms but use the pairs to sanity-check.
+
+---
+
+## image_6.png — "tile 01/8 | 0:00–0:16"
+
+- **Sources:** A dense, distorted sustained source (electric guitar wall or detuned synth) plus a drum kit — the transient panel is full of strong vertical striations at regular intervals. *Confidence: medium-high.* Based on: the sustained layer (panel 2) carries most of the mid/high energy as broadband "glow," while the transient layer (panel 3) shows crisp, periodic attacks with no melodic content — classic drum behavior.
+- **Opening:** A very bright, short attack right at t=0 (intense white/yellow burst in all spectrogram panels) — a downbeat hit or crash. *Confidence: high* (all three spectral panels light up simultaneously for <0.5 s).
+- **Rhythm/tempo:** Onsets (bottom panel) peak every 0.75–0.8 s, very regularly. That's either a quarter-note pulse at 75–80 BPM or 8th notes at 150 BPM — honestly can't tell which subdivision is "the beat." *Confidence: medium* that it's a steady, unswung pulse; *low* on the absolute BPM.
+- **Structure:** Loudness dips at 4.5 s and 7 s with the low bands going dark — brief lulls or half-time drops — then recovers. From 10.5 s, bright horizontal blocks at A1–A2 (55–110 Hz) appear: a repeating low riff (palm-muted guitar or synth/bass). *Confidence: medium-high* (loudness panel + bright low rectangles in panels 1–3).
+- **Harmony/key:** Can't tell. The chroma panel is busy and shifting; no single row dominates for long.
+- **Space:** Mostly wide (stereo-width panel is yellow much of the time), with noticeable narrowing during the 4.5–7 s lull — like the mix pulls inward, then re-widens. *Confidence: medium* — based on panel 4 color shifts.
+
+## image_1.png — "tile 04/8 | 0:48–1:04" (same track as above, ~48 s in)
+
+- **Sources:** Same family as image_6 — sustained distorted harmonic source + heavy, metronomic drums. *Confidence: high* that it's the same arrangement type; the sustained/transient split looks nearly identical in character.
+- **Rhythm/tempo:** The bright low blocks at A1–A2 now repeat every 0.5–0.6 s, extremely evenly, and the onset trace is a nearly uniform comb — feels mechanical (tight playing or programmed). This section sounds busier than the opening tile. *Confidence: medium* (panels 1, 3, 6).
+- **Structure:** Loudness is high and stable with brief dropouts — dark vertical gaps at 53.5, 57.8, 60 s where everything cuts for a fraction of a second. These read as stutter-edits or deliberate gaps on the downbeat. *Confidence: medium* (sudden black columns spanning all frequency bands, plus matching onset dips).
+- **Harmony/key:** Can't tell — chroma panel is noisy and fast-changing; this sounds riff-driven rather than chord-progression-driven.
+- **Space:** Wide and fairly consistent (yellow stereo-width band), low end included — a big, dense, "wall" production. *Confidence: medium-high* (panel 4).
+
+## image_5.png — "tile 01/15 | 0:00–0:15"
+
+- **Sources:** Loop-based music — a synth or bass guitar holding repeating low notes (bright blocks at A2, 110 Hz) with brighter sustained tones up around A4–A5, plus a drum machine (very regular transients). *Confidence: medium-high.* Based on: repeated identical patterns in panels 1–3 over 13 s, and an onset train with machine-like regularity (panel 6).
+- **Rhythm/tempo:** The loop cycles every 1.9 s. If that's one 4/4 bar, tempo ≈ 125–128 BPM; if it's two beats, 64 BPM. The kick/snare placement inside the cycle slightly favors the 126–128 BPM reading. *Confidence: medium on the cycle length; low-medium on the absolute BPM.*
+- **Structure:** The same figure repeats unchanged for 13 s (strongly periodic bright blocks in all spectral panels), then at 13–15 s the stereo width bursts bright yellow and loudness lifts — a riser, reverb wash, or transition into the next section. The tile ends mid-transition (cut at 15 s). *Confidence: high that something is building; medium on what* (panel 4 brightening + loudness rise + denser onsets).
+- **Harmony/key:** Chroma shows a stable repeating pattern, but I can't reliably name a key from it. Possibly a two-chord alternation. *Confidence: low.*
+- **Space:** Mostly narrow-to-moderate (green/blue width) until the final 2 s — the sudden widening at the end suggests a big stereo effect or room reverb being opened up. *Confidence: medium.*
+
+## image_3.png — "tile 14/15 | 3:15–3:30" (final tile of the same track)
+
+- **Sources:** Sustained tonal instrument(s) — bright, clean harmonic stacks in the sustained panel around A4–A5 (436–878 Hz) with matching partials; a quieter mid/low bed. Could be a synth lead, pad, or heavily sustained guitar. *Confidence: medium.* The transient layer is much weaker than the sustained one, suggesting a held, smooth sound rather than drums (the drum-machine train from 0:00 is gone — this is clearly an end section). *Confidence: medium-high.*
+- **Structure:** 195–201 s: a loud, stable held texture (loudness high and flat). At 201 s: one enormous isolated onset spike — a single big hit. 201–208 s: dense, chaotic broadband material with clear **descending diagonal sweeps** (visible gliding lines falling through A4→A2) — pitch falling, or noise/reverb wash decaying downward. 208–210 s: a final bright, low, sustained mass — like one last note or impact ringing out as the track ends. *Confidence: high on the timing of events (loudness + onset panels and the diagonal streaks); low on what the sounds actually are — could be a breakdown, a scream/crash, or a synth effect. Can't tell.*
+- **Harmony/key:** Chroma shows a long stable bright row for the first 6 s, then dissolves into noise at the hit — even if I could read the row reliably, it goes ambiguous after 201 s. *Confidence: low; key can't be determined.*
+- **Space:** Stereo width stays fairly low (dark blue) through the held section, then flares wider (yellow-green) after the hit and at the end — reverb/room becoming audible at the climax. *Confidence: medium.*
+- **Cross-check:** compared with image_5's tidy loop at 0:00, this end tile suggests the track builds from a strict loop to a noisy, reverberant climax. *Confidence: medium.*
+
+## image_4.png — zoom, 0:00–10.5 s, no title
+
+- **Sources:** A melodic instrument with clear harmonic series — the sustained panel shows distinct horizontal note bands (roughly MIDI 45–75) with visible partials stacked above them, and the transient panel shows clean, separated note attacks. This strongly suggests **piano or a mallet/plucked string instrument** (guitar, vibraphone, music box would all fit). *Confidence: medium-high* (panel 2's overtone stacks + panel 3's crisp, non-percussive attacks). The transient panel reaching up to MIDI 160 suggests some bright attack noise — consistent with piano hammers or plucks.
+- **Rhythm/tempo:** Attacks fall every 0.6–0.7 s quite steadily — either 90 BPM 8th-note motion or 45 BPM quarters. *Confidence: medium on the pulse interval; low on BPM.*
+- **Harmony:** The sustained panel shows stacked simultaneous notes (chords), with a lower voice around MIDI 43–50 and an upper melodic voice that visibly moves (the arching contours in the full panel, e.g., 2.5–4 s). *Confidence: high that it's polyphonic/chordal; low on the actual key* — no chroma panel here, and I won't guess.
+- **Structure:** Fairly continuous playing throughout the 10.5 s window with a slightly sparser moment around 9.5–10 s — no big section change visible in this window. *Confidence: medium.*
+- **Space:** Can't tell — this tile has no stereo-width panel, and the sustained decays look fairly dry, but reverb would mostly show up as lingering low-level energy I can't reliably separate from note sustains. *Confidence: low.*
+
+## image_2.png — "tile 02/13 | 0:16–0:32"
+
+- **Sources:** A repeating riff-based texture: a low note/stab near A2 with brighter harmonics reaching A4–A5 — electric guitar or synth stab — over a steady drum groove (kick/snare visible as vertical transients; the onset trace has a repeating accented pattern). The very dark top of the spectrogram says there's little high-frequency energy — no bright cymbals or fizzy synths. *Confidence: medium-high.*
+- **Rhythm/tempo:** The stab repeats every 1.85–1.9 s, landing close to a 128 BPM bar — but again, a 2-beat reading (64 BPM) is possible. *Confidence: medium on cycle; low on absolute tempo.*
+- **Structure:** The same loop runs the whole 16 s with one small variation around 23–24 s (a brighter vertical band in the sustained/transient panels — a fill or extra accent). Otherwise static — a groove holding while something (not visible here) presumably happens elsewhere in the mix. *Confidence: high on the repetition; medium on the 23 s event being a fill.*
+- **Harmony/key:** Chroma shows two alternating stab positions — plausibly a two-chord loop — but I can't name the key. *Confidence: low.*
+- **Space:** Moderate width with wide, blobby low-frequency content (yellow-green in panel 4) — some room/reverb on the low end, not an ultra-dry mix. *Confidence: medium.*
+
+---
+
+### Cross-image synthesis (guesses about the clips, not titles)
+
+- Track A (image_6 + image_1): dense, loud, distorted, riff-driven with very tight/metronomic drums and edit-like dropouts. Rock/metal/electronic territory. *Confidence: medium.*
+- Track B (image_5 + image_3): loop-based, 126–128 BPM feel, building from a strict repeating groove to a noisy, reverberant climax with a big single hit 3:21 in. *Confidence: medium.*
+- Track C (image_4): a solo-chordal instrument performance, likely piano-family, moderate tempo. *Confidence: medium.*
+- Track D (image_2): a static two-stab riff over a drum groove at 64/128 BPM. *Confidence: medium.*
+
+The single weakest part of all of this is absolute tempo and key — the panels give me intervals and pitch-class energy, but without beat-tracking or a labeled chroma axis I can't convert those to confident BPM or key names, so I've left them as ranges or "can't tell."
+
+---
+
+X3: **Image 1** (tile 04/8, ~0:48–1:04)
+
+**Sources**  
+Strong low-end percussive hits (bright vertical stripes near the bottom of the full and transient panels, repeating regularly) + a mid-range pitched instrument or sample that holds steady horizontal lines with clear overtones (visible in both full and sustained layers). Some higher-frequency noise/hash that looks like cymbals or hats. Confidence: high on the drums and the sustained pitched material; medium on exact instrument identity (could be keys, synth, or sampled tones). Based on the transient layer’s regular low verticals and the sustained layer’s horizontal ladders.
+
+**Rhythm / tempo**  
+Steady, mid-tempo groove. Clear pulse from the low hits, roughly in the 90–110 BPM ballpark from the spacing of the vertical stripes. Feels locked-in and repetitive. Confidence: medium-high. Based on the regular spacing of the bright verticals in the transient and full spectrograms, plus the onset strength spikes.
+
+**Harmony / key**  
+Can’t tell a clear key or chord progression from the chroma (lots of activity across several pitch classes, no single dominant dark bar pattern that jumps out). Some sustained notes around the A1–A4 region. Confidence: low. Based on the chroma panel looking relatively busy/black-and-white without a strong repeating pitch-class signature.
+
+**Structure**  
+Pretty consistent texture across the 16 seconds. No big drop or sudden change; the percussive pattern and the sustained layer keep going. Minor fluctuations in loudness and onset strength, but nothing dramatic. Confidence: high. Based on the continuous horizontal activity and the relatively flat loudness curve.
+
+**Space**  
+Moderately wide (green-to-yellow stereo width band, not pure mono). Not especially roomy or washed-out. Confidence: medium. Based on the stereo width panel.
+
+---
+
+**Image 2** (tile 02/13, ~0:16–0:32)
+
+**Sources**  
+Clear pitched sustained tones with visible horizontal lines and overtones (especially in the A2–A5 range), plus some transient/percussive activity that is less dominant than in the first clip. Looks more harmonic/melodic than drum-heavy. Possible keys, pads, or plucked/sustained strings. Confidence: medium-high on the tonal material; medium on exact sources. Based on the strong horizontal structure in the sustained layer and the sparser verticals in the transient layer.
+
+**Rhythm / tempo**  
+Slower or more spacious feel than the first clip. Onset strength has some peaks but they are not as relentlessly regular. Could be half-time or a more open groove. Confidence: medium. Based on the spacing of the orange onset spikes and the overall density.
+
+**Harmony / key**  
+Chroma shows some clearer dark bands (possible tonal center activity), but still not crystal-clear. Sustained notes suggest a relatively stable harmonic bed. Confidence: low-to-medium. Based on the chroma panel and the steady horizontal lines.
+
+**Structure**  
+Fairly static texture with some movement in the mid-range lines. Loudness stays relatively steady with small dips. No obvious section change. Confidence: high. Based on the continuous activity across the panels and the smooth blue loudness line.
+
+**Space**  
+Noticeably wide in places (bright yellow-green patches in the stereo width). Feels more open/stereo than the first clip. Confidence: medium-high. Based on the stereo width panel.
+
+---
+
+**Image 3** (tile 14/15, ~3:15–3:30)
+
+**Sources**  
+Prominent sustained horizontal lines (especially visible around the middle frequencies), some of which look like they could be voice or bent/sustained instruments because of slight curvature or thickness. Lower transient activity that includes some stronger hits later in the window. Higher-frequency content is present but not dominant. Confidence: medium on possible vocal/sustained source; high on the presence of clear tonal material. Based on the sustained layer’s horizontal structure and the full spectrogram’s mid-range brightness.
+
+**Rhythm / tempo**  
+More open / less grid-like than the first clip. Onset strength has a few stronger peaks (one notable one around 201 s) but is otherwise moderate. Feels like it could be a breakdown, outro, or freer section. Confidence: medium. Based on the onset and loudness curves plus the less regular vertical striping.
+
+**Harmony / key**  
+Sustained lines suggest some harmonic content, but chroma is fairly active without an obvious single key signature. Confidence: low. Based on chroma and the sustained panel.
+
+**Structure**  
+Something shifts around the middle-to-late part of the window (stronger onset spike, change in the density of the horizontal lines). Earlier part feels more continuous, later part more eventful. Confidence: medium. Based on the sudden brighter vertical activity and the loudness/onset behavior near 201 s.
+
+**Space**  
+Quite wide (strong green/yellow stereo width across most of the clip). Confidence: high. Based on the stereo width panel.
+
+---
+
+**Image 4** (the three-panel one, ~0–10.5 s, labeled full / sustained / transient)
+
+**Sources**  
+Very clear sustained harmonic material with multiple horizontal lines and overtones (ladders) visible in both full and sustained panels. Transient layer shows some vertical energy, especially a bright event early on (~1.5–2 s) and recurring activity. Looks like a mix of pitched instruments (or synth/keys) plus some percussive or attack-heavy elements. Confidence: high on the tonal/sustained content; medium on the exact nature of the transients. Based on the strong horizontal structure in the sustained panel and the vertical brightness in the transient panel.
+
+**Rhythm / tempo**  
+Has a pulse, but the transient events are not ultra-regular machine-gun hits. More like a measured groove with some emphasis points. Confidence: medium. Based on the spacing of the brighter vertical features.
+
+**Harmony / key**  
+Multiple clear pitch levels visible; the ladders suggest harmonic richness. Exact key hard to pin from this view alone. Confidence: low-to-medium. Based on the sustained panel’s horizontal lines.
+
+**Structure**  
+Distinct event early (~1.5 s) that stands out, then more continuous activity with recurring vertical accents. Feels like it has a clear attack or entrance. Confidence: medium-high. Based on the bright vertical feature in all three panels around that time.
+
+**Space**  
+No stereo-width panel here, so can’t tell. (The other panels also lack chroma/onset.)
+
+---
+
+**Image 5** (tile 01/15, ~0:00–0:15)
+
+**Sources**  
+Strong low-to-mid pitched material with very clear repeating horizontal blocks/ladders (especially visible in the full and sustained layers). Looks like a riff or ostinato played by a pitched instrument (or sample) with good sustain and overtones. Transient layer shows the attacks of those notes plus some higher noise. Confidence: high on the pitched ostinato-like material. Based on the very regular horizontal banding in the lower-mid frequencies.
+
+**Rhythm / tempo**  
+Clear, steady pulse. The repeating horizontal shapes suggest a consistent rhythmic figure. Onset spikes align with the note attacks. Feels mid-tempo and locked. Confidence: medium-high. Based on the regular spacing of the bright horizontal blocks and the onset curve.
+
+**Harmony / key**  
+Strong tonal content; the repeating shapes imply a consistent pitch set. Chroma is active and shows some structure. Confidence: medium. Based on the sustained layer and chroma.
+
+**Structure**  
+Very consistent repeating pattern across the whole 15 s. Loudness is relatively flat. This feels like an intro or a looped motif section. Confidence: high. Based on the continuous repeating visual pattern and the steady loudness line.
+
+**Space**  
+Mostly moderate width with some brighter (wider) moments toward the end. Confidence: medium. Based on the stereo width panel.
+
+---
+
+**Image 6** (tile 01/8, ~0:00–0:16)
+
+**Sources**  
+Mix of sustained mid-range horizontal energy and a lot of transient/percussive vertical striping, especially in the second half. Early part has more continuous/tonal character; later part gets busier and brighter with more high-frequency content. Possible combination of pads/synths or sustained instruments + drums or rhythmic hits. Confidence: medium-high on the mix of sustained + transient. Based on the change in density between the left and right halves of the full and transient panels.
+
+**Rhythm / tempo**  
+Builds in activity. Early part is calmer; later part has more frequent onset spikes and vertical energy. Feels like it could be an intro that opens up. Confidence: medium. Based on the onset strength curve (more peaks later) and the increasing vertical striping.
+
+**Harmony / key**  
+Some sustained lines visible, but the later half is noisier so pitch clarity drops. Chroma is busy. Confidence: low. Based on the sustained panel and chroma.
+
+**Structure**  
+Clear change around the middle of the window: earlier section more sustained/continuous, later section denser and more percussive/high-frequency. Loudness stays fairly steady but the texture shifts. Confidence: high. Based on the visual density change across all upper panels.
+
+**Space**  
+Quite wide overall (bright yellow-green stereo width band). Confidence: high. Based on the stereo width panel.
+
+---
+
+Overall vibe across the set: these look like different sections or different tracks that all have clear rhythmic and harmonic content rather than pure noise or pure ambience. The first, fifth, and sixth have stronger groove/pulse energy; the second and third feel more open or sustained; the fourth is the most “ladder-heavy” tonal one.
+
+Happy to zoom in on any single image or any specific panel if you want more detail, Kham! 🎵
+
+---
+
+X4: Kham, this is a fun challenge — six sound-pictures, read blind. Let me actually go look at each one carefully before I say anything. I'll interrogate all six in parallel with questions aimed at the features you described (ladders, needles, smears, stripes, chroma bars, width traces).
+
+Good — I got a first read, but honestly, some of that detail reads like over-enthusiasm, and Kham's whole framing rewards calibration over confidence. Let me do a second, tighter pass with pointed questions to cross-check the discriminating features before I commit to claims.
+
+Kham — fair warning before the readings, because you asked for honesty over confidence: I looked at all six twice, once broadly and once with pointed cross-check questions, and the two passes disagreed with each other on several things (tempo density, whether the stereo field was narrow or wide, which chroma classes dominate). Where a feature survived both passes I'll give you a real confidence level. Where the two passes flipped, that's a "can't tell," and I'll say so plainly rather than pick the prettier story. I also won't guess titles — promise kept.
+
+One methodological note worth stating up front: my inspection pipeline did correctly read the x‑axis labels and one on-screen caption ("AuraGraph v0.1"), which tells me the real printed metadata is coming through. Anything below sub-second level, or any named note, is much shakier ground.
+
+---
+
+## Image 1 — axis reads **48–64 s** (≈16 s long)
+
+**Sources.** Both passes agree there's a busy layer of discrete vertical hits across a broad band (panel 3 nearly all vertical stripes), sitting on top of continuous horizontal bands in panel 2. So: a percussive/struck layer over a sustained bed. *Moderate confidence.* Above that, both passes put energy or noise near the top of the range (one as thin stripes, one as broader smudges) — the hi-hat/cymbal/shaker family. *Low–moderate; I can't name the instrument.* The horizontal lines wobble and glide rather than sitting dead straight (*moderate*), which argues against rock-steady keyboard or plucked-string tones and mildly favours something bent, blown, sung, or synthetic-with-drift. Whether a **voice** is present: **can't tell** — wobble alone doesn't settle it.
+
+**Rhythm.** A steady-ish pulse is there (both passes see a grid in panel 6's onset trace), but the rate is contested — one pass counted 3–4 hits/s, the other saw events roughly every 0.5–1 s. Either way it reads *driving*, and one pass noted the grid loosening late. Exact BPM: **can't tell.**
+
+**Harmony.** Both passes agree the chroma panel concentrates into a handful of dominant classes rather than spreading evenly — that's a genuine tonal/modal centre. They disagree on *which* classes (A+E in one read, C+D+E in the other), so: tonal centre present, *moderate*; key or chord names, **can't tell.**
+
+**Structure.** Density and colour clearly change across the 16 s (both passes). One saw a build to a peak around two-thirds in then thinning; the other saw loudness roughly flat. So arrangement changes: *moderate.* Dynamics arc: **can't tell.**
+
+**Space.** Flat contradiction — narrow-with-wide-peaks versus mostly-wide. **Can't tell**; if anything, it varies.
+
+---
+
+## Image 2 — axis reads **16–32 s**, captioned *AuraGraph v0.1*
+
+**Sources.** Layered: harmonic horizontal bands with clear spacing (overtone stacks) plus a dense transient field. The wobble on the sustained lines is the one thing both passes emphasise (*moderate*) — unstable pitch or heavy modulation. Timbre balance is unresolved: one pass called the very top of the spectrum essentially empty (dark, soft-edged, possibly lo-fi), the other reported top-end smudges in this window. **Can't tell** how bright it actually is.
+
+**Rhythm.** Busy, definitely. Beyond that the count diverges wildly (≈3–5 hits/s vs 15–20 hits/s — the latter would imply granular or machine-gun-rate percussion). **Can't tell.**
+
+**Harmony.** Chroma again concentrated (tonal rather than atonal), *low–moderate*; specific pitches, **can't tell.**
+
+**Structure / space.** Something shifts mid-window and the stereo image moves, but both passes locate the change at different offsets. *Low confidence* that there's a transition, **can't tell** when.
+
+---
+
+## Image 3 — axis reads **195–210 s** (≈15 s)
+
+This one has the most self-consistent profile of the set.
+
+**Sources.** The sustained layer is the star: continuous horizontal bands, thick and low-weighted, with pronounced wobble, glide, and even abrupt frequency steps in one read. That's a pitched, held, drifting source family — drone/pad/bowed-or-blown-and-bent territory. *Moderate* on "sustain-dominated with unstable pitch." Transients exist but are moderate (≈4–6/s), not the densest here (*low–moderate*). Both passes agree the very top of the spectrum is comparatively quiet — no cymbal-type wash. *Moderate* on a dark, warm-leaning balance.
+
+**Rhythm.** Pulse present, moderate density, uneven spacing. Specific tempo: **can't tell.**
+
+**Harmony.** Chroma active and concentrated; one pass suggested bass-register emphasis. Tonal, *low–moderate*; key name, **can't tell.**
+
+**Structure.** The main event is textural constancy rather than sectional drama — sustained material persisting through. *Low–moderate.* Loudness: one pass flat, one pass gently swelling — **can't tell** which.
+
+**Space.** Both passes said wide. *Moderate* — and the one place in this set where two independent reads converged on width.
+
+---
+
+## Image 4 — axis reads **0.00–10.50 s**
+
+**Sources & the strongest finding in the whole set.** This is the image where both passes independently point at **replayed material**. One explicitly identifies the same complex pattern occurring at 0.0–1.5 s and again at 3.0–4.5 s; the other describes a ~1.5 s periodic structure with only slight variation. Per your own heuristic — identical shape equals a recording replayed, not performed again — that's a **loop**. *Moderate confidence* this is looped/sequenced material rather than continuous live performance.
+
+Supporting agreement: thick low-frequency bands with wobble (bass/low-mid weighted), fast-decaying notes, and no high-frequency cymbal-type wash at all — the top is essentially empty in both reads, so the balance is *damped*, dark-topped. *Moderate.* Loudness is shaped into distinct swells rather than flat (*moderate*). Stereo: direct contradiction (narrow vs wide) — **can't tell.**
+
+**Rhythm.** A repeating cycle of roughly 1.5 s, hits ≈4–5/s, unevenly spaced. *Low–moderate* on the cycle length, **can't tell** on a precise tempo.
+
+**Harmony.** Chroma concentrated (one pass named a C-minor-ish colouring, the other produced bar indices I don't trust) — so tonal, *low*; key, **can't tell.**
+
+Genre impression, flagged as a *guess* not a measurement: low-heavy loop, damped top, swelling level, minimal bright percussion reads dub-ish or lo-fi-beat-ish to me. Treat as a vibe, not a finding.
+
+---
+
+## Images 5 and 6 — both ≈15–16 s, and I have to be straight with you: I can't reliably tell these two apart
+
+Both axes read as roughly 0–15/0–16 s, and across my two passes the assignment swapped. Rather than bluff a coin flip, here are the two distinct profiles I extracted — match them to whichever panel is which:
+
+**Profile A** — needle-thin horizontal lines with wobbly mid-range rows (straighter than the rest of the set); top octave empty; chroma panel so densely filled it reads as an undifferentiated field; stereo wide with a brief narrowing near the ~2 s mark; and a pattern repeating at ~3 s intervals in *both* the sustained and transient layers, i.e. a looped percussion figure. Hit rate ≈4–5/s.
+
+**Profile B** — fuzzy, thick, wobbly tracks especially in the low end; chroma rendered as a dense/noisy block, effectively unreadable for classes; stereo energy concentrated low (narrow); loudness with pronounced swells, dipping around the 4–5 s and 6–7 s marks; hit rate ≈8–10/s, the densest in the set; no verbatim repetition.
+
+Readings I'd stand behind regardless of which is which: both carry a sustained layer *and* a transient layer (neither is a bare solo), both are harmonically organised enough to light the chroma panel rather than spraying it randomly (*low–moderate*), and the difference between them is largely **density and space** — one busy and tight-centred, one loose and wide. Keys, tempos, and instrument identities: **can't tell** for both.
+
+---
+
+## Across the six
+
+Three things held up in both passes and are worth keeping: every clip has *both* a sustained bed and a struck/transient layer (no a cappella solos, no pure noise pieces); every chroma panel concentrates rather than smears, so this is tonally organised music throughout (*moderate*); and nothing anywhere shows the signature you flagged as dead-straight unbroken needles from end to end — there's pitch instability, glide, or modulation in all six (*moderate*). The single most defensible specific claim I can make is the replayed-loop signature in the 0–10.5 s image.
+
+Everything else — named notes, precise tempos, which layer a given stripe belongs to, narrow versus wide — sits at "can't tell" more often than I'd like, and I'd rather hand you that than a tidy story I can't cash out.
+
+If you want, I can go back at specific panels with much narrower questions — e.g. "count stripes in the first two seconds of panel 3" or "does the chroma block reset partway through" — which tends to produce far more reliable answers than the sweeping read I just attempted.
+
+---
+
+X5: I'll start by zooming into the panels computationally — measuring onset spacing for tempo estimates and sampling the chroma rows for key guesses. Then I'll give you a reading of each image.
+Now let me sample the chroma panels to see which pitch classes are present over time.
+I did some measuring before writing this up: I extracted the onset trains and ran tempo autocorrelation on each clip, sampled the chroma rows over time, and measured the stereo-width panels. Here's what I see, image by image, with confidence levels and the panels each claim rests on.
+
+---
+
+## Image 1 — tile 04/08, 0:48–1:04
+
+**Sources.** Electronic or heavily produced texture, medium confidence. Evidence:
+- The bottom of the full spectrogram is dominated by *bright, blocky, perfectly rectangular* low notes (63–69 Hz, i.e. around C2) that snap on and off and repeat with identical shapes (panels 1–2). Identical repetition = a replayed/looped source (sample or sequenced synth bass), not re-performed notes. Confidence: high that it's a repeated loop; medium that it's synth vs. sampled instrument.
+- The midrange (A2–A5) is a dense wash of bright, wobbly, smeared horizontal energy — not clean ladders. That reads as dense synth pads or heavily processed/chorused material, possibly including voice-like timbres. Low–medium confidence on exactly what it is.
+- The transient layer and full spectrogram show frequent thin vertical stripes reaching from bottom to top, including the very top band (6–11 kHz) — hits with cymbal/hat-like noise on top. Drums are present, steady. Confidence: high that there are drums; medium that the top-band noise is hats/cymbals specifically.
+- I don't see clean individual vocal glides; the wobble is too dense/smeared to call it a voice. Honest "can't tell" on whether any voice is in there.
+
+**Rhythm/tempo.** Busy, steady pulse. Autocorrelation of the onset panel gives strong peaks at 116 and 142 BPM; the dense micro-onsets (median spacing 0.14 s) suggest sixteenth-note-level activity, so I'd call it roughly **120–140 BPM, four-on-the-floor-ish dance feel**. Confidence: medium (the two candidate tempos are an octave apart, standard ambiguity).
+
+**Harmony/key.** The chroma panel is very busy and chromatic — C♯, F♯, F, E, D♯, G♯ all prominent at different moments. C♯ keeps returning (notably at the end of the tile). This looks like a moving, chromatic bass/harmony rather than one clear diatonic key. Best guess: C♯-centered, but that's low confidence; can't tell major/minor.
+
+**Structure.** Fairly uniform: the looped bass blocks and drum pattern persist across the whole tile. There's a slightly sparser onset region around 53–55 s (fewer transients in both the transient layer and onset row), then it fills back in — possibly a one-bar-ish lull or fill, or just variation in the drum pattern. Loudness is nearly flat. Confidence: medium.
+
+**Space.** The width panel is uniformly green-to-yellow and even — a **wide mix throughout**, slightly wider toward the end. It looks like a produced, spatially filled recording rather than a live room. Confidence: medium-high.
+
+---
+
+## Image 2 — tile 02/13, 0:16–0:32
+
+**Sources.** This is the most "acoustic-looking" of the set. Confidence: medium-high overall.
+- The sustained layer shows **clean harmonic ladders**: stacks of thin, straight, evenly spaced horizontal lines from A2 up through A5. Straight lines with exact overtone spacing = steady pitched instruments — plucked or struck strings (guitar-family) or a plucked keyboard timbre. The ladders decay in brightness after attack in places (panel 1 vs. 3), which points to **plucked strings** (notes that bloom then decay).
+- Bright, compact low blocks (110–220 Hz) appear at 18.5, 21, 22.7–23, 27.5–28, 31 s — bass notes (bass guitar or low synth). Medium confidence.
+- The transient layer shows regular moderate-strength vertical stripes — a drum part at moderate intensity, but no big top-band cymbal wash. Confidence: medium-high that there are drums; low on what kind.
+- No clear vocal glides. Can't tell if there's a voice.
+
+**Rhythm/tempo.** Autocorrelation gives a strong peak at 75 BPM with an equally strong **~150 BPM** candidate — most likely 150 BPM with a half-time-ish drum feel, or 75 with activity on eighths. Onsets cluster in short bursts rather than a rigid grid. Confidence: medium.
+
+**Harmony/key.** This is the clearest harmony of all six. The chroma panel shows **one chord at a time, changing roughly every 1.5–2 s**, and the roots visibly cycle: F → C → A → C♯ → G♯ → C (≈19.5 s) → F → F/A → C♯ → C → C → C♯ → A → C♯. The pattern at 23.5–31.5 s echoes 16.5–22 s (F… C♯… A… C♯), so it's a **repeating progression of about 7–8 chords**, roughly 14 s long. F and C recur most often. If I had to tonal-center it, F-ish minor with heavy chromatic neighbors — but I'll stress: **low confidence on key**; the progression itself is high confidence, straight from the chroma rows.
+
+**Structure.** Chord changes are the main structural event; nothing dramatic — same instrumentation throughout, with a slightly denser onset burst around 23–24.5 s and a softer tail in the last second (loudness line sags at 31–32 s). Confidence: medium-high.
+
+**Space.** The width panel sits at green, darker than image 1's — **moderately narrow, center-focused**, with brief wide (yellow) flashes around 16.5–17.5, 23.5–24.5 and 28–29 s. Those flashes look like reverb tails or moments where a part pans out. Slightly roomy but contained. Confidence: medium.
+
+---
+
+## Image 3 — tile 14/15, 3:15–3:30 (near the end of a piece)
+
+**Sources.** Confidence: medium overall.
+- Left half (195–199 s): strong, dead-steady horizontal lines around A4–A5 plus a broad low bed — sustained keyboard/organ/synth-like tones holding a drone. The chroma panel confirms it: the top rows (B/A♯) are solidly dark for the first 4 s — one pitch class held continuously.
+- Around 199–201 s there's a massive broadband vertical event in all panels — a big hit or downbeat that resets the texture.
+- Right half (201–210 s): the spectrogram becomes a dense, bright, noisy mass with countless vertical striations — either very busy drumming, a full-band wall (distorted guitars?), or crowd/chorus energy. There are a few **curved, gliding bright shapes** around A4–A5 at 203–207 s (descending swoops) — those curves are the voice/crowd signature. Medium confidence there are voices or voice-like sounds here; they could also be bent strings or synth pitch bends. Honest uncertainty.
+- The onset panel supports this: nearly silent 198–200 s, then continuous onsets from 201 s onward, with the loudness line flat-to-slightly-rising into the end.
+
+**Rhythm/tempo.** Autocorrelation: 104 BPM with 208 as the octave candidate — but honestly, in the dense right half the onsets are so thick that this number is unreliable. Left half is nearly arrhythmic (sustained tones, sparse hits). I'd say: slow-ish underlying pulse (100–110), heavily overlaid. Low–medium confidence.
+
+**Harmony/key.** First 4 s: strong **G♯/A♭ pedal** (chroma top region, G♯ at 0.6+ dark fraction). After the big hit at 200 s the chroma turns chromatic and keeps moving (C, A, C♯, E, then G/D♯/G♯, G major around 207 s, F♯ after). It reads like a held pedal dissolving into a shifting, dense climax. G♯ minor or E major early; low confidence, can't tell after 201 s.
+
+**Structure.** Clear two-part design: **sustained drone section → colossal hit at ~200–201 s → dense final section that thickens to the very end.** This is a classic "crescendo into finale" shape. The width panel agrees: narrow and uniform until 209 s, then a bright wide flare at the last second — the mix opens right at the end. Confidence: high on the shape; medium on interpretation.
+
+**Space.** **Narrow, dry, mono-ish** for almost the whole tile (uniform blue-green in the width panel), widening only in the final moments. If this is a live-recorded climactic section, it was recorded/ mixed tight. Confidence: medium-high.
+
+---
+
+## Image 4 — no title bar, 0–10.5 s, three panels only (linear scale, different tool)
+
+**Sources.** Confidence: medium-high.
+- The full and sustained panels are full of **curved, wobbling, gliding lines** in the 25–100 axis range that swoop up and down — that's the vocal/bowed-string signature, and since the curves persist with vibrato-like wobble in the *sustained* layer, I'd call these **sung voices** (possibly more than one, crossing each other). Not perfectly straight anywhere, so not a fixed-pitch keyboard.
+- Underneath, the transient panel shows vertical events with **decaying harmonic combs** (bright at the bottom, fanning up and fading) — struck/plucked strings that bloom and decay (piano or plucked guitar; piano slightly more likely given the comb shape, but that's low confidence).
+- Regular drum-like vertical stripes as well (see rhythm below).
+- At 1.5 s and again at 4.1 s there are big broadband vertical bursts spanning all frequencies — accent hits or cymbal crashes. Confidence: medium.
+
+**Rhythm/tempo.** Autocorrelation on the transient panel gives a very clean **~143 BPM** (subsidiary peaks at 57 and 86 are its simple subdivisions). Measured hit times: 1.56, 2.86, 4.17, 4.96, 6.28, 7.07, 8.39, 9.45 — spacing 0.84 s ≈ every 2 beats, i.e., backbeat-style placement on top of a 143 BPM grid, with smaller inter-hits (3.1, 7.34, 9.98). Confidence: fairly high on 143 BPM.
+
+**Harmony/key.** Can't tell — this render has no chroma panel, and the y-axis (0–150) doesn't map to a labeled pitch scale I can trust. I won't guess.
+
+**Structure.** Several distinct cells: (a) 0–1.5 s: curved melodic lines, sparse; (b) 1.5–2.7 s: big hit then denser vertical texture; (c) 2.7–3.3 s: blocky held horizontal bands (a held chord/section); (d) 3.3–4.1 s: curved lines return; (e) big accent at 4.17 s; (f) 4.2–10.5 s: the main repeating body — alternating curved melodic phrases with the 0.84 s hit pattern, the same figures recurring (e.g., the phrase shapes at 4.3–5 echo 8.5–9.5). So: intro-like opening, then a verse-like loop with a periodic accent. Confidence: medium.
+
+**Space.** Can't tell — no stereo panel in this render. (If forced: nothing in the spectrogram itself contradicts a dry-ish close recording, but that's not evidence. Don't know.)
+
+---
+
+## Image 5 — tile 01/15, 0:00–0:15 (opening of a piece)
+
+**Sources.** Confidence: medium-high.
+- From 1.5–2 s onward, the sustained layer shows **stacks of very straight, evenly spaced horizontal lines** (needle-thin, unwavering) spanning A2–A5 — sustained chords from a steady source: organ, accordion, or synth pad. The unwavering quality argues against strings/voices. Medium confidence between organ/synth.
+- Bright low blocks pulsing at 71–79 Hz (around C♯2/D2) in a repeating pattern — a bass line (synth bass or bass guitar; can't tell which).
+- Regular vertical stripes in the transient layer plus a steady onset train → a drum part, moderate density. Confidence: medium-high.
+- First 1.5 s: only faint texture — the piece essentially **starts at ~1.5–2 s** with a broadband burst (a pickup hit or the entrance of the band). At 12–13 s another broadband burst, and the texture 13–15 s gets brighter and more smeared — possibly a new element entering. Can't tell what.
+
+**Rhythm/tempo.** Autocorrelation: clean candidates at **~100 and ~200 BPM** — most naturally 100 BPM with eighth-note activity, or a 200 BPM double-time feel. The onset row shows a regular grid with an accent roughly every 2 s (matching the bass-block cycle). Confidence: medium.
+
+**Harmony/key.** Chroma shows clear chord blocks changing every 1.5–2 s: G → F → (D♯/G♯) → F♯ → C♯ (long, 9.5–11.5 s) → F♯ → G/F. Notably these are **almost all "black-key" pitch classes** (C♯, D♯, F♯, G♯), and the measured bass sits at C♯2/D2. That pattern is consistent with **C♯ minor** (C♯, D♯, E, F♯, G♯, A, B) — C♯, F♯, G♯, D♯ all diatonic and all prominent. The stray F readings could be mis-sampled neighboring rows. So: **guess C♯ minor, low-medium confidence**; high confidence that the harmony is a deliberate chord progression, not a drone.
+
+**Structure.** Two clear events: the entrance at 1.5–2 s and the change/burst at 12–13 s. Before 1.5 s is near-silence (a count-in, pickup, or fade-from-nothing). 13–15 s is brighter, busier and — per the width panel — suddenly **wide** (the yellow flare at 12.5–14.5 s is the only wide moment in the tile; everything before is narrow/blue). Looks like the opening groove, then a first transition. Confidence: medium-high on the timing, low on what the new element is.
+
+**Space.** **Narrow/dry for the first 12 s**, one big wide splash at 12.5–14.5 s. A produced recording with a deliberately tight center opening up. Confidence: medium-high (straight from the width panel).
+
+---
+
+## Image 6 — tile 01/8, 0:00–0:16 (opening of a piece)
+
+**Sources.** Confidence: medium overall.
+- Mid and high regions are packed with **curved, wobbling, gliding bright lines** mixed with dense broadband grain — the voice/crowd/bent-string signature. It looks "live and human" rather than sequenced. There could be multiple voices or a lead voice plus bowed/wailed instruments; I can't separate them. Medium confidence voices are present; low on count/role.
+- The low end is a thick bright smear around 55–110 Hz with wobble — bass guitar or synth bass, but too smeared to call. Low confidence.
+- The transient layer is dense with vertical stripes top to bottom throughout — **busy, hard-hitting drums**. The top band (6–11 kHz) lights up in several stripes → hat/cymbal content. Confidence: high on busy drums, medium on cymbals.
+- Big accent spikes in the onset row at 1.4, 4.0, 7.0, 9.7, 12.3 s — accent hits or section markers. Medium confidence.
+
+**Rhythm/tempo.** Autocorrelation peaks match image 1's grid almost exactly: **~142 BPM strongest, ~116 secondary**, micro-onsets at 0.23 s spacing. Consistent with a fast, dense groove around 140 BPM. Confidence: medium-high on "fast, 140-ish."
+
+**Harmony/key.** Chroma is a busy scramble — A, E, C, G♯ early; a cluster of F♯+G♯+G+A around 4.5–6.5 s; strong clean **C♯ at 10.5–11.5 s and again at 14.5 s**; C/F at the very end. Too chromatic and mobile to name a key honestly. C♯ appears to function as an anchor/return point. Low confidence; near-"can't tell" beyond "C♯ matters."
+
+**Structure.** Notable arc within 16 s: loud/bright opening 0–4 s → **dip in loudness and narrowing of stereo ~4.5–7.5 s** (the blue loudness line sags and the width panel drops from yellow to green — a breakdown or drop-out with sparse big hits at 7 s) → full restoration at 8 s and continuous dense energy to 16 s. That dip is the clearest structural event. Confidence: high on the timing (two independent panels agree), medium on interpretation.
+
+**Space.** **Very wide** — the width panel is yellow for most of the tile (1–4 s and 8–16 s), narrowing only during the 4.5–7.5 s dip. A big, spacious, wide-stereo production. Confidence: high (the width panel is unambiguous).
+
+---
+
+## A few cross-image observations (not title guesses)
+
+- Images 1 and 6 share the same tiling scheme (8 tiles of 16 s, so a 2:08 piece) and their tempo analyses land on the *same* grid (142/116 BPM). They could plausibly be tiles from the same recording — image 6 (0:00) shows the intro arc, image 1 (0:48) a steady-state groove. Low-medium confidence; coincidence is possible.
+- Images 3 and 5 share a 15-tile scheme (3:30–3:45 piece) and both feature a C♯-heavy, chromatic-but-organized harmony. They could be the opening and near-closing of the same piece: image 5 opens narrow and controlled, image 3 ends in a wide-open dense finale. Low-medium confidence.
+- Image 4 (143 BPM) tempo-matches the 1/6 pair, but it was rendered by a different tool with no chroma/stereo panels, so I can't check further.
+
+**Global caveat:** pitch-class readings from the chroma panels are robust (dark bars are unambiguous), but key *inferences* from pitch classes alone are genuinely uncertain — I'd trust the "what" (pedals, progressions, anchors) much more than the "what key" in every case above.
+
+---
+
+X6: Image 1 (tile 04/8 | 0:48–1:04)
+ * Sources Present
+   * Heavy synth bass or sub-bass (High confidence): Bright yellow-white horizontal blocks dominate the lowest register between A1 55Hz and A2 111Hz in both the full spectrogram and the sustained / tonal panel.
+   * Programmed drums or dense breakbeat percussion (High confidence): The transient / percussive layer shows continuous, tightly packed vertical streaks spanning from the low end to the top of the spectrum, paired with rapid, regular peaks in the bottom onsets trace.
+   * Vocal phrases or pitch-modulated synth/sample chops (Medium confidence): Between A4 436Hz and A6 1770Hz in the sustained / tonal panel, curving, wavy harmonic contours (characteristic of vocal formants/glides or modulated samples) weave in and out of the texture.
+ * Rhythm and Tempo Feel
+   * Driving, dense, steady groove around ~90 BPM (or double-time ~180 BPM) (High confidence for steady groove; Medium confidence for exact BPM): The bass pattern and upper-frequency dropouts repeat every ~2.67 seconds (6 full cycles across the 16-second window: ~48.0s, 50.7s, 53.3s, 56.0s, 58.7s, 61.3s), which corresponds to one 4/4 bar at 90 BPM (or two bars at 180 BPM). The onsets panel shows 3 to 4 crisp subdivisions per second throughout.
+ * Harmony or Key
+   * Riff-based C / C# / D bass pedal with alternating G and A upper harmonies (Medium-High confidence for pitch classes; Low confidence / Can't tell traditional major/minor key): The chroma panel shows continuous dark saturation across C, C#, and D (indicating either a chromatic bass riff, portamento/pitch glide, or heavy sub-bass distortion spreading across adjacent bins) alongside periodic blocks alternating between G (e.g., 51.5–52.2s, 54.2–54.8s, 56.8–57.5s) and A (e.g., 50.8s, 53.5s, 56.2s, 60.8s).
+ * Structure: What Changes, and When
+   * Continuous high-energy section with micro-dropouts/cuts (High confidence): The blue loudness trace stays flat and compressed near the top across the entire 48–64s window. Brief vertical dark slots appear in the mid/high frequencies at regular phrase endings (~49.5s, 52.2s, 56.5s, 58.6s, 60.8s) where the upper texture momentarily cuts or gates while the low end keeps moving.
+ * Sense of Space
+   * Tight mono bass with a very wide stereo upper range (High confidence): The stereo width panel is dark blue along the bottom edge (low frequencies) and consistently bright green-yellow across the middle and top (high frequencies).
+   * Dry vs. roomy (Low confidence / Can't tell): The mix is too continuously dense to see isolated reverb tails, though the sharp vertical black gaps in the upper frequencies at ~56.5s and ~60.8s cut off cleanly without long wash, suggesting tight gating or dry production on the chops.
+Image 2 (tile 02/13 | 0:16–0:32)
+ * Sources Present
+   * Solo or featured polyphonic struck/plucked instrument, such as an acoustic/electric piano or clean guitar (High confidence for struck/plucked harmonic instrument; Medium confidence for specific instrument): Each event begins with a crisp vertical broadband line in the transient / percussive layer followed immediately by ruler-flat, non-vibrato horizontal overtone stacks in the sustained / tonal layer (A2 111Hz to A5 878Hz). The blue loudness curve shows a classic sawtooth "shark-fin" envelope—instantaneous attack followed by a smooth, linear-in-dB decay on every chord.
+   * Absence of drums, vocals, or cymbals (High confidence): The region above A6 1770Hz is almost completely black, there are no curved pitch glides (no vocal formants or vibrato), and onsets occur only at the chord/note attacks.
+ * Rhythm and Tempo Feel
+   * Measured, unhurried pulse around ~72–76 BPM (High confidence): Looking at the onsets peaks and loudness jumps, attacks land at ~16.3s, 17.1s, 17.8s, 18.7s, 19.4s, 20.2s, 21.0s, 22.7s, 23.6s, 25.2s, 26.0s, 27.6s, 28.4s, 30.5s, and 31.1s. The base inter-onset interval is ~0.78–0.82 seconds (1 beat), often grouped as two 1-beat attacks followed by a 2-beat (~1.6s) sustained hold (e.g., 21.0–22.7s, 23.6–25.2s, 26.0–27.6s).
+ * Harmony or Key
+   * B minor / D major (High confidence): The chroma panel is exceptionally clean and restricted almost entirely to B, C#, D, F#, G, and A. You can see a repeating chord progression cycling roughly every 2.4–2.5 seconds: D major (D, F#, A at 16.3–17.8s) \rightarrow B minor (B, D, F# at 17.8–20.2s) \rightarrow F#m/A (A, C#, F# at 20.2–22.7s) \rightarrow B minor (B, D, F# at 22.7–25.2s) \rightarrow F# minor (C#, F#, A at 25.2–27.6s) \rightarrow B minor / Gmaj7 (B, D, F#, G at 27.6–30.5s).
+ * Structure: What Changes, and When
+   * Consistent solo/instrumental passage becoming slightly sparser after 21s (High confidence): From 16.3s to 21.0s, attacks happen on nearly every beat (~0.8s apart). From 21.0s to 32.0s, the phrasing opens up into regular two-note/chord motifs separated by longer ~1.6–2.1s sustained decays.
+ * Sense of Space
+   * Moderate mid-frequency width, narrow lows and highs, with natural sustain/reverb decay (High confidence): The stereo width panel is dark blue at the low and high extremes, with warm green/yellow patches in the midrange (especially between 23s and 30s). The sustained / tonal lines and loudness curve bridge smoothly from one attack to the next without dropping to silence, showing pedaled sustain and/or warm room decay.
+Image 3 (tile 14/15 | 3:15–3:30)
+ * Sources Present
+   * Sustained tonal chord/drone (195.0–199.3s) (High confidence): Tightly locked, flat horizontal harmonic bands span A1 55Hz to A6 1770Hz in the sustained / tonal panel (such as a held organ, synth, or electric guitar chord).
+   * Expressive human voice(s) or steeply pitch-bent lead (201.0–205.5s) (Medium-High confidence): Starting at 201.0s, wide, undulating harmonic arches appear around A4 436Hz–A5 878Hz (with parallel overtones above them) and slide sharply downward at 205.2s—strongly characteristic of dramatic vocal wailing, shouting, or singing.
+   * Crowd noise / applause / ambient high-frequency wash (201.0–210.0s) (Medium confidence): After 201.0s—and especially after 205.5s when the bass drops out—the upper half of the spectrogram (A4 436Hz to the top) is filled with a dense, diffuse texture of overlapping high whistles/glides and continuous broadband chatter in the transient panel.
+ * Rhythm and Tempo Feel
+   * Free-time / non-metrical (High confidence): There is no periodic beat grid in the onsets panel or the transient layer; 195.0–199.3s is a flat sustained hold, and 201.0–210.0s contains irregular, dense onset spikes.
+ * Harmony or Key
+   * A-centered chord from 195.0–199.3s, then atonality/no key center from 199.3–210.0s (High confidence): The chroma panel shows a solid black band on A (with light support on D and C#) until 199.3s. After 199.3s, chroma energy scatters erratically across all 12 pitch classes due to continuous pitch glides and broadband noise.
+ * Structure: What Changes, and When
+   * Three-part outro transition (High confidence):
+     * 195.0–199.3s: Sustained A chord holds steady.
+     * 199.3–201.0s: The low/mid chord cuts out, leaving a brief dip before a massive single transient spike in onsets right at 201.0s.
+     * 201.0–210.0s: Expressive gliding calls/vocals erupt from 201.0–205.5s, after which the low frequencies (A1–A2) drop to black and the high-frequency wash/crowd texture carries to 210.0s.
+ * Sense of Space
+   * Moderate, diffuse stereo field with low-frequency stereo anomalies (High confidence): The stereo width panel is mostly muted teal/green across the midrange, with localized bright yellow bursts at the very bottom (low frequency width) during the transitions at 199.5–201.0s and 205.5–209.5s (typical of stereo room rumble or diffuse hall ambiance).
+Image 4 (Zoomed-in 3-panel view, 0.00–10.50 seconds)
+ * Sources Present
+   * Human vocals with expressive pitch glides (High confidence): At 0.00–2.25s and 8.25–9.90s, the sustained panel shows curving, parallel harmonic tracks (bins 35–125) that bend up and down together—the unmistakable visual signature of a human voice gliding across pitches.
+   * Rhythmically gated/chopped vocal or instrument phrases over a steady mid-note (High confidence): Between 2.80s and 8.25s, three repeating bursts show a flat horizontal pitch around bin 70 in the sustained layer paired with 3–4 short syllabic/percussive articulations per burst in the transient layer.
+   * Full bass and drum entry at 10.00s (High confidence): At 9.95–10.50s, bright yellow energy suddenly floods the lowest bins (0–40) alongside sharp broadband vertical transients.
+ * Rhythm and Tempo Feel
+   * Stuttered, stop-start rhythmic pattern cycling every ~2.10 seconds, with ~0.35s subdivisions (~86 BPM or ~171 BPM) (High confidence): The three middle bursts begin at 2.80s, 4.90s, and 7.00s (a strict 2.10s period). Within each burst, vertical transient lines fall roughly every 0.35s (e.g., 3.10s, 3.45s, 3.80s, 4.15s).
+ * Harmony or Key
+   * Steady reference pitch during the bursts, but specific key/note name is unknown from this image alone (Can't tell exact pitch class): Because the y-axis lists only filterbank bin numbers (0 to 160) and there is no chroma panel, the exact note name cannot be read directly from Image 4, though bin ~70 clearly holds a constant pitch across 2.80–8.25s. (Note: Comparing Image 4 to the first 10.5s of Image 6 reveals they are the same clip, where that note is G4).
+ * Structure: What Changes, and When
+   * Intro built on hard cuts/dropouts leading to a drop at 10.00s (High confidence):
+     * 0.00–2.75s: Gliding vocal phrase with a sharp broadband transient at 1.50s, fading out between 2.25–2.75s.
+     * 2.80–8.25s: Three rhythmic bursts (2.80–4.15s, 4.90–6.25s, 7.00–8.25s) interrupted by two hard silences (4.15–4.90s and 6.25–7.00s), each punctuated by a sharp vertical transient pop right at the cutoff (4.15s and 6.25s).
+     * 8.25–9.95s: Gliding vocal phrase returns.
+     * 9.95–10.50s: Full low-end beat drops in.
+ * Sense of Space
+   * Stereo width (Can't tell from Image 4 alone): There is no stereo width panel in this zoomed view.
+   * High-frequency reverb/breath tail cut by hard gating (High confidence): During the gaps at 4.15–4.90s and 6.25–7.00s, the low and mid bins (0–75) drop immediately to black, while bins 80–150 show a purple high-frequency wash that decays for ~0.3–0.4s before going completely silent.
+Image 5 (tile 01/15 | 0:00–0:15)
+ * Sources Present
+   * High melodic lead, whistle, flute, or solo vocal (0.0–2.4s and 13.0–14.7s) (Medium-High confidence): Smooth, arched pitch contours appear between A4 436Hz and A6 1770Hz with very few lower partials.
+   * Heavy, sustained bass synth/instrument and drums (2.4–12.3s and 14.7–15.0s) (High confidence): At 2.4s, bright yellow-white blocks enter between A1 55Hz and A2 111Hz in the sustained layer while sharp vertical drum hits appear in the transient and onsets panels.
+   * Fast high-frequency rhythmic percussion or strumming (12.3–13.5s) (High confidence): In the upper right of the transient and full panels (above A5 878Hz), a tight comb of rapid vertical ticks appears (~8–10 hits per second, like a shaker, hi-hat roll, or rapid acoustic strumming).
+ * Rhythm and Tempo Feel
+   * Steady, heavy mid-tempo beat around ~97–98 BPM (High confidence): Between 2.4s and 12.3s, major onsets peaks and bass note attacks land regularly every ~0.61–0.62 seconds (at ~2.5s, 3.1s, 3.7s, 4.3s, 4.9s, 5.5s, 6.1s, 6.8s, 7.4s, 8.0s, 8.6s, 9.2s, 9.8s, 10.4s, 11.0s, 11.7s, 12.3s), with the bass blocks grouping every two beats (~1.23s).
+ * Harmony or Key
+   * F# minor / A major (High confidence): During the main groove (2.4–12.3s), the chroma panel is anchored by strong dark bands on F#, C#, and A (an F# minor triad), with periodic bass/chord steps to D and E (e.g., around 5.8–6.1s and 8.8–9.1s).
+ * Structure: What Changes, and When
+   * Four-part intro arrangement (High confidence):
+     * 0.0–2.4s: Quiet, bass-free intro featuring high melodic arches.
+     * 2.4–12.3s: Full heavy bass and drum groove enters at 2.4s, raising the blue loudness curve to a steady high level.
+     * 12.3–14.7s: Breakdown—the low bass completely drops out at 12.3s, leaving rapid high-frequency percussion and the returning high melodic arches.
+     * 14.7–15.0s: The heavy bass and drums slam back in right before the 15s mark.
+ * Sense of Space
+   * Centered/narrow during the heavy groove, widening noticeably during the breakdown (High confidence): The stereo width panel is mostly dark blue and muted teal from 2.4s to 12.0s (with mono bass at the bottom), then flares bright yellow-green in the low-to-mid frequencies when the bass drops out between 12.2s and 13.5s.
+Image 6 (tile 01/8 | 0:00–0:16)
+(Note: The first 10.5 seconds of Image 6 are the full 6-panel version of the zoomed-in audio shown in Image 4, and the section after 10.0s is the same track seen later at 0:48–1:04 in Image 1).
+ * Sources Present
+   * Gliding lead vocals and rhythmically chopped/gated vocal/instrument phrases (0.0–10.0s) (High confidence): Wavy, parallel formant/harmonic glides appear at 0.0–2.2s and 8.2–9.9s, while three stuttered, gated phrases occupy 2.8–4.1s, 4.9–6.2s, and 7.0–8.2s.
+   * Heavy synth bass and dense drums entering at 10.0s (High confidence): At 10.0s, bright yellow-white low-end blocks (A1 55Hz–A2 111Hz) and continuous full-spectrum vertical transients take over.
+ * Rhythm and Tempo Feel
+   * Stop-start 2.1s cycle in the intro, dropping into a dense, driving beat at 10.0s (High confidence): In the intro (2.8–8.2s), phrases repeat every 2.1s with sharp transient spikes at 4.15s and 6.25s. At 10.0s, the onsets panel shifts to a continuous, rapid pulse (~3–4 hits per second).
+ * Harmony or Key
+   * Repeated G pedal during the intro chops (0.0–10.0s), shifting to a C / C# / D bass riff with G and A upper hits (10.0–16.0s) (High confidence): In the chroma panel, the three stuttered bursts (2.8–8.2s) lock onto a dark horizontal band at G (matching the flat line just below A4 436Hz in the sustained panel), while the gliding phrases (0.0–2.2s and 8.2–9.9s) smear diagonally across pitches. At 10.0s, the chroma drops into a solid dark band on C/C#/D with alternating blocks on G and A.
+ * Structure: What Changes, and When
+   * Dramatic 10-second stuttered intro followed by the main beat drop at 10.0s (High confidence):
+     * 0.0–2.8s: Opening vocal glide with a transient burst at 1.5s and a loudness dip at 2.2–2.8s.
+     * 2.8–8.2s: Three rhythmic phrases interrupted by two deep, sharp drops in the blue loudness curve at 4.2–4.9s and 6.3–7.0s.
+     * 8.2–10.0s: Vocal glide builds back up.
+     * 10.0–16.0s: Full bass and percussion drop in at 10.0s, keeping loudness high through 16.0s (with a brief micro-cut at 12.6s).
+ * Sense of Space
+   * Extremely wide stereo intro with wide reverb tails, transitioning to mono bass + wide highs after 10.0s (High confidence): In the stereo width panel, 2.0–8.5s is bright yellow across almost the entire vertical height—even during the quiet loudness drops at 4.2–4.9s and 6.3–7.0s, showing that the high-frequency decay tail is mixed very wide. At 10.0s, the bottom strip (low) snaps to dark blue (mono sub-bass) while the mid and high frequencies stay bright green-yellow.
+
+---
+
+X7: **Got it, Kham.** I’ll go image by image, stick strictly to what’s visible, and flag confidence + which panel(s) I’m reading. No title guesses.
+
+### Image 1 (tile 01/8, 0:00–0:16)
+- **Sources**: Strong sustained/tonal material with clear harmonic stacks + lots of sharp vertical onsets → pitched instruments or synths + percussive/transient hits (possibly drums or percussive samples). Low-end energy is present and continuous. Confidence: medium-high (sustained layer shows long horizontal bands; transient layer is full of bright vertical spikes; full spectrogram has both).
+- **Rhythm / tempo**: Dense, fairly regular onset pattern, especially later in the clip. Feels mid-to-uptempo and driving. Confidence: medium (onset track + transient layer density).
+- **Harmony / key**: Multiple stacked partials visible, especially mid-range; chroma shows activity across several pitch classes. Can’t lock a clear root or mode. Confidence: low.
+- **Structure**: Opens denser and more continuous, then becomes more rhythmic/percussive toward the right half; energy stays high. Confidence: medium (full + sustained panels + loudness curve).
+- **Space**: Stereo width panel is mostly bright yellow-green → fairly wide image. Confidence: medium-high.
+
+### Image 2 (untitled, ~0–10.5 s zoom)
+- **Sources**: Clear separation into sustained (horizontal tonal ridges) and transient (vertical hits). Looks like pitched material + percussive attacks. Confidence: medium-high (the three stacked spectrograms).
+- **Rhythm / tempo**: Regular vertical striations, especially in the transient panel → steady pulse. Confidence: medium.
+- **Harmony / key**: Sustained panel shows several parallel ridges; can’t read a definite key. Confidence: low / can’t tell.
+- **Structure**: Relatively consistent energy; a few stronger vertical events stand out. Confidence: medium.
+- **Space**: Not shown (no stereo-width panel). Can’t tell.
+
+### Image 3 (tile 14/15, 3:15–3:30)
+- **Sources**: Mostly sustained/tonal energy with long horizontal bands; some transient activity but less dense than the early tiles. Looks like held chords or pads + lighter percussion. Confidence: medium-high (sustained layer dominates; transient is present but softer).
+- **Rhythm / tempo**: Onset density is lower and more sparse than the opening tiles; feels slower or more open. Confidence: medium (onset + loudness tracks).
+- **Harmony / key**: Clear sustained ridges around A4–A5 region; chroma is active but still hard to pin a single key. Confidence: low-medium.
+- **Structure**: Fairly continuous; a small energy bump around ~201 s, then continues. Confidence: medium.
+- **Space**: Stereo width is mostly cool teal/green → narrower / more centered than the first tile. Confidence: medium.
+
+### Image 4 (tile 02/13, 0:16–0:32)
+- **Sources**: Strong sustained horizontal bands (especially mid-range) + clear transient hits. Looks like melodic/harmonic material + rhythmic accents. Confidence: medium-high.
+- **Rhythm / tempo**: Regular but not hyper-dense onsets; mid-tempo feel. Confidence: medium.
+- **Harmony / key**: Multiple parallel ridges; chroma shows discrete blocks → possible chordal or riff-based writing. Can’t name the key. Confidence: low.
+- **Structure**: Energy stays relatively steady; some stronger events mid-clip. Confidence: medium.
+- **Space**: Stereo width is green-to-yellow, moderate width. Confidence: medium.
+
+### Image 5 (tile 01/15, 0:00–0:15)
+- **Sources**: Very dense mid-range energy with repeating blocky patterns + strong low-end and mid-range transients. Looks like a rhythmic loop or riff with percussive elements (possibly sampled or heavily processed). Confidence: medium-high (full + transient panels show clear repeating vertical structure).
+- **Rhythm / tempo**: Highly regular, almost grid-like vertical striations → steady, danceable pulse. Confidence: high (onset track + transient layer).
+- **Harmony / key**: Strong mid-range banding; chroma is active and patterned. Still can’t lock a key. Confidence: low.
+- **Structure**: Very consistent loop-like energy from start to end. Confidence: high.
+- **Space**: Stereo width mostly cool green → relatively narrow/centered. Confidence: medium.
+
+### Image 6 (tile 04/8, 0:48–1:04)
+- **Sources**: Dense, continuous mid-to-low energy with lots of fine vertical texture → busy rhythmic/percussive layer plus sustained material. Confidence: medium-high.
+- **Rhythm / tempo**: Steady stream of onsets, moderate density. Confidence: medium.
+- **Harmony / key**: Sustained ridges present but blurrier; chroma is active. Can’t tell key. Confidence: low.
+- **Structure**: Fairly continuous drive; no dramatic drop or build inside this window. Confidence: medium.
+- **Space**: Stereo width bright yellow-green → wide image. Confidence: medium-high.
+
+Overall pattern across the set: early tiles (especially 1 & 5) feel denser and more percussive/rhythmic; later ones open up a bit more. Stereo width varies (some wide, some narrower). Harmonic content is clearly present but the chroma panels don’t give me a reliable key reading, so I’m leaving that as “can’t tell” rather than guessing.
+
+---
+
+X8: Hello Kham! These are fascinating visualizations—AuraGraph makes rich spectral information accessible. I'll analyze each systematically, being careful to distinguish what's clearly visible from what requires inference.
+
+---
+
+## Image 1 (Tile 04/8 | 0:48–1:04)
+
+**Sources:**
+- **Strong low-frequency fundamentals (A1–A2 region):** The bright horizontal bands in the lower third suggest bass instruments or kick drum. *Confidence: High* — the sustained nature and harmonic series above confirm tonal sources.
+- **Mid-range harmonic content:** Multiple parallel horizontal lines extending to A6 indicate pitched instruments (synths, guitars, or voices). *Confidence: Medium-high* — can't identify exact instrument without timbre cues.
+- **Minimal percussive transients:** The "transient/percussive layer" panel shows scattered vertical spikes but no clear drum pattern. *Confidence: Medium* — could be soft percussion or noise-based texture.
+
+**Rhythm and tempo:**
+- Regular vertical striations suggest a pulse around **100–120 BPM**. *Confidence: Low-medium* — the spacing between vertical energy bands is roughly 0.5–0.6 seconds. The loudness/onset curves show periodic peaks but lack sharp transients typical of explicit drums.
+
+**Harmony/key:**
+- Chroma panel shows **repeating pitch-class patterns**, suggesting a loop or vamp. Dominant features cluster around certain chroma bins but I can't reliably assign root notes from this grayscale representation alone. *Confidence: Low* — chroma needs color calibration for pitch identification.
+- Harmonic stacks suggest **stable tonality** rather than rapid modulation. *Confidence: Medium*.
+
+**Structure:**
+- **Relatively uniform throughout** 0:48–1:04. No dramatic section changes. *Confidence: High* — visual density and spectral shape remain consistent.
+
+**Space:**
+- **Stereo width panel:** Moderate, mostly green/yellow with some blue dips. Mid-focused with occasional widening. *Confidence: High* — directly readable from the visualization.
+- **"Roomy"** rather than dry — the sustained harmonic layers have smooth decays without hard cut-offs. *Confidence: Low* — reverb interpretation from spectrograms is speculative.
+
+---
+
+## Image 2 (Tile 02/13 | 0:16–0:32)
+
+**Sources:**
+- **Distinct chordal harmonics:** Clean, separated horizontal bands (especially 0:16–0:20) suggest synth pads or electric piano. *Confidence: Medium-high* — the rectangular note shapes are characteristic of keyboard instruments.
+- **Lower register activity:** Bright energy at A1–A2, possibly bass guitar or synth bass. *Confidence: Medium*.
+- **Sparse transients:** Percussive layer shows isolated spikes, maybe hi-hats or light percussion. *Confidence: Low*.
+
+**Rhythm and tempo:**
+- **Clearer rhythmic pulse** here than Image 1. Onset curve shows regular peaks (~0:17, 0:19, 0:21, 0:23...). Spacing suggests **~110–130 BPM**. *Confidence: Medium*.
+- **Note:** There's a drop/break around 0:22 where density collapses, then rebuilds. *Confidence: High* — obvious visual gap.
+
+**Harmony/key:**
+- Chroma shows **distinct note changes** at regular intervals. Could be a chord progression. *Confidence: Low* — again, chroma labeling is unclear.
+- **First section (0:16–0:20)** and **second section (0:23–0:32)** appear to have different harmonic content. *Confidence: Medium-high*.
+
+**Structure:**
+- **Two-part form evident**: Dense opening, sparse middle, rebuilding phase. *Confidence: High*.
+
+**Space:**
+- **Stereo width:** More dynamic than Image 1, with wider moments (bright yellow patches). *Confidence: High*.
+- Possibly **wider mix** with more deliberate panning choices. *Confidence: Low-medium*.
+
+---
+
+## Image 3 (Tile 14/15 | 3:15–3:30)
+
+**Sources:**
+- **Major divide at ~201s**: Left side has sustained, clean harmonic stacks (keyboard-like). Right side has much denser, noisier texture. *Confidence: High* — unmistakable transition.
+- **Right side shows broadband energy** into higher frequencies (A5–A6) — could be distortion, cymbals, or layered synths. *Confidence: Medium*.
+
+**Rhythm and tempo:**
+- **Left side (3:15–3:20):** Slow, sustained material — no clear pulse. *Confidence: High*.
+- **Right side (3:20–3:30):** Much more transient activity with faster onsets. Suggests **rhythmic intensification**. Tempo impossible to read visually. *Confidence: Medium for intensification, Low for tempo value*.
+
+**Harmony/key:**
+- **Chroma shifts dramatically at 3:20.** Left is sparse/stable; right is busy and changing. *Confidence: High* — clearly visible in chroma panel.
+- May represent a **bridge-to-climax transition** or build-up. *Confidence: Low* — structural interpretation.
+
+**Structure:**
+- **Single dramatic turning point** around 3:20. *Confidence: High*.
+- This looks like **climactic material** near track end (tile 14/15 supports this). *Confidence: Medium*.
+
+**Space:**
+- **Stereo width:** Mostly narrow-mid on left, widens slightly on right. *Confidence: High*.
+- Right side feels **denser/drier** (more on-axis energy, less ambient spill visible). *Confidence: Low*.
+
+---
+
+## Image 4 (Zoomed view, no title)
+
+**Sources:**
+- **Three-band division** (full, sustained, transient) reveals layered production.
+- **Full panel:** Heavy vertical banding (measure boundaries?) with harmonic content filling spaces between. *Confidence: Medium*.
+- **Sustained panel:** Smooth, continuous horizontal bands — pads or bowed instruments? *Confidence: Low*.
+- **Transient panel:** Sharp vertical spikes — likely drums or plucked instruments. *Confidence: Medium-high*.
+
+**Rhythm and tempo:**
+- **Vertical dark bands repeat** approximately every 1.5–2 seconds. If these are downbeats, that's **~30–40 BPM** (slow) OR if they're measures in 4/4, that's **~120–160 BPM**. Without knowing the timebase, can't determine. *Confidence: Low* — critical ambiguity.
+- The pattern is **highly regular**, suggesting programmed or quantized rhythm. *Confidence: High*.
+
+**Harmony/key:**
+- **Harmonic contours rise and fall** in arches across each vertical band. Could be melodic movement or filter sweeps. *Confidence: Low*.
+
+**Structure:**
+- **Repetitive, looping structure** with slight variations. *Confidence: High*.
+
+**Space:**
+- Can't assess stereo width from this image. *Confidence: N/A*.
+
+---
+
+## Image 5 (Tile 01/15 | 0:00–0:15)
+
+**Sources:**
+- **Introduction section (0:00–0:02):** Sparse, undefined texture. *Confidence: High*.
+- **Main section (0:02–0:15):** Strong, repeating harmonic stacks starting at 0:02. Looks like **bass + chords entering together**. *Confidence: Medium-high* — the synchronized onset of multiple frequency bands suggests a chordal event.
+- **Persistent low-end fundamentals** — likely bass guitar or synth bass. *Confidence: High*.
+
+**Rhythm and tempo:**
+- **Extremely regular pulse** from 0:02 onward. Onset peaks line up precisely. Spacing suggests **~100–110 BPM**. *Confidence: Medium-high*.
+- Pattern repeats with almost mechanical precision. *Confidence: High*.
+
+**Harmony/key:**
+- **Chroma shows a repeating pattern** — likely a 2-bar or 4-bar loop. *Confidence: High*.
+- **Stable tonality** with limited pitch-class variety. *Confidence: Medium*.
+
+**Structure:**
+- **Clear intro → main section boundary at ~0:02**. *Confidence: High*.
+- No further changes within 0:02–0:15. *Confidence: High*.
+
+**Space:**
+- **Stereo width:** Narrow-mid for first 8 seconds, then widens noticeably at 0:12–0:15. *Confidence: High*.
+- This late widening might indicate **arrangement addition** (overdubs, effects). *Confidence: Low*.
+
+---
+
+## Image 6 (Tile 01/8 | 0:00–0:16)
+
+**Sources:**
+- **Dense from the start** — unlike Image 5, this opens with full texture. *Confidence: High*.
+- **Rich harmonic stacks** throughout A1–A6 range. *Confidence: High*.
+- **Transient panel** shows regular vertical spikes — likely **kick/snare pattern**. *Confidence: Medium-high*.
+
+**Rhythm and tempo:**
+- **Very consistent pulse** visible in all panels. *Confidence: High*.
+- **Volume dips** at ~4s, 6.5s, 10s, 13.5s — these could be structural markers (bar/phrase endings) or **ducking/compression artifacts**. *Confidence: Medium-low* for cause.
+- Based on spike spacing: **~115–125 BPM**. *Confidence: Medium*.
+
+**Harmony/key:**
+- **Chroma is busier** than Image 5 — more pitch classes active, suggesting **complex harmony** or counterpoint. *Confidence: Medium-high*.
+- Some chroma variation over time — not just a static loop. *Confidence: Medium*.
+
+**Structure:**
+- **Four apparent phrases** marked by volume drops and chroma resets. *Confidence: Medium-high*.
+- **More developmental** than Image 5. *Confidence: Medium*.
+
+**Space:**
+- **Exceptionally wide stereo field** — the stereo width panel shows predominantly bright yellow. *Confidence: High*.
+- This is notably wider than all other tracks. *Confidence: High*.
+- Suggests **deliberate stereo imaging** (widening plugins, mid-side processing, or naturally wide instruments). *Confidence: Medium-low for technique*.
+
+---
+
+## Comparative Summary
+
+| Aspect | Image 1 | Image 2 | Image 3 | Image 4 | Image 5 | Image 6 |
+|--------|---------|---------|---------|---------|---------|---------|
+| Density | High | Medium | Variable (low→high) | High | Medium (builds) | High |
+| Pulse clarity | Low-medium | Medium | Low→High | High | High | High |
+| Stereo width | Medium | Medium-high | Low-medium | Unknown | Low→Medium | Very High |
+| Structural change | Minimal | Yes (break) | Dramatic | Repetitive | One entry | Four phrases |
+
+---
+
+What strikes me is the **production diversity** across these tiles. Some tracks are tightly controlled and repetitive (Images 4, 5), while others feature dramatic dynamic arcs (Images 3, 6). The stereo width differences are particularly telling — Image 6's extreme width versus Image 5's narrowness suggest completely different mixing philosophies.
+
+One thing I couldn't determine confidently from any visualization: **specific instrumentation beyond broad categories**. The harmonic stacks could be synths, guitars, processed vocals, or strings — without timbral decay information or phase data, I'm limited to educated guesses.
+
+Is there a particular aspect of these visualizations you'd like me to dig deeper into? I'm curious whether these represent a single album's production evolution or different artists' approaches.
+
+---
+
+X9: I can see the six images you uploaded perfectly. The text you pasted looks like an error message from a previous AI model that failed to load the images.
+
+Here is the analysis for each of the six AuraGraph visualizations, following your requested structure.
+
+Image 1 (tile 01/8 | 0:00–0:16)
+
+· Sources present: Heavy low-frequency content (bright yellow at the bottom of the first three panels, around A1-A2). The transient layer shows dense vertical striations, indicating strong percussive elements (drums/samples). Mid-high frequencies have some sustained harmonic lines.
+· Rhythm/tempo feel: Highly rhythmic. The onset graph (orange) at the bottom shows very frequent, regular hits.
+· Harmony/key: The chroma panel (black/white blocks) is quite busy and fragmented, making a single key hard to pinpoint visually, but there is a lot of activity across the pitch classes.
+· Structure/changes: Continuous dense texture for the full 16 seconds. Loudness (blue line) dips slightly around 7s and 12s but remains generally high.
+· Space/width: Mostly wide (yellow/green in the stereo width panel), with some narrower, darker blue sections.
+
+Image 2 (tile 01/15 | 0:00–0:15)
+
+· Sources present: A massive entry of sound at the 2-second mark. Heavy sub-bass (bright at the very bottom) and dense mid/high harmonics.
+· Rhythm/tempo feel: Very strong, steady rhythmic pulse visible in the transient panel as regular vertical columns. Onsets are consistent.
+· Harmony/key: The chroma panel shows clearer, more sustained horizontal blocks (especially around the A, C, and F rows) compared to Image 1, suggesting a more defined chord progression or bassline.
+· Structure/changes: Huge structural shift at 2s where the track drops in. The energy stays high until a slight fade at the very end.
+· Space/width: Surprisingly narrow (lots of blue) for such a heavy track, suggesting a very centered, mono-focused bass and kick drum, with some wider elements in the mids.
+
+Image 3 (Unlabeled Zoomed Spectrograms)
+
+· Sources present: This looks like a zoomed-in view of a spectrogram (y-axis 0-150). The "sustained" panel shows very clear horizontal harmonic lines, suggesting a pitched instrument (synth, guitar, or voice).
+· Rhythm/tempo feel: Regular vertical attacks in the "transient" panel indicate a consistent rhythmic sequence.
+· Harmony/key: Strong fundamental frequencies with clear overtones stacked above them.
+· Structure/changes: Shows a repetitive, looping pattern with slight variations in the harmonic intensity.
+· Space/width: N/A (no stereo width panel in this specific visualization).
+
+Image 4 (tile 14/15 | 3:15–3:30)
+
+· Sources present: Very dense, complex, and noisy texture. The high frequencies (A6) are heavily populated. The transient layer shows aggressive, jagged vertical lines.
+· Rhythm/tempo feel: Fast, chaotic, or heavily processed percussion. The onset graph (orange) is extremely dense.
+· Harmony/key: The chroma panel is almost entirely black/white noise, indicating a highly dissonant, atonal, or heavily distorted section.
+· Structure/changes: A massive, sudden transient spike at exactly 201 seconds (3:21). The loudness line spikes here, and the transient layer changes character, suggesting a sudden impact, drop, or change in the beat.
+· Space/width: Relatively wide, but with some tight center-focused moments.
+
+Image 5 (tile 02/13 | 0:16–0:32)
+
+· Sources present: Look at the "sustained" panel—there is a very distinct "stair-step" pattern. This is a classic visual signature of a synth bass or a sequenced melodic instrument playing distinct notes.
+· Rhythm/tempo feel: A steady, plodding rhythm. The onsets are evenly spaced.
+· Harmony/key: Very clear harmonic blocks in the chroma panel, suggesting a repeating, tonal chord progression or bassline.
+· Structure/changes: A steady, looping section with no massive structural shifts. Loudness fluctuates rhythmically with the beat.
+· Space/width: Wide (mostly yellow), indicating stereo spread on the synths or reverbs.
+
+Image 6 (tile 04/8 | 0:48–1:04)
+
+· Sources present: A very full-spectrum sound. Lots of vertical lines in the transient panel, indicating continuous rhythmic hits (likely hi-hats and kicks).
+· Rhythm/tempo feel: Fast, driving, and busy. The onset graph is packed with hits.
+· Harmony/key: The chroma is very busy, indicating a complex chord progression or many melodic elements playing at once.
+· Structure/changes: Extremely consistent energy. The loudness line is almost perfectly flat, indicating this is likely a "loop" or a very stable section of an electronic track.
+· Space/width: Very wide (solid yellow band), suggesting heavy use of stereo widening on the percussion or synths.
+
+
+---
+
+
+X10: Here is an analysis of what is happening in each audio clip based on the provided visualizations.
+
+Disclaimer: These visualizations represent audio mathematically (frequency over time, onset detection, chroma, etc.). My interpretations translate these visual patterns into likely musical terms, but without hearing the audio, there is room for error. I have noted my confidence levels for each claim.
+
+---
+
+Image 1 (0:48-1:04)
+
+· Sources: High confidence there is a steady, synthetic drum beat (evident in the dense, regular vertical lines in the "transient" layer). High confidence there are sustained pitched instruments, likely synthesizers or bass, providing a harmonic bed (visible as thick, continuous horizontal lines in the "sustained" layer and bright yellow blocks at the bottom A1/A2 frequencies). Medium confidence this is primarily electronic music due to the highly regular, grid-like structure.
+· Rhythm/Tempo: High confidence the tempo is steady and driving. The "onsets" graph at the bottom shows perfectly regular orange spikes, indicating a strict quantization typical of a 4/4 dance or pop beat.
+· Harmony/Key: Low confidence on exact key, but Medium confidence it is harmonically dense but static. The "chroma" panel shows strong, consistent dark bars across multiple pitches (C, D#, F, G, A#), suggesting a steady minor chord or a looping sample.
+· Structure: High confidence this 16-second clip is a "loop" or a steady verse/chorus section. There are no major dynamic shifts; the loudness (blue line) remains relatively flat.
+· Space: Medium confidence the mix is somewhat narrow but full. The "stereo width" panel is mostly blue and light green, with very little bright yellow, indicating the sound is mostly centered rather than panned wide.
+
+Image 2 (0:16-0:32)
+
+· Sources: High confidence in prominent, blocky synthesizer chords (the stepped horizontal lines in the top panels). High confidence there are percussive elements, likely electronic drums or synth stabs (vertical lines in the transient layer and regular onsets).
+· Rhythm/Tempo: Medium confidence the tempo is moderate. The rhythm feels somewhat "chunky" or staccato, as the notes appear as distinct blocks rather than smooth, flowing lines.
+· Harmony/Key: High confidence there is a clear, changing chord progression. You can see the "chroma" panel shifting its dark bars around 18s, 20s, and 23s, indicating chord changes.
+· Structure: High confidence there are distinct structural changes. At ~21s, the low-end drops out (the bright yellow at the bottom disappears). At ~23s, it returns heavily. At ~26s, another change occurs. It feels like a build-up or a drop.
+· Space: High confidence the stereo width is dynamic. The "stereo width" panel shows distinct bright yellow/green blobs (wide spread) around 23s and 28s, suggesting wide panning or stereo effects on specific instruments.
+
+Image 3 (3:15-3:30)
+
+· Sources: High confidence of a massive textural shift at the 201-second mark. Before 201s, the sound is dominated by a massive, low-frequency drone or heavy bass (thick, bright bands in the A1/A2 range). After 201s, the sound becomes highly chaotic, noisy, and broadband (scratchy vertical lines across all frequencies). This could be a transition from a heavy electronic or hip-hop beat into a heavily distorted rock section, or a glitch/drum-and-bass drop.
+· Rhythm/Tempo: High confidence the rhythm completely changes. Before 201s, it is sustained and relatively static. After 201s, the onsets (bottom graph) become incredibly dense and chaotic, indicating a fast, aggressive, or noisy rhythm.
+· Harmony/Key: High confidence the harmonic content is mostly destroyed or buried after 201s. Before 201s, the chroma panel is locked into specific, low notes; after, it becomes a smeared grey/black mess indicating noise or heavy distortion.
+· Structure: High confidence the entire image is defined by one massive transition at 201s.
+· Space: Medium confidence the space widens after 201s. The stereo width panel shows a sudden increase in complexity and yellow/green colors, indicating a wider, more enveloping noisy sound.
+
+Image 4 (Zoomed-in view, 0-10.5s, different axes)
+
+· Sources: High confidence this is an acoustic or highly articulated virtual instrument, likely a plucked or struck string (guitar, harp, piano) or a mallet instrument. This is evident from the very clean, stacked horizontal harmonic lines in the "sustained" panel and the sharp, distinct attacks in the "transient" panel.
+· Rhythm/Tempo: High confidence it is a rhythmic, arpeggiated pattern. The "transient" panel shows highly regular, repeating plucks.
+· Harmony/Key: High confidence it is melodic and harmonic. The horizontal lines form distinct chord shapes and move over time.
+· Structure: High confidence it is a repeating musical phrase or loop that shifts pitch and note selection slightly over the 10 seconds.
+· Space: Can't tell. This specific image lacks the stereo width panel.
+
+Image 5 (0:00-0:15)
+
+· Sources: High confidence this is a beat-driven track (hip-hop, electronic, or pop). There is a very clear, heavy kick drum and bassline (the bright yellow blocks at the very bottom). The transient layer shows sharp, regular percussion.
+· Rhythm/Tempo: High confidence the tempo is steady and the beat is pronounced. The bottom "onsets" graph shows a very strict, repeating rhythmic grid.
+· Harmony/Key: Medium confidence the harmony is loop-based and repetitive. The "chroma" panel shows a static, repeating pattern, suggesting a short, repeating chord loop.
+· Structure: High confidence there is a structural "drop" or beat entry at ~2.5 seconds. The first 2.5 seconds are quiet (dark purple), and then a massive amount of bass and rhythmic energy enters.
+· Space: Medium confidence the mix is wide. The stereo width panel shows a lot of green and yellow, indicating a broad stereo field once the beat drops.
+
+Image 6 (0:00-0:16)
+
+· Sources: Medium confidence this is a dense, complex mix. There are heavy drums (dense transient layer), a strong bass presence (bottom frequencies), and likely vocals or distorted instruments (the highly irregular, scratchy "static" look of the spectrogram).
+· Rhythm/Tempo: Medium confidence the rhythm is syncopated or highly dynamic. The loudness (blue line) and onsets (orange) fluctuate wildly, suggesting a busy arrangement.
+· Harmony/Key: Can't tell. The chroma panel is extremely smeared and active across almost all notes simultaneously. This happens with heavy noise, complex chords, or dense vocal arrangements. It's too muddy to read a specific key.
+· Structure: High confidence it is dynamic and shifting. The loudness graph shows distinct peaks (e.g., around 2.5s, 6s, 9s, 13s) and valleys (e.g., around 5s), indicating a song with clear sections, builds, and drops rather than a simple loop.
+· Space: High confidence the space is very wide and perhaps "roomy." The stereo width panel is filled with bright yellows and greens, suggesting significant stereo panning, reverb, or a very complex, layered mix. 
