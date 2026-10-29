@@ -40,8 +40,9 @@ Python prototypes (`prototype/`) produce the tiles. The single-file HTML app (We
 | `research/INVERSION-1.md` | Can a tile be played back? Yes: 94% of the melody returns from the picture alone. A resolution sweep shows melody lives on the pitch axis and rhythm on the time axis. Includes the publishing policy that follows. |
 | `research/SPEC-SEEDS.md` | Applications beyond the base platform: tile → sound, painting music, a model that sings by drawing, diffusion-made music, music as a PNG. |
 | `toys/paint-a-tile.html` | Single-file toy: paint a tile and hear it (Griffin-Lim in the browser), or turn a recording into a tile and back. Lo-fi knobs for pitch detail, time detail and levels. |
+| `research/TILE-FORMAT.md` | The tile container, v0.3: an ordinary PNG with a small `auragraph` data chunk saying what its pixels cover (seconds, Hz, axis, loudness range), plus a filename fallback. Clips that know where they are, with the test. |
 | `research/LISTENING-QUEUE.md` | What's next to listen to. |
-| `prototype/` | The Python tools: `proto.py` (tiles + sidecar), `closeup.py` (fine timing and pitch), `fingerprint.py`, `timbre*.py`, `selfsim.py`, `tracker.py` (find a sample wherever it recurs, at any pitch shift), `zoom.py`, `bands.py`. Needs numpy, scipy, matplotlib and an audio decoder. |
+| `prototype/` | The Python tools: `proto.py` (tiles + sidecar), `closeup.py` (fine timing and pitch), `fingerprint.py`, `timbre*.py`, `selfsim.py`, `tracker.py` (find a sample wherever it recurs, at any pitch shift), `zoom.py`, `bands.py`, and the container tools `tilemeta.py`, `plain.py` (audio → plain tile with its bounds inside) and `clip.py` (cut a clip that remembers where it was). Needs numpy, scipy, matplotlib and an audio decoder. |
 | `samples/inversion/` | A CC BY-SA melodica recording and three rebuilds of it from tiles. |
 | `samples/` | Sidecars and results as text, synthetic test tiles, `derived-plots/` (fingerprints, self-similarity, sample tracking), and `reference/`: freely licensed solo recordings for timbre work. |
 

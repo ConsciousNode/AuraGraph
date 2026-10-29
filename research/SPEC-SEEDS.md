@@ -59,6 +59,8 @@ When a tile has a part that's hard to parse, the reader crops just that part and
 **The snag:** a crop has to carry its own bounds, or AuraLoom stretches it across the full 30 Hz–11 kHz range and every note lands on the wrong pitch.
 **Fix:** bounds in the filename, e.g. `clip_t12.3-13.1_f200-800.png`, or a tiny sidecar. AuraLoom's tile import reads them and places the crop exactly. A slice of a slice should still play the right notes. *(Kehai)*
 
+**Done, 2026-10-29:** the bounds ride inside the PNG (an `auragraph` chunk) and in the filename. `prototype/clip.py` cuts the clip, and AuraLoom v0.5 places it. Measured: 0 cents median pitch error with the bounds, about 10 semitones without them. See `TILE-FORMAT.md`.
+
 ## 10. Two-way notation, pinned to the tile
 Rich, detailed notes attached to spots on a tile, flowing in both directions *(Kham)*:
 - **Human → model:** "cowbell here", "she breathes", "the bass drops out".
