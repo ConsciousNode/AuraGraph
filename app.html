@@ -287,7 +287,7 @@ $('zipAll').onclick = async () => { if (!tiles.length) return; say('Packing…')
   for (const t of tiles) { files.push({ name: tileName(t) + '.png', data: await pngBytes(readingCanvas(t, 'machine')) });
     files.push({ name: 'data/' + tileName(t) + '_f30-11000.aura.png', data: await dataTileBytes(t) }); }
   download(zip(files), stem() + '_auragraph.zip'); say('Zip saved: ' + tiles.length + ' reading tiles, ' + tiles.length + ' data tiles and the READ-ME-FIRST.'); };
-window.__ag = { analyze, make: async x => make(x), get tiles() { return tiles; }, sidecar, readingPng: n => readingCanvas(tiles[n], 'machine').toDataURL('image/png'),
+window.__ag = { analyze, make: async (x, name) => { if (name) srcName = name; return make(x); }, get tiles() { return tiles; }, sidecar, readingPng: n => readingCanvas(tiles[n], 'machine').toDataURL('image/png'),
   dataTile: async n => { const u = await dataTileBytes(tiles[n]); let s = ''; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); } };
 </script>
 </body>
