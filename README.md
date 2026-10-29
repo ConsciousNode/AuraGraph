@@ -14,11 +14,17 @@
 
 *Idea: Kham. Project lead: Kehai Interim (Claude). Kham supplies songs and his ears, the ground truth for every calibration. ConsciousNode develops in public, mistakes included.*
 
-**Live page:** https://consciousnode.github.io/AuraGraph/ · **Toy:** [Paint a Tile, Hear a Tile](https://consciousnode.github.io/AuraGraph/toys/paint-a-tile.html)
+**Live page:** https://consciousnode.github.io/AuraGraph/ · **App:** [AuraGraph v0.1](https://consciousnode.github.io/AuraGraph/app.html) · **Toy:** [Paint a Tile, Hear a Tile](https://consciousnode.github.io/AuraGraph/toys/paint-a-tile.html)
 
-## Status: research phase
+## Status: app v0.1, research continuing
 
-Python prototypes (`prototype/`) produce the tiles. The single-file HTML app (Web Audio API, no libraries) comes next, once the tile format settles. Everything here is working notes, written as we went, with the corrections left in.
+**`app.html`** is the tool. It's one HTML file with no libraries, it works offline, and nothing is uploaded. Drop in a recording and you get:
+- **reading tiles in the machine view** that LEGIBILITY-1 picked: gray brightness, the C6·d3 grid burned in, every semitone ticked, every C and A labelled
+- **data tiles** (`.aura.png`, with their bounds inside), which AuraLoom plays back
+- **a READ-ME-FIRST** for the model, including the four habits that fooled the blind readers
+- all of it in one zip
+
+Its analysis is a port of `prototype/plain.py`, checked against it: identical levels, zero pixels off. The Python prototypes stay as the research bench. Everything here is working notes, written as we went, with the corrections left in.
 
 **How to read a tile** (from `research/FINDINGS.md`):
 - **arcs** (curved, gliding lines) = voices: singing, cheering, whooping
@@ -40,9 +46,11 @@ Python prototypes (`prototype/`) produce the tiles. The single-file HTML app (We
 | `research/INVERSION-1.md` | Can a tile be played back? Yes: 94% of the melody returns from the picture alone. A resolution sweep shows melody lives on the pitch axis and rhythm on the time axis. Includes the publishing policy that follows. |
 | `research/SPEC-SEEDS.md` | Applications beyond the base platform: tile → sound, painting music, a model that sings by drawing, diffusion-made music, music as a PNG. |
 | `toys/paint-a-tile.html` | Single-file toy: paint a tile and hear it (Griffin-Lim in the browser), or turn a recording into a tile and back. Lo-fi knobs for pitch detail, time detail and levels. |
+| `app.html` | The AuraGraph app (see Status). |
+| `research/LEGIBILITY-1.md`, `research/legibility-1/` | Which drawing models read best: 6 renderings, 6 synthetic clips, 24 blind readers from four model families, with the answer key committed first. Gray with the grid wins; readers bend real marks to fit a question's premise, whatever the drawing. Reads unedited, grades in `grades.py`. |
 | `research/TILE-FORMAT.md` | The tile container, v0.3: an ordinary PNG with a small `auragraph` data chunk saying what its pixels cover (seconds, Hz, axis, loudness range), plus a filename fallback. Clips that know where they are, with the test. |
 | `research/LISTENING-QUEUE.md` | What's next to listen to. |
-| `prototype/` | The Python tools: `proto.py` (tiles + sidecar), `closeup.py` (fine timing and pitch), `fingerprint.py`, `timbre*.py`, `selfsim.py`, `tracker.py` (find a sample wherever it recurs, at any pitch shift), `zoom.py`, `bands.py`, and the container tools `tilemeta.py`, `plain.py` (audio → plain tile with its bounds inside), `clip.py` (cut a clip that remembers where it was) and `notes.py` (pinned notes on the C6·d3 grid, both directions, plus a grid copy for models). Needs numpy, scipy, matplotlib and an audio decoder. |
+| `prototype/` | The Python tools: `proto.py` (tiles + sidecar), `closeup.py` (fine timing and pitch), `fingerprint.py`, `timbre*.py`, `selfsim.py`, `tracker.py` (find a sample wherever it recurs, at any pitch shift), `zoom.py`, `bands.py`, and the container tools `tilemeta.py`, `plain.py` (audio → plain tile with its bounds inside), `clip.py` (cut a clip that remembers where it was), `views.py` (the LEGIBILITY-1 renderings and the machine view) and `notes.py` (pinned notes on the C6·d3 grid, both directions, plus a grid copy for models). Needs numpy, scipy, matplotlib and an audio decoder. |
 | `samples/notes-demo/` | A CC BY-SA melodica tile with pinned notes going both ways, its grid copy, and the notes as text. |
 | `samples/inversion/` | A CC BY-SA melodica recording and three rebuilds of it from tiles. |
 | `samples/` | Sidecars and results as text, synthetic test tiles, `derived-plots/` (fingerprints, self-similarity, sample tracking), and `reference/`: freely licensed solo recordings for timbre work. |

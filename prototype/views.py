@@ -16,6 +16,9 @@ from the drawing, not from one view having better labels.
   topo    contour bands of 10 dB each, in an ordered sequence of colours (seed 12),
           with a dark line where one band meets the next
   grid    magma with Kham's A-H x 1-8 grid burned in (seeds 10a, 14)
+  machine the machine view v1, chosen by LEGIBILITY-1: gray + the burned-in grid + denser
+          pitch labels (every semitone ticked, every C and every A labelled), because weaker
+          readers anchored on the only labels there were (the Cs). The AuraGraph app draws this.
 
 Usage: python3 views.py audio.wav out_prefix [--views magma,gray,...]
 """
@@ -27,7 +30,8 @@ import tilemeta
 from plain import tile_levels, DBR
 from proto import decode, SR, HOP, NFFT, FMIN, FMAX, NBANDS
 
-VIEWS = ["magma", "gray", "sharp", "slices", "topo", "grid"]
+VIEWS = ["magma", "gray", "sharp", "slices", "topo", "grid"]   # the six LEGIBILITY-1 views (frozen)
+ALL_VIEWS = VIEWS + ["machine"]
 LEGEND = {
     "magma": "brightness = loudness (dark purple = quiet, yellow-white = loud)",
     "gray": "brightness = loudness (black = quiet, white = loud)",
@@ -35,6 +39,7 @@ LEGEND = {
     "slices": "colour = loudness range: deep blue = quiet (-80 to -45 dB), sky blue = middle (-45 to -20 dB), white = loud (top 20 dB)",
     "topo": "colour bands = 10 dB steps of loudness, in order: navy, blue, teal, green, olive, orange, red, white (loudest)",
     "grid": "brightness = loudness (magma); grid: columns A-H across time, rows 1-8 up pitch",
+    "machine": "brightness = loudness (black = quiet, white = loud, 80 dB); grid: columns A-H across time, rows 1-8 up pitch",
 }
 TOPO = np.array([[16, 18, 60], [33, 60, 140], [22, 120, 150], [40, 160, 90], [140, 170, 40],
                  [230, 150, 30], [220, 60, 40], [255, 255, 245]], np.uint8)
@@ -51,7 +56,7 @@ def paint(L, view):
     """L: levels 0..1 over DBR dB, row 0 = lowest pitch. Returns an RGB array, high pitch on top."""
     if view in ("magma", "grid"):
         return tilemeta.colorize(L)
-    if view == "gray":
+    if view in ("gray", "machine"):
         g = np.clip(np.round(L * 255), 0, 255).astype(np.uint8)[::-1]
         return np.stack([g, g, g], -1)
     if view == "sharp":
@@ -78,7 +83,8 @@ def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None):
         a[e] = (a[e] * 0.35).astype(np.uint8)
         up = Image.fromarray(a)
     w, h = size
-    Lm, Rm, Tm, Bm = 70, 24 if view != "grid" else 30, 26, 58
+    gridded = view in ("grid", "machine")
+    Lm, Rm, Tm, Bm = (84 if view == "machine" else 70), (30 if gridded else 24), 26, 58
     c = Image.new("RGB", (w + Lm + Rm, h + Tm + Bm), (12, 12, 15))
     c.paste(up, (Lm, Tm))
     ov = Image.new("RGBA", c.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
@@ -93,6 +99,13 @@ def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None):
         if major:
             d.text((X(t), Tm + h + 9), f"{t:.0f} s", fill=(220, 220, 220, 255), font=S, anchor="ma")
         t += 0.25
+    if view == "machine":                                   # every semitone ticked, every A labelled too
+        for m in range(math.ceil(12 * math.log2(f0 / 440) + 69), math.floor(12 * math.log2(f1 / 440) + 69) + 1):
+            fz = 440 * 2 ** ((m - 69) / 12); y = Y(fz)
+            d.line([(Lm - (6 if m % 12 in (0, 9) else 3), y), (Lm, y)], fill=(170, 170, 170, 255))
+            if m % 12 == 9:
+                lab = f"A{m // 12 - 1} {fz:.0f}" if fz < 1000 else f"A{m // 12 - 1} {fz / 1000:.2f}k"
+                d.text((Lm - 8, y), lab, fill=(165, 165, 165, 255), font=S, anchor="rm")
     # pitch labels at every C
     for octv in range(1, 10):
         fz = 440 * 2 ** ((12 * (octv + 1) - 69) / 12)
@@ -100,15 +113,15 @@ def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None):
             d.line([(Lm - 6, Y(fz)), (Lm, Y(fz))], fill=(210, 210, 210, 255))
             lab = f"C{octv} {fz:.0f}" if fz < 1000 else f"C{octv} {fz / 1000:.1f}k"
             d.text((Lm - 8, Y(fz)), lab, fill=(220, 220, 220, 255), font=S, anchor="rm")
-    if view == "grid":
+    if gridded:
         for i in range(9):
             x = Lm + i / 8 * w; y = Tm + h - i / 8 * h
             d.line([(x, Tm), (x, Tm + h)], fill=(255, 255, 255, 120)); d.line([(Lm, y), (Lm + w, y)], fill=(255, 255, 255, 120))
         for k in range(8):
             d.text((Lm + (k + 0.5) / 8 * w, 6), "ABCDEFGH"[k], fill=(235, 235, 235, 255), font=F, anchor="ma")
             d.text((Lm + w + 15, Tm + h - (k + 0.5) / 8 * h), str(k + 1), fill=(235, 235, 235, 255), font=F, anchor="mm")
-    if title:
-        d.text((Lm, 6), title, fill=(235, 235, 235, 255), font=F) if view != "grid" else None
+    if title and not gridded:
+        d.text((Lm, 6), title, fill=(235, 235, 235, 255), font=F)
     d.text((Lm, Tm + h + 28), "time: left to right   pitch: bottom to top (log)   " + LEGEND[view], fill=(190, 190, 190, 255), font=S)
     return Image.alpha_composite(c.convert("RGBA"), ov).convert("RGB")
 
@@ -123,7 +136,7 @@ def render(audio, view, title=None):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("audio"); ap.add_argument("prefix")
-    ap.add_argument("--views", default=",".join(VIEWS))
+    ap.add_argument("--views", default=",".join(VIEWS), help="any of " + ",".join(ALL_VIEWS))
     a = ap.parse_args()
     for v in a.views.split(","):
         out = f"{a.prefix}_{v}.png"; render(a.audio, v).save(out); print(out)
