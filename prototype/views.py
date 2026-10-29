@@ -27,7 +27,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from scipy.ndimage import gaussian_filter
 import tilemeta
-from plain import tile_levels, DBR
+from plain import tile_levels, levels_v2, DBR
 from proto import decode, SR, HOP, NFFT, FMIN, FMAX, NBANDS
 
 VIEWS = ["magma", "gray", "sharp", "slices", "topo", "grid"]   # the six LEGIBILITY-1 views (frozen)
@@ -72,7 +72,7 @@ def paint(L, view):
     raise ValueError(view)
 
 
-def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None):
+def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None, db_range=DBR):
     H, W = rgb.shape[:2]
     up = Image.fromarray(rgb).resize(size, Image.NEAREST)
     a = np.array(up)
@@ -122,21 +122,25 @@ def frame(rgb, view, t0, t1, f0=FMIN, f1=FMAX, size=(900, 480), title=None):
             d.text((Lm + w + 15, Tm + h - (k + 0.5) / 8 * h), str(k + 1), fill=(235, 235, 235, 255), font=F, anchor="mm")
     if title and not gridded:
         d.text((Lm, 6), title, fill=(235, 235, 235, 255), font=F)
-    d.text((Lm, Tm + h + 28), "time: left to right   pitch: bottom to top (log)   " + LEGEND[view], fill=(190, 190, 190, 255), font=S)
+    leg = LEGEND[view].replace("80 dB", f"{db_range:.0f} dB") if view == "machine" else LEGEND[view]
+    d.text((Lm, Tm + h + 28), "time: left to right   pitch: bottom to top (log)   " + leg, fill=(190, 190, 190, 255), font=S)
     return Image.alpha_composite(c.convert("RGBA"), ov).convert("RGB")
 
 
-def render(audio, view, title=None):
+def render(audio, view, title=None, analysis="v1"):
+    """analysis v1 is the one LEGIBILITY-1 tested (kept for reproducing it); v2 is the app's (see plain.py)."""
     Lc, Rc = decode(audio)
-    L = tile_levels((Lc + Rc) / 2)
+    x = (Lc + Rc) / 2
+    L, rng = (tile_levels(x), DBR) if analysis == "v1" else levels_v2(x)
     dt = HOP / SR; t0 = (NFFT / 2) / SR - dt / 2; t1 = t0 + L.shape[1] * dt
-    return frame(paint(L, view), view, t0, t1, title=title)
+    return frame(paint(L, view), view, t0, t1, title=title, db_range=rng)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("audio"); ap.add_argument("prefix")
     ap.add_argument("--views", default=",".join(VIEWS), help="any of " + ",".join(ALL_VIEWS))
+    ap.add_argument("--analysis", default="v1", choices=["v1", "v2"])
     a = ap.parse_args()
     for v in a.views.split(","):
-        out = f"{a.prefix}_{v}.png"; render(a.audio, v).save(out); print(out)
+        out = f"{a.prefix}_{v}.png"; render(a.audio, v, analysis=a.analysis).save(out); print(out)

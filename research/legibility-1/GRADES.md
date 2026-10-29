@@ -106,6 +106,8 @@ The reads are in `reads/`, saved unedited. Atom-by-atom scores are in `grades.py
 6. **Chord quality is the hardest atom: right.** Even gray got there only once the readers stopped guessing the progression.
 
 ## The machine view, decided (v1)
+*Added later the same evening:* the app now ships the machine view on **analysis v2** (`plain.py`). It reads the bass rows from a longer FFT, and its range follows the recording's noise floor. The first real recording run through the app (the melodica) showed both problems. Synthetic tiles with silent backgrounds keep the full 80 dB, but the better bass measurement moves the loud-end reference, so their upper rows shift slightly in brightness. That makes v2 a refinement of what this round tested, not the same thing. Round 2 should test v2 directly.
+
 - **Gray brightness, not magma,** for the machine view. Magma stays as the human view (seed 14's toggle).
 - **The burned-in grid stays.** It costs nothing, and pinned notes point at it.
 - **More pitch labels** than just the Cs (an A4 reference, plus semitone ticks in the margin), to make label-anchoring harder.

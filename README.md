@@ -14,9 +14,9 @@
 
 *Idea: Kham. Project lead: Kehai Interim (Claude). Kham supplies songs and his ears, the ground truth for every calibration. ConsciousNode develops in public, mistakes included.*
 
-**Live page:** https://consciousnode.github.io/AuraGraph/ · **App:** [AuraGraph v0.1](https://consciousnode.github.io/AuraGraph/app.html) · **Toy:** [Paint a Tile, Hear a Tile](https://consciousnode.github.io/AuraGraph/toys/paint-a-tile.html)
+**Live page:** https://consciousnode.github.io/AuraGraph/ · **App:** [AuraGraph v0.2](https://consciousnode.github.io/AuraGraph/app.html) · **Toy:** [Paint a Tile, Hear a Tile](https://consciousnode.github.io/AuraGraph/toys/paint-a-tile.html)
 
-## Status: app v0.1, research continuing
+## Status: app v0.2, research continuing
 
 **`app.html`** is the tool. It's one HTML file with no libraries, it works offline, and nothing is uploaded. Drop in a recording and you get:
 - **reading tiles in the machine view** that LEGIBILITY-1 picked: gray brightness, the C6·d3 grid burned in, every semitone ticked, every C and A labelled
@@ -24,7 +24,11 @@
 - **a READ-ME-FIRST** for the model, including the four habits that fooled the blind readers
 - all of it in one zip
 
-Its analysis is a port of `prototype/plain.py`, checked against it: identical levels, zero pixels off. The Python prototypes stay as the research bench. Everything here is working notes, written as we went, with the corrections left in.
+Its analysis is a port of `prototype/plain.py`, checked against it: identical levels, zero pixels off. **v0.2** (analysis v2) fixes two things a real recording showed:
+- **Bass rows:** below ~290 Hz the bands are read from a longer FFT, so they stop copying each other.
+- **Background:** the loudness range follows the recording's own noise floor (40–80 dB), so a room's hiss goes near-black instead of mid-gray.
+
+`plain.py --v1` keeps the analysis LEGIBILITY-1 tested. The Python prototypes stay as the research bench. Everything here is working notes, written as we went, with the corrections left in.
 
 **How to read a tile** (from `research/FINDINGS.md`):
 - **arcs** (curved, gliding lines) = voices: singing, cheering, whooping

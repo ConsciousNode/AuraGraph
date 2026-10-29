@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <!--
-  AuraGraph app v0.1: sound for LLMs.
+  AuraGraph app v0.2: sound for LLMs.
   Drop in a recording. Get tiles a language model can read (the machine view chosen by LEGIBILITY-1:
   gray brightness, the C6·d3 grid burned in, every semitone ticked, every C and A labelled), data tiles
   (.aura.png, with their bounds inside, which AuraLoom can play), and a READ-ME-FIRST sidecar for the
   model. One file, no libraries, works offline, nothing is uploaded anywhere.
 
-  The analysis is a port of prototype/plain.py: 22,050 Hz mono, 2048-point Hann STFT with hop 512,
-  160 log-spaced bands from 30 Hz to 11 kHz (a band narrower than one FFT bin borrows its nearest bin),
-  loudness in dB relative to the 99.7th percentile, over 80 dB. Checked against Python: identical levels, zero pixels off.
+  The analysis is a port of prototype/plain.py (analysis v2): 22,050 Hz mono, Hann STFTs with hop 512 (2048 points,
+  and 4096/8192 for bands below ~290 Hz, centred on the same moment), 160 log-spaced bands from 30 Hz to 11 kHz,
+  loudness in dB relative to the 99.7th percentile, over a range set by the recording's own noise floor (40–80 dB).
+  v0.1 (one FFT size, a fixed 80 dB) was the analysis LEGIBILITY-1 tested; plain.py --v1 reproduces it.
 
   ConsciousNode SoftWorks · idea: Kham · project lead and build: Kehai Interim (Claude) · MIT
 -->
@@ -75,46 +76,58 @@ footer{color:var(--dim);font-size:12.5px;margin-top:30px}
 
   <div id="tiles"></div>
 
-  <footer>AuraGraph app v0.1 · machine view v1 (chosen by <a href="https://github.com/ConsciousNode/AuraGraph/blob/main/research/LEGIBILITY-1.md">LEGIBILITY-1</a>: 24 blind readers, four model families) · data tiles play in <a href="https://consciousnode.github.io/AuraLoom/">AuraLoom</a> · <a href="https://github.com/ConsciousNode/AuraGraph">source</a> · ConsciousNode SoftWorks · MIT</footer>
+  <footer>AuraGraph app v0.2 · machine view v1 · analysis v2 (chosen by <a href="https://github.com/ConsciousNode/AuraGraph/blob/main/research/LEGIBILITY-1.md">LEGIBILITY-1</a>: 24 blind readers, four model families) · data tiles play in <a href="https://consciousnode.github.io/AuraLoom/">AuraLoom</a> · <a href="https://github.com/ConsciousNode/AuraGraph">source</a> · ConsciousNode SoftWorks · MIT</footer>
 </main>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
-const SR = 22050, NFFT = 2048, HOP = 512, NB = 160, FMIN = 30, FMAX = 11000, DBR = 80;
+const SR = 22050, NFFT = 2048, HOP = 512, NB = 160, FMIN = 30, FMAX = 11000;
 const PLOT_W = 900, PLOT_H = 480, ML = 84, MR = 30, MT = 26, MB = 58;   // the frame views.py draws
-const VERSION = 'AuraGraph app v0.1 (machine view v1)';
+const VERSION = 'AuraGraph app v0.2 (machine view v1, analysis v2)';
 let tiles = [], view = 'machine', srcName = 'audio', durationS = 0;
 
-// ---------------- analysis: a port of prototype/plain.py ----------------
-const rev = new Uint32Array(NFFT); { const b = Math.log2(NFFT); for (let i = 0; i < NFFT; i++) { let r = 0; for (let j = 0; j < b; j++) r |= ((i >> j) & 1) << (b - 1 - j); rev[i] = r; } }
-const cosT = new Float64Array(NFFT / 2), sinT = new Float64Array(NFFT / 2);
-for (let i = 0; i < NFFT / 2; i++) { cosT[i] = Math.cos(2 * Math.PI * i / NFFT); sinT[i] = Math.sin(2 * Math.PI * i / NFFT); }
-function fft(re, im) {
-  for (let i = 0; i < NFFT; i++) { const j = rev[i]; if (j > i) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; } }
-  for (let size = 2; size <= NFFT; size <<= 1) { const half = size >> 1, step = NFFT / size;
-    for (let i = 0; i < NFFT; i += size) for (let j = 0; j < half; j++) {
-      const c = cosT[j * step], s = -sinT[j * step], a = i + j, b = a + half, tr = re[b] * c - im[b] * s, ti = re[b] * s + im[b] * c;
-      re[b] = re[a] - tr; im[b] = im[a] - ti; re[a] += tr; im[a] += ti; } } }
-const WIN = Float64Array.from({ length: NFFT }, (_, i) => 0.5 - 0.5 * Math.cos(2 * Math.PI * i / NFFT));   // periodic Hann, as scipy
-// bands: edges geometric from FMIN to FMAX; bins inside a band are averaged; a band with none borrows the bin nearest its centre
-const BANDS = (() => { const out = [], df = SR / NFFT;
-  for (let b = 0; b < NB; b++) { const lo = FMIN * Math.pow(FMAX / FMIN, b / NB), hi = FMIN * Math.pow(FMAX / FMIN, (b + 1) / NB), ks = [];
-    for (let k = 0; k <= NFFT / 2; k++) { const f = k * df; if (f >= lo && f < hi) ks.push(k); }
+// ---------------- analysis: a port of prototype/plain.py (analysis v2) ----------------
+// Bands too narrow for a 2048-point bin (below ~290 Hz) are read from a 4096- or 8192-point FFT centred on the same
+// moment, so the bass rows stop copying each other. The loudness range follows the recording: from the loud end down
+// to its 15th-percentile level (the noise floor), kept between 40 and 80 dB. Spectra are scaled by 1/sum(window), as scipy's.
+const SIZES = [2048, 4096, 8192], RANGE_PCT = 15, RANGE_MIN = 40, RANGE_MAX = 80;
+const FFTS = {};
+function fftOf(n) { if (FFTS[n]) return FFTS[n];
+  const bits = Math.log2(n), rev = new Uint32Array(n), cos = new Float64Array(n / 2), sin = new Float64Array(n / 2);
+  for (let i = 0; i < n; i++) { let r = 0; for (let j = 0; j < bits; j++) r |= ((i >> j) & 1) << (bits - 1 - j); rev[i] = r; }
+  for (let i = 0; i < n / 2; i++) { cos[i] = Math.cos(2 * Math.PI * i / n); sin[i] = Math.sin(2 * Math.PI * i / n); }
+  const win = Float64Array.from({ length: n }, (_, i) => 0.5 - 0.5 * Math.cos(2 * Math.PI * i / n));   // periodic Hann, as scipy
+  let ws = 0; for (const w of win) ws += w;
+  const re = new Float64Array(n), im = new Float64Array(n);
+  const run = () => { for (let i = 0; i < n; i++) { const j = rev[i]; if (j > i) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; } }
+    for (let size = 2; size <= n; size <<= 1) { const half = size >> 1, step = n / size;
+      for (let i = 0; i < n; i += size) for (let j = 0; j < half; j++) {
+        const c = cos[j * step], s = -sin[j * step], a = i + j, b = a + half, tr = re[b] * c - im[b] * s, ti = re[b] * s + im[b] * c;
+        re[b] = re[a] - tr; im[b] = im[a] - ti; re[a] += tr; im[a] += ti; } } };
+  return FFTS[n] = { n, win, ws, re, im, run }; }
+// for each band: the smallest FFT whose bin fits inside it, and the bins it averages (none fit: the nearest bin)
+const PLAN = (() => { const out = [];
+  for (let b = 0; b < NB; b++) { const lo = FMIN * Math.pow(FMAX / FMIN, b / NB), hi = FMIN * Math.pow(FMAX / FMIN, (b + 1) / NB);
+    const n = SIZES.find(n => hi - lo >= SR / n) || SIZES[SIZES.length - 1], df = SR / n, ks = [];
+    for (let k = 0; k <= n / 2; k++) { const f = k * df; if (f >= lo && f < hi) ks.push(k); }
     if (!ks.length) ks.push(Math.round(Math.sqrt(lo * hi) / df));
-    out.push(ks); } return out; })();
-async function analyze(x, progress) {             // x: Float32Array at SR. Returns {lev: Float32Array(NB*F) row 0 = lowest band, F}
-  const F = x.length >= NFFT ? Math.floor((x.length - NFFT) / HOP) + 1 : 0;
-  const B = new Float32Array(NB * F), re = new Float64Array(NFFT), im = new Float64Array(NFFT), mag = new Float64Array(NFFT / 2 + 1);
-  for (let c = 0; c < F; c++) { const o = c * HOP;
-    for (let i = 0; i < NFFT; i++) { re[i] = x[o + i] * WIN[i]; im[i] = 0; }
-    fft(re, im); for (let k = 0; k <= NFFT / 2; k++) mag[k] = Math.hypot(re[k], im[k]);
-    for (let b = 0; b < NB; b++) { const ks = BANDS[b]; let s = 0; for (const k of ks) s += mag[k]; B[b * F + c] = s / ks.length; }
-    if (progress && c % 400 === 399) { progress(c / F); await new Promise(r => setTimeout(r, 0)); } }
-  const sorted = Float32Array.from(B).sort(), pos = 0.997 * (sorted.length - 1), lo = Math.floor(pos);   // numpy's linear percentile
-  const ref = (sorted[lo] + (sorted[Math.min(lo + 1, sorted.length - 1)] - sorted[lo]) * (pos - lo)) || 1;
-  const lev = new Float32Array(NB * F);
-  for (let i = 0; i < B.length; i++) lev[i] = Math.max(0, Math.min(1, 1 + 20 * Math.log10(Math.max(B[i], 1e-10) / ref) / DBR));
-  return { lev, F };
+    out.push({ n, ks }); } return out; })();
+function pctl(sorted, q) { const pos = q / 100 * (sorted.length - 1), lo = Math.floor(pos); return sorted[lo] + ((sorted[Math.min(lo + 1, sorted.length - 1)] - sorted[lo]) * (pos - lo)); }
+async function analyze(x, progress) {             // x: Float32Array at SR. Returns {lev, F, range}: lev row 0 = lowest band
+  const F = x.length >= NFFT ? Math.floor((x.length - NFFT) / HOP) + 1 : 0, B = new Float32Array(NB * F);
+  const used = SIZES.filter(n => PLAN.some(p => p.n === n)), mags = {};
+  for (const n of used) mags[n] = new Float64Array(n / 2 + 1);
+  for (let c = 0; c < F; c++) { const centre = NFFT / 2 + c * HOP;
+    for (const n of used) { const T = fftOf(n), o = centre - n / 2, m = mags[n];
+      for (let i = 0; i < n; i++) { const j = o + i; T.re[i] = (j >= 0 && j < x.length ? x[j] : 0) * T.win[i]; T.im[i] = 0; }
+      T.run(); for (let k = 0; k <= n / 2; k++) m[k] = Math.hypot(T.re[k], T.im[k]) / T.ws; }
+    for (let b = 0; b < NB; b++) { const { n, ks } = PLAN[b], m = mags[n]; let s = 0; for (const k of ks) s += m[k]; B[b * F + c] = s / ks.length; }
+    if (progress && c % 200 === 199) { progress(c / F); await new Promise(r => setTimeout(r, 0)); } }
+  const sorted = Float32Array.from(B).sort(), ref = pctl(sorted, 99.7) || 1;
+  const dB = new Float32Array(B.length); for (let i = 0; i < B.length; i++) dB[i] = 20 * Math.log10(Math.max(B[i], 1e-10) / ref);
+  const range = Math.max(RANGE_MIN, Math.min(RANGE_MAX, -pctl(Float32Array.from(dB).sort(), RANGE_PCT)));
+  const lev = new Float32Array(B.length); for (let i = 0; i < B.length; i++) lev[i] = Math.max(0, Math.min(1, 1 + dB[i] / range));
+  return { lev, F, range };
 }
 const colT0 = c => (NFFT / 2 + c * HOP) / SR - HOP / SR / 2;   // left edge of column c, in seconds
 
@@ -157,7 +170,7 @@ function readingCanvas(tile, mode) {             // the frame from views.py: sam
   for (let k = 0; k < 8; k++) { g.textAlign = 'center'; g.textBaseline = 'top'; g.fillText('ABCDEFGH'[k], ML + (k + 0.5) / 8 * plotW, 6);
     g.textBaseline = 'middle'; g.fillText(String(k + 1), ML + plotW + MR / 2, MT + PLOT_H - (k + 0.5) / 8 * PLOT_H); }
   g.font = '11px system-ui,sans-serif'; g.fillStyle = 'rgb(190,190,190)'; g.textAlign = 'left'; g.textBaseline = 'top';
-  const legend = mode === 'machine' ? 'brightness = loudness (black = quiet, white = loud, 80 dB)' : 'brightness = loudness (magma: dark purple = quiet, yellow-white = loud, 80 dB)';
+  const R = Math.round(tile.A.range), legend = mode === 'machine' ? 'brightness = loudness (black = quiet, white = loud, ' + R + ' dB)' : 'brightness = loudness (magma: dark purple = quiet, yellow-white = loud, ' + R + ' dB)';
   g.fillText('time: left to right   pitch: bottom to top (log)   ' + legend + '   grid: columns A-H across time, rows 1-8 up pitch', ML, MT + PLOT_H + 28);
   g.fillText(srcName + ' · tile ' + tile.n + ' of ' + tiles.length + ' · ' + tile.t0.toFixed(2) + '–' + tile.t1.toFixed(2) + ' s', ML, MT + PLOT_H + 42);
   return cv;
@@ -175,7 +188,7 @@ const pngBytes = cv => new Promise(res => cv.toBlob(async b => res(new Uint8Arra
 const b2 = x => x.toFixed(2);
 async function dataTileBytes(tile) {
   return pngWithMeta(await pngBytes(dataCanvas(tile.A, tile.c0, tile.c1, false)), { format: 'auragraph-tile', v: '0.3', t0: +tile.t0.toFixed(4), t1: +tile.t1.toFixed(4),
-    f0: FMIN, f1: FMAX, axis: 'log', bands: NB, db: [-DBR, 0], cmap: 'magma8', sr: SR, hop: HOP, src: VERSION + ': ' + srcName, tile: tile.n, of: tiles.length }); }
+    f0: FMIN, f1: FMAX, axis: 'log', bands: NB, db: [-Math.round(tile.A.range * 10) / 10, 0], cmap: 'magma8', sr: SR, hop: HOP, analysis: 'v2', src: VERSION + ': ' + srcName, tile: tile.n, of: tiles.length }); }
 
 // ---------------- zip (store only, no libraries) ----------------
 function zip(files) {                              // files: [{name, data: Uint8Array}]
@@ -205,9 +218,10 @@ ${durationS.toFixed(2)} s of sound in ${tiles.length} tile${tiles.length > 1 ? '
 
 ## How to read these tiles
 - Time runs left to right (seconds along the bottom). Pitch runs bottom to top on a log scale: every C and every A is labelled with its Hz (A4 = 440 Hz), and the small ticks on the left are semitones.
-- Brightness is loudness: black is quiet, white is loud, across 80 dB.
+- Brightness is loudness: black is quiet, white is loud, across ${tiles[0].A.range.toFixed(0)} dB (from the loudest moment down to this recording's noise floor; anything quieter is black).
 - Horizontal lines are pitched sounds. Evenly spaced lines above a lowest one are that sound's overtones, its timbre. Slanted or curved lines are pitch slides.
 - Vertical stripes are hits or onsets. A sound that rings out fades toward the right. Low rows are bass; the top rows are very high (cymbals, hiss).
+- Below about 290 Hz the tile is measured with a longer window, so the bass rows are sharper in pitch but blur slightly in time. The background can step a little in brightness near 130 Hz and 290 Hz where the window changes. That step isn't a sound.
 - Drums, as they usually look: a kick is a low thump that sweeps downward; a snare is a tall noisy column; a hi-hat is a short burst in the top rows.
 - The grid: columns A–H across each tile's time, rows 1–8 up its pitch. Name a spot like C6. Each cell splits the same way in lowercase, so C6·d3 is a small spot inside C6. Rows (the same in every tile): ${rows}.
 
