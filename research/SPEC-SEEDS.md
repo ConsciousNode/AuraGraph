@@ -104,3 +104,25 @@ One tile, two renderings *(Kham)*:
 The data underneath is identical, so a human and a model can point at the same C6·d3 and be talking about the same sound.
 
 ---
+
+## 15. Baked in vs bolted on: the first training test
+The long-range vision is a vision-language model with the *How to Read a Tile* guide trained into it. It would get video as frame grids and audio as tiles, natively, with no separate audio adaptor. *(Kham)*
+
+**Why it's plausible:** the Audio Spectrogram Transformer (Gong, Chung & Glass, 2021) fine-tuned a vision transformer that had been pretrained on ImageNet photos to work on spectrograms. The photo pretraining *helped* the audio model. Weights that learned to see are most of the way to hearing.
+
+**The test, at our scale** *(Kehai)*:
+- **Model:** a small open vision-language model that can be fine-tuned on free or cheap GPU time (Colab-class). Pick whichever has the friendliest licence when we get there.
+- **Training data, all above board:**
+  - **Synthetic, with perfect answer keys:** AuraLoom scores rendered by `tools/weave.py`. Every tile comes with its own score, so the ground truth (every note, hit and voice) is known exactly, and there's no copyright anywhere. A score-writing script can make thousands.
+  - **Freely licensed recordings** (CC0 / CC-BY) for real-world sound, with tiles plus written readings.
+  - **Kham's pinned notes** (seed 10) as the human-ear layer.
+  - **The guide itself,** plus worked examples, as text the model trains on. This is the soul-corpus method pointed at perception: the grammar goes into the weights, not the prompt.
+- **Held-out test:** tiles the model never saw, read blind. Compare three conditions:
+  1. the base model reading cold
+  2. the base model with the guide in its prompt (bolted on)
+  3. the fine-tuned model with no guide in the prompt (baked in)
+
+  Answer keys are written first, `OUTSIDE-TEST-1` style.
+- **What would count as a win:** (3) beats (2) on blind reads, especially on things the guide only describes in general terms, like naming an unfamiliar instrument by its overtone ladder.
+- **Watch for the recording confound** (from `FINDINGS.md`): a model trained on one recording learns the recording, not the instrument. Mix sources, rooms and renderers on purpose.
+- **Honest costs to measure while we're at it:** image tokens per second of audio, the fastest event that survives at a given tile resolution, and whether rolling slices could work for live input.
