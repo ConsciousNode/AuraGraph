@@ -14,6 +14,8 @@
 
 *Idea: Kham. Project lead: Kehai Interim (Claude). Kham supplies songs and his ears, the ground truth for every calibration. ConsciousNode develops in public, mistakes included.*
 
+**Live page:** https://consciousnode.github.io/AuraGraph/ · **Toy:** [Paint a Tile, Hear a Tile](https://consciousnode.github.io/AuraGraph/toys/paint-a-tile.html)
+
 ## Status: research phase
 
 Python prototypes (`prototype/`) produce the tiles. The single-file HTML app (Web Audio API, no libraries) comes next, once the tile format settles. Everything here is working notes, written as we went, with the corrections left in.
@@ -35,8 +37,12 @@ Python prototypes (`prototype/`) produce the tiles. The single-file HTML app (We
 | `research/OUTSIDE-TEST-1.md`, `research/outside-test-1/` | Running a tile pack past other models (Grok, Gemini, DeepSeek and others) in fresh chats, with the answer key and rubric written **before** any answers came back. |
 | `research/ROUND-2-DESIGN.md` | The design for a fair second round (out-of-sample guide, a no-image control to measure confabulation). Parked: the main line is the tool itself. |
 | `research/blind-reads/` | Four blind reads of songs Kham picked, each READ (written first) and GRADE (scored against Kham's ears). |
+| `research/INVERSION-1.md` | Can a tile be played back? Yes: 94% of the melody returns from the picture alone. A resolution sweep shows melody lives on the pitch axis and rhythm on the time axis. Includes the publishing policy that follows. |
+| `research/SPEC-SEEDS.md` | Applications beyond the base platform: tile → sound, painting music, a model that sings by drawing, diffusion-made music, music as a PNG. |
+| `toys/paint-a-tile.html` | Single-file toy: paint a tile and hear it (Griffin-Lim in the browser), or turn a recording into a tile and back. Lo-fi knobs for pitch detail, time detail and levels. |
 | `research/LISTENING-QUEUE.md` | What's next to listen to. |
 | `prototype/` | The Python tools: `proto.py` (tiles + sidecar), `closeup.py` (fine timing and pitch), `fingerprint.py`, `timbre*.py`, `selfsim.py`, `tracker.py` (find a sample wherever it recurs, at any pitch shift), `zoom.py`, `bands.py`. Needs numpy, scipy, matplotlib and an audio decoder. |
+| `samples/inversion/` | A CC BY-SA melodica recording and three rebuilds of it from tiles. |
 | `samples/` | Sidecars and results as text, synthetic test tiles, `derived-plots/` (fingerprints, self-similarity, sample tracking), and `reference/`: freely licensed solo recordings for timbre work. |
 
 ## What's not here, and why

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paint a Tile, Hear a Tile · AuraGraph</title>
+<style>
+:root{--bg:#0d0b12;--panel:#17131f;--line:#2c2538;--text:#ece6f5;--soft:#a99fbb;--accent:#f0a35e;--accent2:#c66bd6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+h1{font-size:17px;margin:0;font-weight:650;letter-spacing:.3px}
+h1 span{color:var(--accent)}
+.sub{color:var(--soft);font-size:12.5px}
+.spacer{flex:1}
+button,select,label.file{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
+button:hover,label.file:hover{border-color:var(--accent)}
+button.on{background:var(--accent);color:#1a1020;border-color:var(--accent);font-weight:600}
+button.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1020;border:none;font-weight:650}
+button:disabled{opacity:.4;cursor:default}
+label.file input{display:none}
+main{padding:12px 16px;max-width:1200px;margin:0 auto}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.bar .lab{color:var(--soft);font-size:12px;margin:0 2px 0 8px}
+input[type=range]{width:110px;accent-color:var(--accent)}
+#stage{position:relative;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000}
+#axis{width:42px;flex:none;position:relative;background:var(--panel);border-right:1px solid var(--line);font-size:10.5px;color:var(--soft)}
+#axis div{position:absolute;right:5px;transform:translateY(-50%)}
+#wrap{position:relative;flex:1;height:min(56vh,520px);touch-action:none}
+#cv{width:100%;height:100%;display:block;cursor:crosshair}
+#cursor{position:absolute;top:0;bottom:0;width:2px;background:#fff;opacity:.8;display:none;pointer-events:none}
+#hover{position:absolute;pointer-events:none;font-size:11px;background:rgba(0,0,0,.65);padding:2px 6px;border-radius:5px;display:none;white-space:nowrap}
+#status{color:var(--soft);font-size:12.5px;margin-top:8px;min-height:1.4em}
+#help-ov{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:9}
+#help-ov.on{display:flex}
+#help{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:620px;width:94%;max-height:86vh;overflow:auto;padding:16px 20px;color:var(--soft);font-size:13.5px;line-height:1.6}
+#help h2{color:var(--text);font-size:16px;margin:0 0 6px}
+#help h3{color:var(--text);font-size:14px;margin:14px 0 4px}
+#help b{color:var(--text)}
+#help ul{padding-left:18px;margin:4px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>PAINT A TILE, <span>HEAR A TILE</span></h1>
+  <span class="sub">AuraGraph toy · draw sound as a picture, then play the picture</span>
+  <span class="spacer"></span>
+  <button id="helpBtn" title="How it works">?</button>
+</header>
+<main>
+  <div class="bar">
+    <span class="lab">Brush</span>
+    <button data-brush="tone" class="on" title="A held note: horizontal line">Tone</button>
+    <button data-brush="ladder" title="A note plus its overtones: a horizontal ladder">Ladder</button>
+    <button data-brush="hit" title="A drum hit: vertical stripe">Hit</button>
+    <button data-brush="noise" title="Breath, hiss, wind: a soft smear">Noise</button>
+    <button data-brush="erase" title="Rub it out">Erase</button>
+    <span class="lab">Size</span><input id="size" type="range" min="1" max="12" value="2">
+    <span class="lab">Loud</span><input id="loud" type="range" min="10" max="100" value="85">
+    <span class="lab">Brightness</span><input id="bright" type="range" min="0" max="100" value="55" title="Ladder only: how strong the upper overtones are">
+    <button id="snap" class="on" title="Snap tones and ladders to the nearest semitone">Snap ♪</button>
+  </div>
+  <div class="bar">
+    <button id="play" class="primary">▶ Play</button>
+    <button id="stop" disabled>■ Stop</button>
+    <span class="lab">Length</span>
+    <select id="len"><option value="4">4 s</option><option value="8" selected>8 s</option><option value="15">15 s</option></select>
+    <span class="lab">Iterations</span><input id="iters" type="range" min="1" max="100" value="40" title="Rounds of phase reconstruction: more = cleaner">
+    <span id="itv" class="sub">40</span>
+    <button id="undo">↶ Undo</button>
+    <button id="clear">Clear</button>
+    <label class="file" title="Turn a recording into a tile you can see and edit">♫ Audio → tile<input id="audioIn" type="file" accept="audio/*"></label>
+    <label class="file" title="Read any picture as a tile: brighter = louder, top = higher">🖼 Image → tile<input id="imgIn" type="file" accept="image/*"></label>
+    <span class="lab" title="Lo-fi: how much pitch detail the sound keeps. Fewer bands = the tune melts away, the rhythm stays">Pitch detail</span>
+    <select id="dBands"><option value="160">160 bands</option><option value="80">80</option><option value="40">40</option><option value="24">24</option><option value="12">12</option><option value="6">6</option></select>
+    <span class="lab" title="Lo-fi: how much timing detail the sound keeps. Fewer steps = the rhythm smears, the tune stays">Time detail</span>
+    <select id="dTime"><option value="0">full</option><option value="250">250 steps / 15 s</option><option value="100">100</option><option value="50">50</option><option value="25">25</option><option value="10">10</option></select>
+    <span class="lab" title="Lo-fi: how many loudness levels survive">Levels</span>
+    <select id="dBits"><option value="0">smooth</option><option value="16">16</option><option value="8">8</option><option value="4">4</option><option value="2">2</option></select>
+    <button id="playOrig" disabled title="Play the recording you imported, for comparison">▶ Original</button>
+    <button id="savePng">⤓ PNG</button>
+    <button id="saveWav">⤓ WAV</button>
+  </div>
+  <div id="stage">
+    <div id="axis"></div>
+    <div id="wrap"><canvas id="cv"></canvas><div id="cursor"></div><div id="hover"></div></div>
+  </div>
+  <div id="status">Paint something, then press ▶ Play.</div>
+</main>
+
+<div id="help-ov"><div id="help">
+  <h2>Paint a Tile, Hear a Tile</h2>
+  <p>An AuraGraph tile is a picture of sound: <b>left to right is time</b>, <b>bottom to top is pitch</b> (from 30 Hz to 11 kHz, spaced like a piano, so every octave is the same height), and <b>brightness is loudness</b>. This toy runs it backwards: whatever you paint, it plays.</p>
+  <h3>Brushes</h3>
+  <ul>
+    <li><b>Tone</b>: a pure note. Drag sideways to hold it; drag up or down to glide.</li>
+    <li><b>Ladder</b>: a note plus its overtones, which is what real instruments sound like. <b>Brightness</b> sets how strong the upper rungs are: low is mellow (flute-ish), high is buzzy (reed-ish).</li>
+    <li><b>Hit</b>: a vertical stripe, like a drum or a clap.</li>
+    <li><b>Noise</b>: a soft random smear, like breath, hiss or wind.</li>
+    <li><b>Erase</b>: rub it out. <b>Undo</b> takes back the last stroke.</li>
+  </ul>
+  <p><b>Snap ♪</b> keeps tones on real notes; turn it off for free, slidey pitch. The faint lines are the A notes (55, 110, 220, 440 Hz…), one octave apart.</p>
+  <h3>Going the other way</h3>
+  <ul>
+    <li><b>♫ Audio → tile</b> turns a recording into a tile (the first 4, 8 or 15 seconds). Paint on it, then play it. <b>▶ Original</b> plays the real recording for comparison.</li>
+    <li><b>🖼 Image → tile</b> reads any picture as a tile: brighter is louder, top is higher. Crop a real AuraGraph tile to just its main panel first, without the axes. Or try a photo, a drawing or your handwriting and hear what it sounds like.</li>
+  </ul>
+  <h3>Lo-fi: Pitch detail, Time detail, Levels</h3>
+  <p>These change only what you <i>hear</i>, not the picture. They pool the tile into coarser blocks before it's played, the same experiment as AuraGraph's <i>INVERSION-1</i>:</p>
+  <ul>
+    <li><b>Pitch detail</b>: fewer bands, and the tune melts into a rhythmic wash. Around 24 bands the melody is mostly gone, but the beat survives.</li>
+    <li><b>Time detail</b>: fewer steps, and the rhythm smears into slow chords while the tune stays.</li>
+    <li><b>Levels</b>: fewer loudness steps. It matters surprisingly little; even 8 levels keeps most of the music.</li>
+  </ul>
+  <h3>How the sound is made</h3>
+  <p>A picture only says how loud each pitch is at each moment. It doesn't hold the <i>phase</i>, the exact timing of every wave. So the toy guesses it with <b>Griffin-Lim</b> (1984): start with random phase, then go back and forth between sound and picture, keeping the picture's loudness each time, until the two agree. More <b>iterations</b> is cleaner. The result always sounds a little ghostly, like a cover of what you painted rather than a recording of it.</p>
+  <p>Everything runs on this device. Nothing is uploaded.</p>
+  <p class="sub">AuraGraph · ConsciousNode SoftWorks · idea Kham, built by Kehai Interim. See <i>research/INVERSION-1.md</i> for what this showed about real tiles.</p>
+</div></div>
+
+<script>
+'use strict';
+// ---- the tile format (same as AuraGraph v0.2.1) ----
+const SR = 22050, NFFT = 2048, HOP = 512, NB = 160, FMIN = 30, FMAX = 11000, DBR = 80;
+const edges = Array.from({length: NB + 1}, (_, i) => FMIN * Math.pow(FMAX / FMIN, i / NB));
+const bandOfFreq = f => Math.log(f / FMIN) / Math.log(FMAX / FMIN) * NB;      // fractional band
+const freqOfBand = b => FMIN * Math.pow(FMAX / FMIN, (b + 0.5) / NB);
+const NBIN = NFFT / 2 + 1, df = SR / NFFT;
+// which bands feed each FFT bin (a bin takes the loudest band that overlaps it)
+const binBands = [];
+for (let k = 0; k < NBIN; k++) {
+  const lo = (k - 0.5) * df, hi = (k + 0.5) * df, list = [];
+  for (let b = 0; b < NB; b++) if (edges[b + 1] > lo && edges[b] < hi) list.push(b);
+  binBands.push(list);
+}
+// which bins each band reads from, for audio -> tile (narrow low bands borrow the nearest bin)
+const bandBins = [];
+for (let b = 0; b < NB; b++) {
+  const list = [];
+  for (let k = 0; k < NBIN; k++) { const f = k * df; if (f >= edges[b] && f < edges[b + 1]) list.push(k); }
+  if (!list.length) list.push(Math.round(freqOfBand(b) / df));
+  bandBins.push(list);
+}
+
+// ---- FFT (radix-2, in place) ----
+const rev = new Uint32Array(NFFT); { const bits = Math.log2(NFFT); for (let i = 0; i < NFFT; i++) { let r = 0; for (let j = 0; j < bits; j++) r |= ((i >> j) & 1) << (bits - 1 - j); rev[i] = r; } }
+const cosT = new Float64Array(NFFT / 2), sinT = new Float64Array(NFFT / 2);
+for (let i = 0; i < NFFT / 2; i++) { cosT[i] = Math.cos(2 * Math.PI * i / NFFT); sinT[i] = Math.sin(2 * Math.PI * i / NFFT); }
+function fft(re, im, inverse) {
+  for (let i = 0; i < NFFT; i++) { const j = rev[i]; if (j > i) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; } }
+  for (let size = 2; size <= NFFT; size <<= 1) {
+    const half = size >> 1, step = NFFT / size;
+    for (let i = 0; i < NFFT; i += size) for (let j = 0; j < half; j++) {
+      const c = cosT[j * step], s = inverse ? sinT[j * step] : -sinT[j * step];
+      const a = i + j, b = a + half, tr = re[b] * c - im[b] * s, ti = re[b] * s + im[b] * c;
+      re[b] = re[a] - tr; im[b] = im[a] - ti; re[a] += tr; im[a] += ti;
+    }
+  }
+  if (inverse) for (let i = 0; i < NFFT; i++) { re[i] /= NFFT; im[i] /= NFFT; }
+}
+const win = Float64Array.from({length: NFFT}, (_, i) => 0.5 - 0.5 * Math.cos(2 * Math.PI * i / NFFT));
+
+// ---- state ----
+let secs = 8, cols = 0, grid = null;            // grid[b*cols + c] = level 0..1 (0 = silent, 1 = 0 dB)
+const undoStack = [];
+let brush = 'tone', snap = true, origBuffer = null;
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const $ = id => document.getElementById(id);
+function setStatus(t) { $('status').textContent = t; }
+
+function resize(newSecs, keep) {
+  const old = grid, oldCols = cols;
+  secs = newSecs; cols = Math.floor((secs * SR - NFFT) / HOP) + 1;
+  grid = new Float32Array(NB * cols);
+  if (keep && old) for (let b = 0; b < NB; b++) for (let c = 0; c < Math.min(cols, oldCols); c++) grid[b * cols + c] = old[b * oldCols + c];
+  cv.width = cols; cv.height = NB; drawAxis(); render();
+}
+
+// ---- display: magma-ish colour map ----
+const stops = [[0,0,4],[40,11,84],[101,21,110],[159,42,99],[212,72,66],[245,125,21],[250,193,39],[252,255,164]];
+const lut = new Uint8Array(256 * 3);
+for (let i = 0; i < 256; i++) { const x = i / 255 * (stops.length - 1), k = Math.min(Math.floor(x), stops.length - 2), t = x - k;
+  for (let j = 0; j < 3; j++) lut[i * 3 + j] = Math.round(stops[k][j] * (1 - t) + stops[k + 1][j] * t); }
+let img = null;
+function render() {
+  if (!img || img.width !== cols) img = ctx.createImageData(cols, NB);
+  const d = img.data;
+  for (let b = 0; b < NB; b++) { const row = NB - 1 - b;
+    for (let c = 0; c < cols; c++) { const v = Math.max(0, Math.min(255, Math.round(grid[b * cols + c] * 255))), p = (row * cols + c) * 4;
+      d[p] = lut[v * 3]; d[p + 1] = lut[v * 3 + 1]; d[p + 2] = lut[v * 3 + 2]; d[p + 3] = 255; } }
+  ctx.putImageData(img, 0, 0);
+  ctx.fillStyle = 'rgba(255,255,255,0.10)';
+  for (const f of [55, 110, 220, 440, 880, 1760, 3520, 7040]) ctx.fillRect(0, NB - 1 - Math.round(bandOfFreq(f) - 0.5), cols, 0.4);
+}
+function drawAxis() {
+  const ax = $('axis'); ax.innerHTML = '';
+  for (const f of [55, 110, 220, 440, 880, 1760, 3520, 7040]) {
+    const el = document.createElement('div'); el.textContent = f >= 1000 ? (f / 1000) + 'k' : f;
+    el.style.top = (100 * (1 - (bandOfFreq(f)) / NB)) + '%'; ax.appendChild(el);
+  }
+}
+
+// ---- painting ----
+const NOTE = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+function noteName(f) { const m = Math.round(69 + 12 * Math.log2(f / 440)); return NOTE[(m % 12 + 12) % 12] + (Math.floor(m / 12) - 1); }
+function snapBand(bf) { if (!snap) return bf; const f = freqOfBand(bf - 0.5), m = Math.round(69 + 12 * Math.log2(f / 440)); return bandOfFreq(440 * Math.pow(2, (m - 69) / 12)); }
+function put(b, c, v, mode) {
+  b = Math.round(b); c = Math.round(c);
+  if (b < 0 || b >= NB || c < 0 || c >= cols) return;
+  const i = b * cols + c;
+  grid[i] = mode === 'erase' ? Math.max(0, grid[i] - v) : Math.max(grid[i], v);
+}
+function stamp(bf, c) {
+  const size = +$('size').value, loud = +$('loud').value / 100;
+  if (brush === 'tone' || brush === 'ladder') {
+    const f0 = freqOfBand(snapBand(bf) - 0.5), rungs = brush === 'ladder' ? 12 : 1, bright = +$('bright').value / 100;
+    for (let h = 1; h <= rungs; h++) {
+      const f = f0 * h; if (f >= FMAX) break;
+      const lv = loud * (h === 1 ? 1 : Math.pow(h, -(2.2 - 2 * bright)));
+      const bb = bandOfFreq(f) - 0.5;
+      for (let d = -size + 1; d < size; d++) put(bb + d * 0.5, c, lv * (1 - Math.abs(d) / size * 0.5), 'add');
+    }
+  } else if (brush === 'hit') {
+    for (let dc = 0; dc < size; dc++) for (let b = 0; b < NB; b++) put(b, c + dc, loud * (0.75 + 0.25 * Math.random()) * (1 - dc / (size + 1)) * (1 - 0.35 * b / NB), 'add');
+  } else if (brush === 'noise') {
+    const r = size * 2.5;
+    for (let db = -r; db <= r; db++) for (let dc = -r; dc <= r; dc++) { const q = (db * db + dc * dc) / (r * r); if (q <= 1) put(bf + db, c + dc, loud * (1 - q) * (0.4 + 0.6 * Math.random()), 'add'); }
+  } else if (brush === 'erase') {
+    const r = size * 2;
+    for (let db = -r; db <= r; db++) for (let dc = -r; dc <= r; dc++) if (db * db + dc * dc <= r * r) put(bf + db, c + dc, 1, 'erase');
+  }
+}
+let drawing = false, last = null;
+function toGrid(e) { const r = cv.getBoundingClientRect(); return { c: (e.clientX - r.left) / r.width * cols, b: (1 - (e.clientY - r.top) / r.height) * NB, x: e.clientX - r.left, y: e.clientY - r.top }; }
+cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); undoStack.push(grid.slice()); if (undoStack.length > 30) undoStack.shift();
+  drawing = true; last = toGrid(e); stamp(last.b, last.c); render(); });
+cv.addEventListener('pointermove', e => {
+  const p = toGrid(e), h = $('hover');
+  const f = freqOfBand(Math.max(0, p.b) - 0.5);
+  h.style.display = 'block'; h.style.left = Math.min(p.x + 12, cv.clientWidth - 120) + 'px'; h.style.top = Math.max(p.y - 24, 0) + 'px';
+  h.textContent = (p.c / cols * secs).toFixed(2) + ' s · ' + Math.round(f) + ' Hz · ' + noteName(f);
+  if (!drawing) return;
+  const steps = Math.max(1, Math.ceil(Math.max(Math.abs(p.c - last.c), Math.abs(p.b - last.b))));
+  for (let s = 1; s <= steps; s++) stamp(last.b + (p.b - last.b) * s / steps, last.c + (p.c - last.c) * s / steps);
+  last = p; render();
+});
+const endDraw = () => { drawing = false; };
+cv.addEventListener('pointerup', endDraw); cv.addEventListener('pointercancel', endDraw);
+cv.addEventListener('pointerleave', () => { $('hover').style.display = 'none'; });
+
+// ---- tile -> sound (Griffin-Lim) ----
+// lo-fi: pool the tile coarser in pitch and/or time, and round its loudness, before it becomes sound
+function degraded() {
+  const nb = +$('dBands').value, steps = +$('dTime').value, lv = +$('dBits').value;
+  if (nb === NB && !steps && !lv) return grid;
+  let g = grid.slice();
+  if (nb < NB) { const out = new Float32Array(g.length);
+    for (let gi = 0; gi < nb; gi++) { const b0 = Math.floor(gi * NB / nb), b1 = Math.floor((gi + 1) * NB / nb);
+      for (let c = 0; c < cols; c++) { let m = 0; for (let b = b0; b < b1; b++) m += g[b * cols + c]; m /= (b1 - b0); for (let b = b0; b < b1; b++) out[b * cols + c] = m; } }
+    g = out; }
+  if (steps) { const n = Math.max(1, Math.round(steps * secs / 15)), out = new Float32Array(g.length);
+    for (let k = 0; k < n; k++) { const c0 = Math.floor(k * cols / n), c1 = Math.max(c0 + 1, Math.floor((k + 1) * cols / n));
+      for (let b = 0; b < NB; b++) { let m = 0; for (let c = c0; c < c1; c++) m += g[b * cols + c]; m /= (c1 - c0); for (let c = c0; c < c1; c++) out[b * cols + c] = m; } }
+    g = out; }
+  if (lv) for (let i = 0; i < g.length; i++) g[i] = Math.round(g[i] * (lv - 1)) / (lv - 1);
+  return g;
+}
+const loFiKey = () => $('dBands').value + '/' + $('dTime').value + '/' + $('dBits').value;
+function gridToMag() {
+  const src = degraded();
+  const mag = new Float32Array(cols * NBIN), amp = new Float32Array(NB * cols);
+  for (let i = 0; i < amp.length; i++) amp[i] = src[i] > 0.001 ? Math.pow(10, (src[i] * DBR - DBR) / 20) : 0;
+  for (let k = 0; k < NBIN; k++) { const list = binBands[k]; if (!list.length) continue;
+    for (let c = 0; c < cols; c++) { let m = 0; for (const b of list) { const a = amp[b * cols + c]; if (a > m) m = a; } mag[c * NBIN + k] = m; } }
+  return mag;
+}
+async function griffinLim(mag, iters, onProgress) {
+  const len = (cols - 1) * HOP + NFFT, out = new Float32Array(len), norm = new Float32Array(len);
+  for (let c = 0; c < cols; c++) for (let i = 0; i < NFFT; i++) norm[c * HOP + i] += win[i] * win[i];
+  const phRe = new Float32Array(cols * NBIN), phIm = new Float32Array(cols * NBIN);
+  for (let i = 0; i < phRe.length; i++) { const a = Math.random() * 2 * Math.PI; phRe[i] = Math.cos(a); phIm[i] = Math.sin(a); }
+  const re = new Float64Array(NFFT), im = new Float64Array(NFFT);
+  const istft = () => {
+    out.fill(0);
+    for (let c = 0; c < cols; c++) {
+      for (let k = 0; k < NBIN; k++) { const m = mag[c * NBIN + k]; re[k] = m * phRe[c * NBIN + k]; im[k] = m * phIm[c * NBIN + k]; }
+      for (let k = 1; k < NFFT / 2; k++) { re[NFFT - k] = re[k]; im[NFFT - k] = -im[k]; }
+      fft(re, im, true);
+      for (let i = 0; i < NFFT; i++) out[c * HOP + i] += re[i] * win[i];
+    }
+    for (let i = 0; i < len; i++) out[i] /= Math.max(norm[i], 0.5);   // floor: the first and last few ms have almost no window overlap, and dividing by it there makes loud clicks
+  };
+  for (let it = 0; it < iters; it++) {
+    istft();
+    for (let c = 0; c < cols; c++) {
+      for (let i = 0; i < NFFT; i++) { re[i] = out[c * HOP + i] * win[i]; im[i] = 0; }
+      fft(re, im, false);
+      for (let k = 0; k < NBIN; k++) { const r = Math.hypot(re[k], im[k]) || 1; phRe[c * NBIN + k] = re[k] / r; phIm[c * NBIN + k] = im[k] / r; }
+    }
+    if (it % 4 === 3) { onProgress(it + 1); await new Promise(r => setTimeout(r)); }
+  }
+  istft();
+  let peak = 0; for (const v of out) peak = Math.max(peak, Math.abs(v));
+  if (peak > 0) for (let i = 0; i < len; i++) out[i] *= 0.9 / peak;
+  return out;
+}
+
+// ---- playback ----
+let actx = null, src = null, raf = 0, lastAudio = null, dirty = true;
+const ac = () => actx || (actx = new (window.AudioContext || window.webkitAudioContext)());
+function stopAll() { if (src) { try { src.stop(); } catch (e) {} src = null; } cancelAnimationFrame(raf); $('cursor').style.display = 'none'; $('stop').disabled = true; }
+function playSamples(samples, rate, showCursor) {
+  stopAll(); const a = ac(); a.resume();
+  const buf = a.createBuffer(1, samples.length, rate); buf.copyToChannel(samples, 0);
+  src = a.createBufferSource(); src.buffer = buf; src.connect(a.destination);
+  const t0 = a.currentTime; src.start(); $('stop').disabled = false;
+  src.onended = () => { $('cursor').style.display = 'none'; $('stop').disabled = true; };
+  if (showCursor) { const cur = $('cursor'); cur.style.display = 'block';
+    const tick = () => { const t = a.currentTime - t0; if (t > buf.duration) return; cur.style.left = (t / buf.duration * 100) + '%'; raf = requestAnimationFrame(tick); }; tick(); }
+}
+let gridAtRender = null;
+async function rebuild() {
+  if (gridAtRender && gridAtRender.length === grid.length && gridAtRender.every((v, i) => v === grid[i]) && lastAudio && lastAudio.iters === +$('iters').value && lastAudio.lofi === loFiKey()) return lastAudio.samples;
+  let any = false; for (const v of grid) if (v > 0.001) { any = true; break; }
+  if (!any) { setStatus('The tile is silent. Paint something first.'); return null; }
+  const iters = +$('iters').value, t0 = performance.now();
+  $('play').disabled = true;
+  const samples = await griffinLim(gridToMag(), iters, n => setStatus('Rebuilding phase… ' + n + ' / ' + iters));
+  $('play').disabled = false;
+  const lofi = loFiKey() === '160/0/0' ? '' : ' Lo-fi on: ' + $('dBands').value + ' bands, ' + ($('dTime').value === '0' ? 'full timing' : $('dTime').value + ' steps / 15 s') + ', ' + ($('dBits').value === '0' ? 'smooth levels' : $('dBits').value + ' levels') + '.';
+  setStatus('Rebuilt ' + secs + ' s of sound from the picture in ' + ((performance.now() - t0) / 1000).toFixed(1) + ' s (' + iters + ' Griffin-Lim iterations).' + lofi);
+  gridAtRender = grid.slice(); lastAudio = { samples, iters, lofi: loFiKey() };
+  return samples;
+}
+$('play').onclick = async () => { ac().resume(); const s = await rebuild(); if (s) playSamples(s, SR, true); };
+$('stop').onclick = stopAll;
+$('playOrig').onclick = () => { if (origBuffer) playSamples(origBuffer, SR, true); };
+
+// ---- audio -> tile ----
+$('audioIn').onchange = async e => {
+  const file = e.target.files[0]; if (!file) return; e.target.value = '';
+  setStatus('Decoding ' + file.name + '…');
+  try {
+    const decoded = await ac().decodeAudioData(await file.arrayBuffer());
+    const n = Math.min(Math.ceil(decoded.duration * SR), secs * SR);
+    const off = new OfflineAudioContext(1, n, SR), s = off.createBufferSource(); s.buffer = decoded; s.connect(off.destination); s.start();
+    const mono = (await off.startRendering()).getChannelData(0);
+    const x = new Float32Array(secs * SR); x.set(mono.subarray(0, Math.min(mono.length, x.length)));
+    origBuffer = x; $('playOrig').disabled = false;
+    undoStack.push(grid.slice());
+    const B = new Float32Array(NB * cols), re = new Float64Array(NFFT), im = new Float64Array(NFFT), M = new Float32Array(NBIN);
+    for (let c = 0; c < cols; c++) {
+      for (let i = 0; i < NFFT; i++) { re[i] = x[c * HOP + i] * win[i]; im[i] = 0; }
+      fft(re, im, false); for (let k = 0; k < NBIN; k++) M[k] = Math.hypot(re[k], im[k]);
+      for (let b = 0; b < NB; b++) { let sum = 0; for (const k of bandBins[b]) sum += M[k]; B[b * cols + c] = sum / bandBins[b].length; }
+    }
+    const sorted = Float32Array.from(B).sort(), ref = sorted[Math.floor(sorted.length * 0.995)] || 1;
+    for (let i = 0; i < B.length; i++) { const db = 20 * Math.log10(Math.max(B[i], 1e-10) / ref); grid[i] = Math.max(0, Math.min(1, (db + DBR) / DBR)); }
+    render(); dirty = true;
+    setStatus('“' + file.name + '” is now a tile (first ' + secs + ' s). ▶ Play to hear it rebuilt from the picture, ▶ Original for the real thing, or paint on it.');
+  } catch (err) { setStatus('Could not read that audio: ' + err.message); }
+};
+
+// ---- image -> tile ----
+$('imgIn').onchange = e => {
+  const file = e.target.files[0]; if (!file) return; e.target.value = '';
+  const im = new Image();
+  im.onload = () => {
+    const oc = document.createElement('canvas'); oc.width = cols; oc.height = NB;
+    const o = oc.getContext('2d'); o.drawImage(im, 0, 0, cols, NB);
+    const d = o.getImageData(0, 0, cols, NB).data;
+    undoStack.push(grid.slice());
+    for (let row = 0; row < NB; row++) for (let c = 0; c < cols; c++) {
+      const p = (row * cols + c) * 4, luma = (0.2126 * d[p] + 0.7152 * d[p + 1] + 0.0722 * d[p + 2]) / 255 * (d[p + 3] / 255);
+      grid[(NB - 1 - row) * cols + c] = luma;
+    }
+    render(); URL.revokeObjectURL(im.src);
+    setStatus('Image read as a tile: brighter = louder, top = higher. ▶ Play to hear it.');
+  };
+  im.src = URL.createObjectURL(file);
+};
+
+// ---- save ----
+function download(blob, name) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
+$('savePng').onclick = () => cv.toBlob(b => download(b, 'painted-tile.png'));
+$('saveWav').onclick = async () => {
+  const s = await rebuild(); if (!s) return;
+  const buf = new ArrayBuffer(44 + s.length * 2), v = new DataView(buf), w = (o, str) => { for (let i = 0; i < str.length; i++) v.setUint8(o + i, str.charCodeAt(i)); };
+  w(0, 'RIFF'); v.setUint32(4, 36 + s.length * 2, true); w(8, 'WAVE'); w(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, SR, true); v.setUint32(28, SR * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, s.length * 2, true);
+  for (let i = 0; i < s.length; i++) v.setInt16(44 + i * 2, Math.max(-1, Math.min(1, s[i])) * 32767, true);
+  download(new Blob([buf], {type: 'audio/wav'}), 'painted-tile.wav');
+};
+
+// ---- controls ----
+document.querySelectorAll('[data-brush]').forEach(b => b.onclick = () => {
+  document.querySelectorAll('[data-brush]').forEach(x => x.classList.remove('on')); b.classList.add('on'); brush = b.dataset.brush; });
+$('snap').onclick = () => { snap = !snap; $('snap').classList.toggle('on', snap); };
+$('iters').oninput = () => { $('itv').textContent = $('iters').value; };
+$('undo').onclick = () => { if (undoStack.length) { grid = undoStack.pop(); if (grid.length !== NB * cols) grid = new Float32Array(NB * cols); render(); } };
+$('clear').onclick = () => { undoStack.push(grid.slice()); grid.fill(0); render(); setStatus('Cleared.'); };
+$('len').onchange = () => { stopAll(); undoStack.length = 0; origBuffer = null; $('playOrig').disabled = true; resize(+$('len').value, true); };
+$('helpBtn').onclick = () => $('help-ov').classList.add('on');
+$('help-ov').onclick = e => { if (e.target.id === 'help-ov') $('help-ov').classList.remove('on'); };
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') $('help-ov').classList.remove('on');
+  if ((e.ctrlKey || e.metaKey) && e.key === 'z') { e.preventDefault(); $('undo').click(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); src ? stopAll() : $('play').click(); }
+});
+
+// ---- a little starter tile, so the first ▶ makes a sound ----
+resize(8, false);
+(function starter() {
+  const tune = [[0, 'ladder', 0], [1, 'ladder', 4], [2, 'ladder', 7], [3, 'ladder', 12]];
+  const save = brush, sv = $('bright').value; brush = 'ladder'; $('bright').value = 45;
+  for (const [i, , semi] of tune) { const f = 220 * Math.pow(2, semi / 12), bf = bandOfFreq(f) + 0.5;
+    const c0 = Math.round((0.4 + i * 0.9) / secs * cols), c1 = Math.round((1.2 + i * 0.9) / secs * cols);
+    for (let c = c0; c < c1; c++) stamp(bf, c); }
+  brush = 'hit'; for (let i = 0; i < 4; i++) stamp(0, Math.round((0.4 + i * 0.9) / secs * cols));
+  brush = save; $('bright').value = sv; render();
+})();
+setStatus('A little arpeggio is already painted. ▶ Play it, then paint your own.');
+</script>
+</body>
+</html>
