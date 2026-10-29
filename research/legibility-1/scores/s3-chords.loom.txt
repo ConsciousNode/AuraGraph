@@ -1,0 +1,9 @@
+# LEGIBILITY-1 / S3 chords: C major, A minor, F major, G major, one per half bar
+bpm 90
+bars 2
+voice organ
+space 10
+1      pluck C4+E4+G4 8 70
+9      pluck A3+C4+E4 8 70
+17     pluck F3+A3+C4 8 70
+25     pluck G3+B3+D4 8 70

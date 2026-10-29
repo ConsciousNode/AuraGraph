@@ -1,0 +1,230 @@
+{
+ "reader-1": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s3-chords",
+   "view": "sharp",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s5-glides",
+   "view": "topo",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s2-drums",
+   "view": "gray",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s6-timbre",
+   "view": "grid",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s1-melody",
+   "view": "magma",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s4-hidden",
+   "view": "slices",
+   "trap_q": 1
+  }
+ ],
+ "reader-2": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s4-hidden",
+   "view": "topo",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s5-glides",
+   "view": "grid",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s3-chords",
+   "view": "slices",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s6-timbre",
+   "view": "magma",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s2-drums",
+   "view": "sharp",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s1-melody",
+   "view": "gray",
+   "trap_q": 3
+  }
+ ],
+ "reader-3": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s2-drums",
+   "view": "slices",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s3-chords",
+   "view": "topo",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s1-melody",
+   "view": "sharp",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s4-hidden",
+   "view": "grid",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s6-timbre",
+   "view": "gray",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s5-glides",
+   "view": "magma",
+   "trap_q": 1
+  }
+ ],
+ "reader-4": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s6-timbre",
+   "view": "sharp",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s2-drums",
+   "view": "topo",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s1-melody",
+   "view": "slices",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s3-chords",
+   "view": "grid",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s5-glides",
+   "view": "gray",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s4-hidden",
+   "view": "magma",
+   "trap_q": 2
+  }
+ ],
+ "reader-5": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s3-chords",
+   "view": "magma",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s6-timbre",
+   "view": "slices",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s5-glides",
+   "view": "sharp",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s2-drums",
+   "view": "grid",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s1-melody",
+   "view": "topo",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s4-hidden",
+   "view": "gray",
+   "trap_q": 1
+  }
+ ],
+ "reader-6": [
+  {
+   "tile": "tile-1.png",
+   "stimulus": "s1-melody",
+   "view": "grid",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-2.png",
+   "stimulus": "s2-drums",
+   "view": "magma",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-3.png",
+   "stimulus": "s3-chords",
+   "view": "gray",
+   "trap_q": 3
+  },
+  {
+   "tile": "tile-4.png",
+   "stimulus": "s5-glides",
+   "view": "slices",
+   "trap_q": 1
+  },
+  {
+   "tile": "tile-5.png",
+   "stimulus": "s6-timbre",
+   "view": "topo",
+   "trap_q": 2
+  },
+  {
+   "tile": "tile-6.png",
+   "stimulus": "s4-hidden",
+   "view": "sharp",
+   "trap_q": 1
+  }
+ ]
+}

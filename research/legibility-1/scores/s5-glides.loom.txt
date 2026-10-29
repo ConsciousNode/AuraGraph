@@ -1,0 +1,11 @@
+# LEGIBILITY-1 / S5 glides vs steps: slide up, hold, slide down, then three stepped notes up
+bpm 100
+bars 2
+voice reed
+space 8
+1      tone A4>E5 8 78
+9      tone E5 4 78
+17     tone E5>A4 8 78
+25     tone C5 2 78
+27     tone D5 2 78
+29     tone E5 3 78

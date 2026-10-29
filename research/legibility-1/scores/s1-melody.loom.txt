@@ -1,0 +1,14 @@
+# LEGIBILITY-1 / S1 melody: a known tune (traditional, "Mary Had a Little Lamb") over a bass
+bpm 100
+bars 2
+voice flute
+space 8
+1      tone E5 4 82
+5      tone D5 4 82
+9      tone C5 4 82
+13     tone D5 4 82
+17     tone E5 4 82
+21     tone E5 4 82
+25     tone E5 7 82
+1      pluck C3 16 60 voice=string
+17     pluck C3 16 60 voice=string

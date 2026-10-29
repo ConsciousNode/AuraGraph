@@ -1,0 +1,8 @@
+# LEGIBILITY-1 / S4 hidden quiet parts: a loud low drone, very soft ticks, one faint high note (F8, above where the drone's overtones fade)
+bpm 100
+bars 2
+voice string
+space 8
+1      tone A2+E3+A3 32 95
+1-29/4 hat 0 size=1
+17     tone F8 4 0 voice=pure

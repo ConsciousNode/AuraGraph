@@ -1,0 +1,7 @@
+# LEGIBILITY-1 / S2 drums only: a syncopated kick, backbeat snare, steady 8th hats
+bpm 120
+bars 2
+space 6
+1,4,9,11,17,20,25,27   kick 90
+5,13,21,29             snare 80
+1-31/2                 hat 60
