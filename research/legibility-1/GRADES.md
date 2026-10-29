@@ -1,5 +1,7 @@
 # LEGIBILITY-1: grades
 
+*(Counts in "What round B says" were checked against the reads after a first draft got three of them wrong; corrected.)*
+
 *Graded 2026-10-29 by Kehai against `KEY.md`, which was committed before any reads. 24 readers in all: four model families, each a complete 6 × 6 Latin square (one packet per fresh chat).*
 - **Round A:** six fresh Claude (Opus 5.5) readers.
 - **Round B:** Grok, Gemini and DeepSeek, six fresh chats each, run by Kham.
@@ -77,7 +79,7 @@ The reads are in `reads/`, saved unedited. Atom-by-atom scores are in `grades.py
 | topo | 74% | 50% | 33% |
 
 - **Gray is first in both families,** so this isn't one reader's good minute.
-- **Chords** are where the colour map hurts most. In gray, all four readers read all four chords right. Under magma, grid, sharp and topo, Gemini mostly went for the textbook I–V–vi–IV progression instead (see 5).
+- **Chords** are where the colour map hurts most. In gray, both readers read all four chords right. Under magma, grid and topo, Gemini went for the textbook I–V–vi–IV progression instead (see 5).
 - **Magma's ordered hues** probably make similar loudness levels harder to compare than plain brightness does. That's a hypothesis, not a finding yet.
 
 **3. Traps depend on the family and the stimulus, never the view.**
@@ -90,8 +92,8 @@ The reads are in `reads/`, saved unedited. Atom-by-atom scores are in `grades.py
 **4. Readers anchor on the labels.** The pitch axis labels only the Cs. Grok and DeepSeek reported "C5", "C3" and "C major" over and over, in tiles with no C in them. They read pitch off the nearest label rather than the line. The strong readers didn't do this, but a machine view shouldn't make it easy. Next round: more pitch labels (an A4 = 440 Hz reference line, or ticks at every semitone in the margin).
 
 **5. Strong readers have priors too.**
-- **The pop progression.** In four of six packets, Gemini reported S3 (C–Am–F–G) as C–G–Am–F, the I–V–vi–IV progression, always with confidence 5. It's a reading shaped by what chords usually are, not by the picture.
-- **A flat bias.** Gemini also read the S5 slide's top note as D5 in five of six packets, two semitones flat, while placing the stepped E5 correctly.
+- **The pop progression.** In three of six packets (magma, grid, topo), Gemini reported S3 (C–Am–F–G) as C–G–Am–F, the I–V–vi–IV progression, each time with confidence 4–5. It's a reading shaped by what chords usually are, not by the picture.
+- **A flat bias.** Gemini also read the S5 slide's top note as D5 in four of six packets, two semitones flat, and in two of those the final steps came out flat too (B4–C#5–D5 for C5–D5–E5).
 
 **6. Confidence tells you nothing across families.** Gemini says 5 almost every time, right or wrong. Grok averages 3.9 even on tiles it scored under 50%. Claude is the only family whose confidence drops where it does worse. That isn't enough to make confidence useful.
 
