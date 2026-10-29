@@ -26,9 +26,14 @@ Fields (all optional except format and v):
     db      [lo, hi]: brightness 0 = lo dB, brightness 1 = hi dB (relative to the loud end)
     cmap    "magma8": the 8-stop magma AuraLoom and Paint-a-Tile draw with
     src     what made it; parent: the tile a clip was cut from; px: [x0, y0, x1, y1] of the cut
-    notes   pinned notes (coming next)
+    notes   pinned notes (seed 10): see notes.py and the grid below
+
+The grid (seed 10a): columns A-H run left to right across the tile's time, rows 1-8 run
+bottom to top up its pitch (evenly in log frequency, like the rows). Each cell splits the
+same way with lowercase letters, so "C6·d3" is cell C6, sub-cell d3. Add levels for finer
+spots ("C6·d3·a8"). A reference always resolves to real seconds and Hz.
 """
-import json, re
+import json, math, re
 import numpy as np
 from PIL import Image, PngImagePlugin
 
@@ -103,3 +108,46 @@ if __name__ == "__main__":
     import sys
     for p in sys.argv[1:]:
         print(p, json.dumps(read(p), indent=1))
+
+
+# ---- the grid: C6·d3 <-> seconds and Hz -------------------------------------------------
+COLS = "abcdefgh"
+
+
+def parse_ref(ref):
+    """'C6·d3' -> [(2, 5), (3, 2)]: (column, row) per level, 0-based, row 0 at the bottom."""
+    toks = re.findall(r"([A-Ha-h])\s*([1-8])", ref)
+    if not toks or re.sub(r"[A-Ha-h]\s*[1-8]|[\s·.:/-]", "", ref):
+        raise ValueError(f"not a grid reference: {ref!r} (like C6 or C6·d3)")
+    return [(COLS.index(c.lower()), int(r) - 1) for c, r in toks]
+
+
+def fmt_ref(levels):
+    out = []
+    for k, (c, r) in enumerate(levels):
+        out.append((COLS[c].upper() if k == 0 else COLS[c]) + str(r + 1))
+    return "·".join(out)
+
+
+def ref_box(ref, m):
+    """A grid reference -> (t0, t1, f0, f1) inside the tile whose bounds are in m."""
+    lv = parse_ref(ref)
+    n = 8 ** len(lv)
+    ci = ri = 0
+    for c, r in lv:
+        ci, ri = ci * 8 + c, ri * 8 + r
+    T0, T1, F0, F1 = m["t0"], m["t1"], m["f0"], m["f1"]
+    t = lambda i: T0 + i / n * (T1 - T0)
+    f = lambda j: F0 * (F1 / F0) ** (j / n)
+    return t(ci), t(ci + 1), f(ri), f(ri + 1)
+
+
+def point_ref(t, fz, m, levels=2):
+    """seconds, Hz -> the grid reference of the cell holding that point."""
+    n = 8 ** levels
+    ci = min(n - 1, max(0, int((t - m["t0"]) / (m["t1"] - m["t0"]) * n)))
+    ri = min(n - 1, max(0, int(math.log(fz / m["f0"]) / math.log(m["f1"] / m["f0"]) * n)))
+    out = []
+    for k in range(levels - 1, -1, -1):
+        out.append(((ci // 8 ** k) % 8, (ri // 8 ** k) % 8))
+    return fmt_ref(out)

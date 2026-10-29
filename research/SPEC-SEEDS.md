@@ -68,6 +68,8 @@ Rich, detailed notes attached to spots on a tile, flowing in both directions *(K
 
 The notes travel in the sidecar. Over time they become the worked examples for the *How to Read a Tile* guide.
 
+**Done, 2026-10-29:** notes ride in the tile's `auragraph` chunk. You pin them in AuraLoom v0.6 (Pin thread, # Grid, 📌 Notes panel with replies) or with `prototype/notes.py` on the crew side. Each note keeps its grid reference, its real seconds and Hz, and the exact spot clicked. See `TILE-FORMAT.md` and `samples/notes-demo/`.
+
 ### 10a. Nested grid coordinates for the notes
 Divide the tile into a coarse grid: columns A–H across, rows 1–8 up. Each cell has its own subgrid, so cell C6 splits into a–h by 1–8, and a precise spot is **C6·d3**. The grid lives in a UI overlay, not on the tile itself. *(Kham)*
 
@@ -75,7 +77,7 @@ Notes *(Kehai)*:
 - This is how map grid references work: big square, then smaller square. A model can name a spot unambiguously in a few characters, and it gets finer just by adding a level.
 - The sidecar translates every reference into real units, e.g. C6·d3 → 12.31–12.45 s, 440–494 Hz. That way "C6·d3" and "at 12.3 s around A4" always agree.
 - **The catch for models:** a model only sees what's in the image. A UI overlay is perfect for humans, but a model can't see an overlay the app draws on screen. For machine reading, the grid would need to be burned faintly into a *copy* of the tile, or ticked along its margins. That's the frame-grid lesson again: numbered frames work because the numbers are in the picture. See seed 14 for the toggle.
-- Open question: grid lines over the tile might hurt reading, as clutter, or help it, as anchors. Test it.
+- Open question: grid lines over the tile might hurt reading, as clutter, or help it, as anchors. Test it. (`notes.py grid` draws the burned-in version to test with.)
 
 ## 11. Loudness slices: several passes, one picture
 Process each sample in several passes, each covering a different band of loudness, then tell the bands apart visually. *(Kham)*

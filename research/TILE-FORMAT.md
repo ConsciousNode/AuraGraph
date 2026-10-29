@@ -1,6 +1,6 @@
 # The AuraGraph tile container, v0.3
 
-*Draft, 2026-10-29. Kehai (lead), with Kham. Status: working in `prototype/` and AuraLoom v0.5; open for comments.*
+*Draft, 2026-10-29. Kehai (lead), with Kham. Status: working in `prototype/` and AuraLoom v0.6; open for comments.*
 
 ## The idea
 A tile is an **ordinary PNG**. Any model, browser, image viewer or person can open it with nothing special installed. Inside the file is one small text chunk, keyword `auragraph`, holding JSON that says what the pixels mean. A photo carries its camera settings the same way.
@@ -29,7 +29,7 @@ The chunk is never the only place an important fact lives.
 | `sr`, `hop` | the analysis it came from, when there was one |
 | `src` | what made it (`plain.py:<file>`, `clip.py`, `AuraLoom`) |
 | `parent`, `px` | for a clip: the tile it was cut from and the pixel box `[x0, y0, x1, y1]` |
-| `notes` | pinned notes (seed 10): next |
+| `notes` | pinned notes (seed 10): see below |
 
 Everything except `format` and `v` is optional. A tile with no bounds is read as the full 30 Hz–11 kHz, stretched over the loop, which is the old behaviour.
 
@@ -49,13 +49,35 @@ When both are present, the chunk wins.
 - **with bounds:** median error **0 cents** (0–14 cents across runs, since Griffin-Lim starts from random phase); about 80% of frames within 50 cents. With the chunk stripped but the bounds still in the filename, the result is the same. The misses are mostly frames where the original's strongest peak was the 3rd overtone (2369 Hz over a 786 Hz note) and the rebuild's was the fundamental. That's the same note, but a different peak won.
 - **same pixels, bounds stripped:** median error **999 cents** (about 10 semitones); 3% within 50 cents.
 
+## Pinned notes and the grid (seed 10, 10a)
+**The grid** divides the tile's own frame: columns **A–H** across its time, rows **1–8** up its pitch (evenly in log frequency, like the rows themselves). Each cell splits the same way in lowercase, so `C6·d3` is cell C6, sub-cell d3, and another level (`C6·d3·a8`) is finer still. On a 12 s full-range tile, a two-level cell is about 0.19 s wide and 1.6 semitones tall.
+
+**A note** in `notes`:
+```json
+{"n": 3, "ref": "E4·a7", "t0": 5.99, "t1": 6.18, "f0": 478.0, "f1": 524.0,
+ "pt": [6.0, 523.0], "by": "Kham", "kind": "question", "re": null,
+ "text": "this is the high C, right?", "when": "2026-10-29T16:50"}
+```
+- `ref` plus its resolved cell (`t0`–`t1`, `f0`–`f1`) is always both: the reference never travels without real units.
+- `pt` is the exact spot when a note was pinned by clicking (or with `notes.py --at`), because a cell is wider than a note.
+- `kind` is `note`, `question` or `answer`; `re` is the number of the note it answers.
+
+**Exporting keeps the grid still.** AuraLoom exports a tile over its own frame (a clip stays a clip), so a reference means the same spot before and after the round trip. Stretch is a lens: the loom tracks how much it has stretched, so notes stay in real seconds.
+
+**Three ways a note can travel:**
+- inside the tile's chunk (AuraLoom ⤓ Tile, `notes.py add`)
+- as text (⧉ Copy as text, `notes.py md`), when the chunk can't make it, as in chat uploads
+- drawn into a grid copy (`notes.py grid`), so a model sees the grid, the bounds and the pins in the pixels
+
+Demo: `samples/notes-demo/`. In it, a question about a "high C" is answered by checking the recording: it was an E5.
+
 ## Tools
 - `prototype/tilemeta.py`: read and write the chunk; the magma8 LUT and its inverse; the filename bounds. Run it on a PNG to print what the tile says about itself.
 - `prototype/plain.py`: audio → plain tile (no axes or panels, 160 bands, one column per hop) with the chunk.
 - `prototype/clip.py`: tile → clip that knows where it is.
-- AuraLoom v0.5: reads the chunk or the filename on tile import, and writes the chunk on ⤓ Tile and in `weave.py` renders.
+- `prototype/notes.py`: list, add (by grid reference or by seconds + Hz), remove and reply to pinned notes; print them as markdown; draw a grid copy for models.
+- AuraLoom v0.5–0.6: reads the chunk or the filename on tile import, writes the chunk on ⤓ Tile and in `weave.py` renders, and has the Pin thread, # Grid and the 📌 Notes panel.
 
 ## Open
-- **Pinned notes** go in `notes`, addressed by the C6·d3 grid, with real units alongside.
 - Whether to also embed a **compact score** for synthetic tiles (AuraLoom scores), so a tile made from a score carries its own answer key. That would be useful for the training test (seed 15).
 - Whether a stereo or loudness-slice tile (seed 11) needs a `channels` field saying what R, G and B mean.
