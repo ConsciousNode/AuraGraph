@@ -25,12 +25,12 @@
 - all of it in one zip
 
 Its analysis is a port of `prototype/plain.py`, checked against it: identical levels, zero pixels off. **v0.2** (analysis v2) fixes two things a real recording showed:
-- **Bass rows:** below ~290 Hz the bands are read from a longer FFT, so they stop copying each other.
+- **Bass rows:** below ~290 Hz the bands are read from a 4096-point FFT, so they mostly stop copying each other. 8192 points was tried and dropped, because it smeared kick drums into blobs.
 - **Background:** the loudness range follows the recording's own noise floor (40–80 dB), so a room's hiss goes near-black instead of mid-gray.
 
 `plain.py --v1` keeps the analysis LEGIBILITY-1 tested. The Python prototypes stay as the research bench. Everything here is working notes, written as we went, with the corrections left in.
 
-**How to read a tile** (from `research/FINDINGS.md`):
+**[How to Read a Tile](HOW-TO-READ.md)** is the full guide: what sound looks like, how readers fool themselves (measured), and AuraGraph specifics, with worked examples. The short version:
 - **arcs** (curved, gliding lines) = voices: singing, cheering, whooping
 - **vertical stripes** = hits (drums, stabs, claps)
 - **horizontal ladders** (evenly spaced parallel lines) = a sustained pitched sound and its overtones. The spacing and strengths are its timbre, its "fingerprint".
@@ -51,6 +51,7 @@ Its analysis is a port of `prototype/plain.py`, checked against it: identical le
 | `research/SPEC-SEEDS.md` | Applications beyond the base platform: tile → sound, painting music, a model that sings by drawing, diffusion-made music, music as a PNG. |
 | `toys/paint-a-tile.html` | Single-file toy: paint a tile and hear it (Griffin-Lim in the browser), or turn a recording into a tile and back. Lo-fi knobs for pitch detail, time detail and levels. |
 | `app.html` | The AuraGraph app (see Status). |
+| `HOW-TO-READ.md`, `guide/` | The reading guide, with worked examples whose contents are known exactly. Each section is tagged tested, observed or reasoned. |
 | `research/LEGIBILITY-1.md`, `research/legibility-1/` | Which drawing models read best: 6 renderings, 6 synthetic clips, 24 blind readers from four model families, with the answer key committed first. Gray with the grid wins; readers bend real marks to fit a question's premise, whatever the drawing. Reads unedited, grades in `grades.py`. |
 | `research/TILE-FORMAT.md` | The tile container, v0.3: an ordinary PNG with a small `auragraph` data chunk saying what its pixels cover (seconds, Hz, axis, loudness range), plus a filename fallback. Clips that know where they are, with the test. |
 | `research/LISTENING-QUEUE.md` | What's next to listen to. |

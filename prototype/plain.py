@@ -10,8 +10,8 @@ can cut pieces out of it that still know where they came from.
 Two analyses:
   v1  the one LEGIBILITY-1 tested: one 2048-point FFT for every band, a fixed 80 dB range
   v2  (default) the AuraGraph app's: bands too narrow for a 2048-point bin (below ~290 Hz) are read
-      from a longer FFT (4096 or 8192 points) centred on the same moment, so the bass rows stop copying
-      each other; and the range follows the recording: from the loud end down to its 15th-percentile
+      from a 4096-point FFT centred on the same moment, so the bass rows mostly stop copying each
+      other (8192 was tried: cleaner bass, but kick drums smeared into blobs); and the range follows the recording: from the loud end down to its 15th-percentile
       level (its noise floor), kept between 40 and 80 dB, so a room's hiss goes near-black instead of
       mid-gray. Silent-background audio still gets the full 80 dB, exactly as v1.
 
@@ -25,7 +25,8 @@ from proto import decode, spec, logbands, tobands, db, SR, HOP, NFFT, FMIN, FMAX
 import tilemeta
 
 DBR = 80.0
-SIZES = (2048, 4096, 8192)          # v2: the FFT sizes a band can be read from
+SIZES = (2048, 4096)                # v2: the FFT sizes a band can be read from. 8192 was tried and dropped:
+                                    # it turned kick drums into blobs (0.37 s of smear); 4096 keeps their sweep
 RANGE_PCT, RANGE_MIN, RANGE_MAX = 15, 40.0, 80.0
 
 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <!--
-  AuraGraph app v0.2: sound for LLMs.
+  AuraGraph app v0.2.1: sound for LLMs.
   Drop in a recording. Get tiles a language model can read (the machine view chosen by LEGIBILITY-1:
   gray brightness, the C6·d3 grid burned in, every semitone ticked, every C and A labelled), data tiles
   (.aura.png, with their bounds inside, which AuraLoom can play), and a READ-ME-FIRST sidecar for the
   model. One file, no libraries, works offline, nothing is uploaded anywhere.
 
   The analysis is a port of prototype/plain.py (analysis v2): 22,050 Hz mono, Hann STFTs with hop 512 (2048 points,
-  and 4096/8192 for bands below ~290 Hz, centred on the same moment), 160 log-spaced bands from 30 Hz to 11 kHz,
+  and 4096 for bands below ~290 Hz, centred on the same moment), 160 log-spaced bands from 30 Hz to 11 kHz,
   loudness in dB relative to the 99.7th percentile, over a range set by the recording's own noise floor (40–80 dB).
   v0.1 (one FFT size, a fixed 80 dB) was the analysis LEGIBILITY-1 tested; plain.py --v1 reproduces it.
 
@@ -76,21 +76,21 @@ footer{color:var(--dim);font-size:12.5px;margin-top:30px}
 
   <div id="tiles"></div>
 
-  <footer>AuraGraph app v0.2 · machine view v1 · analysis v2 (chosen by <a href="https://github.com/ConsciousNode/AuraGraph/blob/main/research/LEGIBILITY-1.md">LEGIBILITY-1</a>: 24 blind readers, four model families) · data tiles play in <a href="https://consciousnode.github.io/AuraLoom/">AuraLoom</a> · <a href="https://github.com/ConsciousNode/AuraGraph">source</a> · ConsciousNode SoftWorks · MIT</footer>
+  <footer>AuraGraph app v0.2.1 · machine view v1 · analysis v2 (chosen by <a href="https://github.com/ConsciousNode/AuraGraph/blob/main/research/LEGIBILITY-1.md">LEGIBILITY-1</a>: 24 blind readers, four model families) · data tiles play in <a href="https://consciousnode.github.io/AuraLoom/">AuraLoom</a> · <a href="https://github.com/ConsciousNode/AuraGraph">source</a> · ConsciousNode SoftWorks · MIT</footer>
 </main>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
 const SR = 22050, NFFT = 2048, HOP = 512, NB = 160, FMIN = 30, FMAX = 11000;
 const PLOT_W = 900, PLOT_H = 480, ML = 84, MR = 30, MT = 26, MB = 58;   // the frame views.py draws
-const VERSION = 'AuraGraph app v0.2 (machine view v1, analysis v2)';
+const VERSION = 'AuraGraph app v0.2.1 (machine view v1, analysis v2)';
 let tiles = [], view = 'machine', srcName = 'audio', durationS = 0;
 
 // ---------------- analysis: a port of prototype/plain.py (analysis v2) ----------------
-// Bands too narrow for a 2048-point bin (below ~290 Hz) are read from a 4096- or 8192-point FFT centred on the same
-// moment, so the bass rows stop copying each other. The loudness range follows the recording: from the loud end down
+// Bands too narrow for a 2048-point bin (below ~290 Hz) are read from a 4096-point FFT centred on the same moment,
+// so the bass rows mostly stop copying each other. (8192 was tried: cleaner bass, but kick drums smeared into blobs.) The loudness range follows the recording: from the loud end down
 // to its 15th-percentile level (the noise floor), kept between 40 and 80 dB. Spectra are scaled by 1/sum(window), as scipy's.
-const SIZES = [2048, 4096, 8192], RANGE_PCT = 15, RANGE_MIN = 40, RANGE_MAX = 80;
+const SIZES = [2048, 4096], RANGE_PCT = 15, RANGE_MIN = 40, RANGE_MAX = 80;
 const FFTS = {};
 function fftOf(n) { if (FFTS[n]) return FFTS[n];
   const bits = Math.log2(n), rev = new Uint32Array(n), cos = new Float64Array(n / 2), sin = new Float64Array(n / 2);
@@ -221,7 +221,7 @@ ${durationS.toFixed(2)} s of sound in ${tiles.length} tile${tiles.length > 1 ? '
 - Brightness is loudness: black is quiet, white is loud, across ${tiles[0].A.range.toFixed(0)} dB (from the loudest moment down to this recording's noise floor; anything quieter is black).
 - Horizontal lines are pitched sounds. Evenly spaced lines above a lowest one are that sound's overtones, its timbre. Slanted or curved lines are pitch slides.
 - Vertical stripes are hits or onsets. A sound that rings out fades toward the right. Low rows are bass; the top rows are very high (cymbals, hiss).
-- Below about 290 Hz the tile is measured with a longer window, so the bass rows are sharper in pitch but blur slightly in time. The background can step a little in brightness near 130 Hz and 290 Hz where the window changes. That step isn't a sound.
+- Below about 290 Hz the tile is measured with a window twice as long, so the bass rows are sharper in pitch but blur a little in time (a kick drum's downward sweep is softened, not lost). The background can step slightly in brightness near 290 Hz where the window changes. That step isn't a sound.
 - Drums, as they usually look: a kick is a low thump that sweeps downward; a snare is a tall noisy column; a hi-hat is a short burst in the top rows.
 - The grid: columns A–H across each tile's time, rows 1–8 up its pitch. Name a spot like C6. Each cell splits the same way in lowercase, so C6·d3 is a small spot inside C6. Rows (the same in every tile): ${rows}.
 
@@ -231,6 +231,8 @@ ${durationS.toFixed(2)} s of sound in ${tiles.length} tile${tiles.length > 1 ? '
 3. Read a pitch from the line itself, not from the nearest label.
 4. Don't name a chord or a progression from what's typical. Read each chord's own lines.
 Saying "not there" or "can't tell" is a good answer when it's true.
+
+The full guide, with worked examples: https://github.com/ConsciousNode/AuraGraph/blob/main/HOW-TO-READ.md
 
 ## Tiles
 | tile | file | seconds | grid columns |

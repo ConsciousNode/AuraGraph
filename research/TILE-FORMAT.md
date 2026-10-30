@@ -28,7 +28,7 @@ The chunk is never the only place an important fact lives.
 | `cmap` | `"magma8"`: the 8-stop magma that AuraLoom and Paint-a-Tile draw with, so a colour reads back as an exact level |
 | `sr`, `hop` | the analysis it came from, when there was one |
 | `src` | what made it (`plain.py:<file>`, `clip.py`, `AuraLoom`, the app) |
-| `analysis` | `v1` (one FFT size, a fixed 80 dB) or `v2` (longer FFTs for the bass bands; range from the noise floor). Read `db` for the range actually used. |
+| `analysis` | `v1` (one FFT size, a fixed 80 dB) or `v2` (a 4096-point FFT for the bands below ~290 Hz; range from the noise floor). Read `db` for the range actually used. |
 | `parent`, `px` | for a clip: the tile it was cut from and the pixel box `[x0, y0, x1, y1]` |
 | `notes` | pinned notes (seed 10): see below |
 
